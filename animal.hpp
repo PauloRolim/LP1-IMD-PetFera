@@ -3,18 +3,18 @@
 #include <iostream>
 #include <string> 
 
-enum classificacaoTipo
+enum classificacaoRisco
 {
-    exotico,
-    domestico,
-    nativo
+    venenoso,
+    perigoso,
+    peçonhento
 };
 
 class animal
 {
 private:
     
-    classificacaoTipo tipo;
+    classificacaoRisco tipo;
     std::string nome_do_proprietario;
     std::string classe;
     std::string especie;
@@ -22,7 +22,7 @@ private:
     std::string vet_responcavel;
 
 public:
-    animal(classificacaoTipo tipo, std::string nome_do_proprietario, std::string classe,std::string especie, 
+    animal(classificacaoRisco tipo, std::string nome_do_proprietario, std::string classe,std::string especie, 
            std::string tratador_responcavel, std::string vet_responcavel);
     
     ~animal();
@@ -39,7 +39,7 @@ public:
     void setVet_responcavel(std::string vet_responcavel);
 };
 
-animal::animal(classificacaoTipo tipo, std::string nome_do_proprietario, std::string classe, 
+animal::animal(classificacaoRisco tipo, std::string nome_do_proprietario, std::string classe, 
                std::string especie, std::string tratador_responcavel, std::string vet_responcavel)
 {
 }

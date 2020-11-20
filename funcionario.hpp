@@ -5,6 +5,7 @@
 class funcionario
 {
 private:
+    std::string Id; //falta definir gets e sets
     std::string nome;
 	double salario;
 	std::string admissao;
