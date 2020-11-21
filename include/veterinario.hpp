@@ -8,6 +8,7 @@ private:
     std::string numeroCRMV;
 public:
     veterinario (/* args */);
+    veterinario (std::string numeroCRMV, std::string Id, std::string nome, double salario, std::string admissao);
     ~veterinario ();
 
     /*getters*/
