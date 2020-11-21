@@ -1,33 +1,26 @@
-#pragma once
+#include <iostream>
 
-#include <string>
+#include "funcionario.hpp"
 
-class funcionario
+class veterinario : public funcionario
 {
-protected:
-    std::string Id; 
-    std::string nome;
-	double salario;
-	std::string admissao;
-
+private:
+    std::string numeroCRMV;
 public:
-    /*construtores*/
-    funcionario();
-    funcionario(std::string Id, std::string nome, double salario, std::string admissao);
-
-    /*destrutor*/
-    ~funcionario();
+    veterinario (/* args */);
+    ~veterinario ();
 
     /*getters*/
+    std::string getNumeroCRMV();
     std::string getId() const;
     std::string getNome() const;
     double getSalario() const;
     std::string getAdmissao() const;
 
     /*setters*/
+    void setNumeroCRMV(std::string numeroCRMV);
     void setId(std::string Id);
     void setNome(std::string nome);
     void setSalario(double salario);
     void setAdmissao(std::string admissao);
-    
 };

@@ -1,11 +1,18 @@
 #include "include/funcionario.hpp"
 
-funcionario::funcionario(std::string nome, double salario, std::string admissao)
+funcionario::funcionario(){}
+
+funcionario::funcionario(std::string Id, std::string nome, double salario, std::string admissao)
 {
 }
 
 funcionario::~funcionario()
 {
+}
+
+std::string
+funcionario::getId() const{
+    return this -> Id;
 }
 
 std::string 
@@ -21,6 +28,11 @@ funcionario::getSalario() const{
 std::string 
 funcionario::getAdmissao() const{
     return this -> admissao;
+}
+
+void
+funcionario::setId(std::string Id){
+    this -> Id = Id;
 }
 
 void 
