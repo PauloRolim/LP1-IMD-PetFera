@@ -1,5 +1,5 @@
 #Makefile para PetFera IMD2020
-#Autores: Adnré Luiz, David, Paulo Rolim
+#Autores: Adnré Faria, David Martins, Paulo Rolim
 
 BIN = ./bin
 SRC = ./src
