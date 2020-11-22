@@ -50,10 +50,10 @@ Estrutura das classes para melhor visualização do todo na construção do proj
   - enum tipo_de_alimentação ( herbivoro / onivoro / carnivoro ) // so uma ideia mas talvez seja melhor nem botar
 
 ### Silvestre_nativo
-- permição IBAMA
+- permição IBAMA_nativo
 
 ### Silvestre_exotico
-- permição IBAMA
+- permição IBAMA_exotico
 
 ### Anfíbio
   - enum tamanho_do_habitat (G / M / P)
