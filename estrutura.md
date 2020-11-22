@@ -30,6 +30,7 @@ Estrutura das classes para melhor visualização do todo na construção do proj
   - cpf
   - salario
   - id_funcionario
+  - função ( não sei se precisaria estar aqui ou se seria so referenciado pelas classes de vet e tratador depois deem uma conferida)
 
 #### Veterinário
   - crmv
