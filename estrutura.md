@@ -28,8 +28,8 @@ Estrutura das classes para melhor visualização do todo na construção do proj
 ### Funcionário
   - nome
   - cpf
-  -salario
-  -id_funcionario
+  - salario
+  - id_funcionario
 
 #### Veterinário
   - crmv
