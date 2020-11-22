@@ -9,7 +9,7 @@ PROG = $(BIN)/programa
 CC = g++
 CPPFLAGS = -Wall -std=c++11 -I./include
 
-OBJS = $(BIN)/funcionario $(BIN)/tratador $(BIN)veterinario
+OBJS = $(BIN)/funcionario $(BIN)/tratador $(BIN)/veterinario $(BIN)/main
 
 all : $(OBJS)
 		$(CC) $(OBJS) -o $(PROG)
@@ -19,9 +19,12 @@ debug: clean all
 
 $(BIN)/main : $(SRC)/main.cpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/main.cpp -o $@
-$(BIN)/funcionario : $(SRC)/funcionario.cpp $(INC)/funcionario.hpp 
+$(BIN)/funcionario : $(SRC)/funcionario.cpp $(INC)/funcionario.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/funcionario.cpp -o $@
 $(BIN)/tratador : $(SRC)/tratador.cpp $(INC)/tratador.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/tratador.cpp -o $@
 $(BIN)/veterinario : $(SRC)/veterinario.cpp $(INC)/veterinario.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/veterinario.cpp -o $@
+
+clean:
+	rm -f core $(PROG) $(OBJS)
