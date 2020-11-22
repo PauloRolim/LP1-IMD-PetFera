@@ -8,29 +8,23 @@ Estrutura das classes para melhor visualização do todo na construção do proj
 
 [**Animal**](#animal)
   - [Anfíbio](#anfibio)
-    - [Silvestre](#silvestre)
-      - [Nativo](#nativo)
-      - [Exótico](#nativo)
+    - [Silvestre_nativo](#silvestre_nativo)
+    - [Silvestre_exotico](#silvestre_exotico)
   - [Ave](#ave)
-    - Silvestre
-      - Nativo
-      - Exótico
+    - Silvestre_nativo
+    - Silvestre_exotico
   - [Réptil](#reptil)
-    - Silvestre
-      - Nativo
-      - Exótico
+    - Silvestre_nativo
+    - Silvestre_exotico
   - [Mamífero](#mamifero)
-    - Silvestre
-      - Nativo
-      - Exótico
+    - Silvestre_nativo
+    - Silvestre_exotico
 
 ## Detalhamentos das classes
 ### Funcionário
   - nome
   - cpf
   - salario
-  - id_funcionario
-  - função ( não sei se precisaria estar aqui ou se seria so referenciado pelas classes de vet e tratador depois deem uma conferida)
 
 #### Veterinário
   - crmv
@@ -39,21 +33,21 @@ Estrutura das classes para melhor visualização do todo na construção do proj
   - cor_uniforme
 
 ### Animal
+  - id_animal
   - classe
   - especie
   - sexo
   - preco
-  - id_animal
-  - perigoso(venenoso) / não perigoso(não venenoso)
+  - bool perigoso
   - tratador_responcavel
   - vet_responcavel
   - enum tipo_de_alimentação ( herbivoro / onivoro / carnivoro ) // so uma ideia mas talvez seja melhor nem botar
 
 ### Silvestre_nativo
-- permição IBAMA_nativo
+- permissão IBAMA_nativo
 
 ### Silvestre_exotico
-- permição IBAMA_exotico
+- permissão IBAMA_exotico
 
 ### Anfíbio
   - enum tamanho_do_habitat (G / M / P)
@@ -61,14 +55,13 @@ Estrutura das classes para melhor visualização do todo na construção do proj
 
 ### Ave
   - enum tamanho_da_gaiola ( G / M / P)
-  - enum ave_voadora ( s / n )
+  - bool ave_voadora
 
 ### Réptil
   - enum tamanho_do_habitat (G / M / P)
   - enum tipo_do_habitat ( arido / terestre umido / terestre com corpo de agua)
-  - enum requer_luz_uv ( s / n)
-  
+  - bool requer_luz_uv
 
 ### Mamífero
-  - enum requer_gaila_ou_habitat ( s / n ) // no caso de hamsters por exemplo
+  - bool requer_gaila_ou_habitat // no caso de hamsters por exemplo
   - enum porte_do_mamifero ( G / M / P)
