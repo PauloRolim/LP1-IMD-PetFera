@@ -7,7 +7,7 @@ enum classificacaoRisco
 {
     venenoso,
     perigoso,
-    peçonhento
+    peçonhento // esses 3 seriam todos classificados para a mesma cor de tratador, no caso seria um venenoso_perigoso e um normal para diferenciar eu acredito
 };
 
 class animal
@@ -15,8 +15,8 @@ class animal
 private:
     
     classificacaoRisco tipo;
-    std::string nome_do_proprietario;
-    std::string classe;
+    std::string nome_do_proprietario;  // acredito que seria desnecessario já que se trata de uma loja que apenas vende pets, portanto seria desnecessario ter nome de proprietario
+    std::string classe;                // talvez seja melhor substituir esse nome_do_proprietario por um id_pet
     std::string especie;
     std::string tratador_responcavel;
     std::string vet_responcavel;
