@@ -25,5 +25,9 @@ int main(){
 
     PetFera.listarVeterinarios();
 
+    PetFera.removePeloId("0120");
+
+    PetFera.listarVeterinarios();
+
     return 0;
 }

@@ -39,9 +39,8 @@ quadro_veterinarios::removePeloId(std::string Id){
     {
         delete veterinarios[this->capacidade];
         this->capacidade--;
-    }
-    
-
+        std::cout << "Veterinario removido!" << std::endl;
+    }    
 }
 
 void 
