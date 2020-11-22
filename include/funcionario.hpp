@@ -16,7 +16,7 @@ public:
     funcionario(std::string Id, std::string nome, double salario, std::string admissao);
 
     /*destrutor*/
-    ~funcionario();
+    virtual ~funcionario();
 
     /*getters*/
     std::string getId() const;
