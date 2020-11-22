@@ -49,7 +49,7 @@ quadro_veterinarios::listarVeterinarios(){
     for (int i = 0; i < this->capacidade; ++i)
     {   
         std::cout <<  "Id: " << veterinarios[i]->getId() <<
-        "Nome: " << veterinarios[i]->getNome() << std::endl;
+        " Nome: " << veterinarios[i]->getNome() << std::endl;
     }
     
 }

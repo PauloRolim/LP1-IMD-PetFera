@@ -9,9 +9,7 @@ int main(){
 
     veterinario* vet01 = new veterinario();
 
-    tratador* trat01 = new tratador();
-
-    veterinario* vet02 = new veterinario("0220", "03", "G. Lima", 500.15, "01/01/2020");
+    veterinario* vet02 = new veterinario();
 
     quadro_veterinarios PetFera;
 
@@ -19,8 +17,8 @@ int main(){
     vet01->setNumeroCRMV("0123");
     vet01->setId("0120");
 
-    trat01->setNome("Paulo Jardel");
-    trat01->setCorUniforme("verde");
+    vet02->setNome("Paulo Jardel");
+    vet02->setId("0220");
 
     PetFera.addVeterinario(vet01);
     PetFera.addVeterinario(vet02);
