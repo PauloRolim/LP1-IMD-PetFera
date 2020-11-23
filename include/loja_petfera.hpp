@@ -6,11 +6,11 @@
 
 #define CAPACIDADE_MAX 10
 
-class quadro_veterinarios
+class loja_petfera
 {
 private:
 
-    int capacidade = 0;
+    int quadro_de_funcionarios = 0;
     veterinario* veterinarios[CAPACIDADE_MAX];
 
 public:    

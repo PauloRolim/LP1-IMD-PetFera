@@ -1,17 +1,17 @@
 #include <iostream>
 
-#include "quadro_veterinarios.hpp"
+#include "loja_petfera.hpp"
 
 int 
-quadro_veterinarios::getCapacidade(){
-    return this -> capacidade;
+loja_petfera::getCapacidade(){
+    return this -> quadro_de_funcionarios;
 }
 
 void 
-quadro_veterinarios::addVeterinario(veterinario* novo){
-    if (capacidade < CAPACIDADE_MAX)
+loja_petfera::addVeterinario(veterinario* novo){
+    if (quadro_de_funcionarios < CAPACIDADE_MAX)
     {
-        veterinarios[capacidade++] = novo;
+        veterinarios[quadro_de_funcionarios++] = novo;
     } else
     {
         std::cout << "Capacidade maxia atingida!" << std::endl;
@@ -21,10 +21,10 @@ quadro_veterinarios::addVeterinario(veterinario* novo){
 }
 
 void 
-quadro_veterinarios::removePeloId(std::string Id){
+loja_petfera::removePeloId(std::string Id){
     bool encontrou = false;
 
-    for (int i = 0; i < this -> capacidade; ++i)
+    for (int i = 0; i < this -> quadro_de_funcionarios; ++i)
     {
         if (this -> veterinarios[i]->getId() == Id)
         {
@@ -37,15 +37,15 @@ quadro_veterinarios::removePeloId(std::string Id){
     
     if (encontrou == true)
     {
-        delete veterinarios[this->capacidade];
-        this->capacidade--;
+        delete veterinarios[this->quadro_de_funcionarios];
+        this->quadro_de_funcionarios--;
         std::cout << "Veterinario removido!" << std::endl;
     }    
 }
 
 void 
-quadro_veterinarios::listarVeterinarios(){
-    for (int i = 0; i < this->capacidade; ++i)
+loja_petfera::listarVeterinarios(){
+    for (int i = 0; i < this->quadro_de_funcionarios; ++i)
     {   
         std::cout <<  "Id: " << veterinarios[i]->getId() <<
         " Nome: " << veterinarios[i]->getNome() << std::endl;
