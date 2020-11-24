@@ -56,3 +56,24 @@ alimentacao
 animal::getComida() const{
     return this -> comida;
 }
+
+void animal::setNome_do_proprietario(std::string nome_do_proprietario) {
+    this->nome_do_proprietario = nome_do_proprietario;
+}
+
+void animal::setClasse(std::string classe) {
+    this->classe = classe;
+}
+
+void animal::setEspecie(std::string especie) {
+    this->especie = especie;
+}
+
+void animal::setTratador_responcavel(std::string tratador_responcavel) {
+    this->tratador_responcavel = tratador_responcavel;
+}
+
+void animal::setVet_responcavel(std::string vet_responcavel) {
+    this->vet_responcavel = vet_responcavel;
+}
+
