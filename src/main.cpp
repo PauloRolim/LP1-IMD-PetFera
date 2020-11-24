@@ -1,33 +1,28 @@
 #include <iostream>
 
-#include "funcionario.hpp"
-#include "veterinario.hpp"
-#include "tratador.hpp"
-#include "quadro_veterinarios.hpp"
+#include "Veterinario.hpp"
+#include "Tratador.hpp"
+#include "Loja.hpp"
 
 int main(){
+    Veterinario* vet01 = new Veterinario("Geraldo Azevedo", "111.222.333-44", 2000.00, "1234");
+    Veterinario* vet02 = new Veterinario();
 
-    veterinario* vet01 = new veterinario();
+    Loja* PetFera = new Loja('PetFera');
 
-    veterinario* vet02 = new veterinario();
+    vet02->setNome("Nailson Gomes");
+    vet02->setCpf("999.888.777-66");
+    vet02->setSalario(1500);
+    vet02->setNumeroCRMV("9876");
 
-    quadro_veterinarios PetFera;
+    PetFera->addVeterinario(vet01);
+    PetFera->addVeterinario(vet02);
 
-    vet01->setNome("Nailson Gomes");
-    vet01->setNumeroCRMV("0123");
-    vet01->setId("0120");
+    PetFera->listarVeterinarios();
 
-    vet02->setNome("Paulo Jardel");
-    vet02->setId("0220");
+    PetFera->removerPeloId(2);
 
-    PetFera.addVeterinario(vet01);
-    PetFera.addVeterinario(vet02);
-
-    PetFera.listarVeterinarios();
-
-    PetFera.removePeloId("0120");
-
-    PetFera.listarVeterinarios();
+    PetFera->listarVeterinarios();
 
     return 0;
 }

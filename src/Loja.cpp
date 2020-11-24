@@ -95,7 +95,6 @@ void Loja::listarAnimais() {
     }
 }
 
-
 int Loja::getTotalAnimais() {
     return this->animais.size();
 }
