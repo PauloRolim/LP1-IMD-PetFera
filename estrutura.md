@@ -22,20 +22,22 @@ Estrutura das classes para melhor visualização do todo na construção do proj
 
 ## Detalhamentos das classes
 ### Funcionário
+  - id
   - nome
   - cpf
   - salario
 
 #### Veterinário
-  - crmv
+  - numero_CRMV
 
 #### Tratador
   - cor_uniforme
 
 ### Animal
-  - id_animal
+  - id
   - classe
   - especie
+  - nome
   - sexo
   - preco
   - bool perigoso
