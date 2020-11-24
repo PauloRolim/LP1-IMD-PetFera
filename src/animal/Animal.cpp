@@ -1,79 +1,123 @@
-#include "animal.hpp"
+#include "Animal.hpp"
 
-animal::animal(){}
-
-animal::animal(std::string _classe, std::string especie, std::string id_pet,
-               std::string tratador_responcavel, std::string vet_responcavel, double preco, _sexo sexo, 
-               classificacaoRisco risco, alimentacao comida)
-{
+Animal::Animal(
+    std::string classe,
+    std::string especie,
+    std::string nome,
+    double preco,
+    Tratador* tratador_responcavel,
+    Veterinario* vet_responcavel,
+    _sexo sexo, 
+    _classificacaoRisco risco,
+    _alimentacao comida
+) {
+    this->setId();
+    this->setClasse(classe);
+    this->setEspecie(especie);
+    this->setNome(nome);
+    this->setPreco(preco);
+    this->setTratadorResponcavel(tratador_responcavel);
+    this->setVetResponcavel(vet_responcavel);
+    this->setSexo(sexo); 
+    this->setRisco(risco);
+    this->setComida(comida);
 }
 
-animal::~animal()
-{
+Animal::Animal(const Animal &a2) {
+    this->setId();
+    this->setClasse(a2.getClasse());
+    this->setEspecie(a2.getEspecie());
+    this->setNome(a2.getNome());
+    this->setPreco(a2.getPreco());
+    this->setTratadorResponcavel(a2.getTratadorResponcavel());
+    this->setVetResponcavel(a2.getVetResponcavel());
+    this->setSexo(a2.getSexo()); 
+    this->setRisco(a2.getRisco());
+    this->setComida(a2.getComida());
 }
 
-std::string 
-animal::get_classe() const {
-    return this -> _classe;
+Animal::~Animal() {}
+
+int Animal::NEXT_ID = 1;
+
+/*getters*/
+int Animal::getId() const {
+    return this->id;
 }
 
-std::string
-animal::getEspecie() const {
-    return this -> especie;
+std::string Animal::getClasse() const {
+    return this->classe;
 }
 
-std::string 
-animal::getId_pet() const {
-    return this -> id_pet;
+std::string Animal::getEspecie() const {
+    return this->especie;
 }
 
-std::string
-animal::getTratador_responcavel() const {
-    return this -> tratador_responcavel;
+std::string Animal::getNome() const {
+    return this->nome;
 }
 
-std::string 
-animal::getVet_responcavel() const {
-    return this -> vet_responcavel;
+double Animal::getPreco() const {
+    return this->preco;
 }
 
-double
-animal::getPreco() const {
-    return this -> preco;
+std::string Animal::getTratadorResponcavel() const {
+    return this->tratador_responcavel;
 }
 
-_sexo
-animal::getSexo() const{
-    return this -> sexo;
+std::string Animal::getVetResponcavel() const {
+    return this->vet_responcavel;
 }
 
-classificacaoRisco
-animal:: getRisco() const{
-    return this -> risco;
+_sexo Animal::getSexo() const{
+    return this->sexo;
 }
 
-alimentacao
-animal::getComida() const{
-    return this -> comida;
+_classificacaoRisco Animal::getRisco() const{
+    return this->risco;
 }
 
-void animal::setNome_do_proprietario(std::string nome_do_proprietario) {
-    this->nome_do_proprietario = nome_do_proprietario;
+_alimentacao Animal::getComida() const{
+    return this->comida;
 }
 
-void animal::setClasse(std::string classe) {
+/*setters*/
+void Animal::setId() {
+    this->id = this->NEXT_ID++;
+}
+
+void Animal::setClasse(std::string classe) {
     this->classe = classe;
 }
 
-void animal::setEspecie(std::string especie) {
+void Animal::setEspecie(std::string especie) {
     this->especie = especie;
 }
 
-void animal::setTratador_responcavel(std::string tratador_responcavel) {
+void Animal::setNome(std::string nome) {
+    this->nome = nome;
+}
+
+void Animal::setPreco(double preco) {
+    this->preco = preco;
+}
+
+void Animal::setTratadorRresponcavel(Tratador* tratador_responcavel) {
     this->tratador_responcavel = tratador_responcavel;
 }
 
-void animal::setVet_responcavel(std::string vet_responcavel) {
+void Animal::setVetResponcavel(Veterinario* vet_responcavel) {
     this->vet_responcavel = vet_responcavel;
 }
 
+void Animal::setSexo(_sexo sexo){
+    this->sexo = sexo;
+}
+
+void Animal::setRisco(_classificacaoRisco risco){
+    this->risco = risco;
+}
+
+void Animal::setComida(_alimentacao comida){
+    this->comida = comida;
+}

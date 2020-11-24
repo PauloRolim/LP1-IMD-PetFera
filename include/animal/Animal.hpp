@@ -3,63 +3,73 @@
 #include <iostream>
 #include <string> 
 
-enum classificacaoRisco
-{
+enum _classificacaoRisco {
     venenoso,
     perigoso,
     peçonhento
 };
 
-enum alimentacao
-{
+enum _alimentacao {
     herbivoro,
     onivoro,
     carnivoro
 };
 
-enum _sexo
-{
+enum _sexo {
     femea,
     macho
 };
 
-class animal
-{
-protected:
-    
-    std::string _classe;                
-    std::string especie;
-    std::string id_pet;
-    std::string tratador_responcavel;
-    std::string vet_responcavel;
-    double preco;
-    _sexo sexo;
-    classificacaoRisco risco;
-    alimentacao comida;
+class Animal {
+    protected:
+        std::string classe;                
+        std::string especie;
+        std::string id_pet;
+        std::string tratador_responcavel;
+        std::string vet_responcavel;
+        double preco;
+        _sexo sexo;
+        _classificacaoRisco risco;
+        _alimentacao comida;
 
-public:
-    animal();
+    public:
+        static int NEXT_ID;
 
-    animal(std::string _classe, std::string especie, std::string id_pet,
-           std::string tratador_responcavel, std::string vet_responcavel, double preco, _sexo sexo, 
-           classificacaoRisco risco, alimentacao comida);
-    
-    ~animal();
+        /*construtores*/
+        Animal(
+            std::string classe,
+            std::string especie,
+            std::string nome,
+            double preco,
+            Tratador* tratador_responcavel,
+            Veterinario* vet_responcavel,
+            _sexo sexo,
+            _classificacaoRisco risco,
+            _alimentacao comida
+        );
+        Animal(const Animal &a2);
 
-    std::string get_classe() const;
-    std::string getEspecie() const;
-    std::string getId_pet() const;
-    std::string getTratador_responcavel() const;
-    std::string getVet_responcavel() const;
-    double getPreco() const;
-    _sexo getSexo() const;
-    classificacaoRisco getRisco() const;
-    alimentacao getComida() const;
+        /*destrutor*/
+        ~Animal();
 
+        /*getters*/
+        int getId() const;
+        std::string getClasse() const;
+        std::string getEspecie() const;
+        std::string getNome() const;
+        double getPreco() const;
+        Tratador* getTratadorResponcavel() const;
+        Veterinario* getVetResponcavel() const;
+        _sexo getSexo() const;
+        _classificacaoRisco getRisco() const;
+        _alimentacao getComida() const;
 
-    void setNome_do_proprietario(std::string nome_do_proprietario);
-    void setClasse(std::string classe);
-    void setEspecie(std::string especie);
-    void setTratador_responcavel(std::string tratador_responcavel);
-    void setVet_responcavel(std::string vet_responcavel);
+        /*setters*/
+        void setId();
+        void setClasse(std::string classe);
+        void setEspecie(std::string especie);
+        void setNome(std::string nome);
+        void setPreco(double preco);
+        void setTratadorResponcavel(Tratador* tratador_responcavel);
+        void setVetResponcavel(Veterinario* vet_responcavel);
 };
