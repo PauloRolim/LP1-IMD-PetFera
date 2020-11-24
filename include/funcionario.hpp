@@ -7,13 +7,14 @@ class funcionario
 protected:
     std::string Id; 
     std::string nome;
+    std::string cpf;
 	double salario;
-	std::string admissao;
+	std::string cargo;
 
 public:
     /*construtores*/
     funcionario();
-    funcionario(std::string Id, std::string nome, double salario, std::string admissao);
+    funcionario(std::string Id, std::string nome, std::string cpf, double salario, std::string cargo);
 
     /*destrutor*/
     virtual ~funcionario();
@@ -21,13 +22,15 @@ public:
     /*getters*/
     std::string getId() const;
     std::string getNome() const;
+    std::string getCpf() const;
     double getSalario() const;
-    std::string getAdmissao() const;
+    std::string getCargo() const;
 
     /*setters*/
     void setId(std::string Id);
     void setNome(std::string nome);
+    void setCpf(std::string cpf);
     void setSalario(double salario);
-    void setAdmissao(std::string admissao);
+    void setCargo(std::string cargo);
     
 };

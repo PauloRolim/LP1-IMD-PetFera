@@ -2,7 +2,7 @@
 
 tratador::tratador(){}
 
-tratador::tratador(std::string corUniforme, std::string Id, std::string nome, double salario, std::string admissao){}
+tratador::tratador(std::string corUniforme, std::string Id, std::string nome, std::string cpf, double salario, std::string cargo){}
 
 tratador::~tratador(){}
 
@@ -21,14 +21,19 @@ tratador::getNome() const{
     return this -> nome;
 }
 
+std::string
+tratador::getCpf() const{
+    return this -> cpf;
+}
+
 double 
 tratador::getSalario() const{
     return this -> salario;
 }
 
 std::string 
-tratador::getAdmissao() const{
-    return this -> admissao;
+tratador::getCargo() const{
+    return this -> cargo;
 }
 
 void 
@@ -47,11 +52,16 @@ tratador::setNome(std::string nome){
 }
 
 void 
+tratador::setCpf(std::string cpf){
+    this -> cpf = cpf;
+}
+
+void 
 tratador::setSalario(double salario){
     this -> salario = salario;
 }
 
 void 
-tratador::setAdmissao(std::string admissao){
-    this -> admissao = admissao;
+tratador::setCargo(std::string cargo){
+    this -> cargo = cargo;
 }

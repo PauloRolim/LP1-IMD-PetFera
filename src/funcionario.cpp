@@ -2,7 +2,7 @@
 
 funcionario::funcionario(){}
 
-funcionario::funcionario(std::string Id, std::string nome, double salario, std::string admissao)
+funcionario::funcionario(std::string Id, std::string nome, std::string cpf, double salario, std::string cargo)
 {
 }
 
@@ -20,14 +20,19 @@ funcionario::getNome() const{
     return this -> nome;
 }
 
+std::string 
+funcionario::getCpf() const{
+    return this -> cpf;
+}
+
 double 
 funcionario::getSalario() const{
     return this -> salario;
 }
 
 std::string 
-funcionario::getAdmissao() const{
-    return this -> admissao;
+funcionario::getCargo() const{
+    return this -> cargo;
 }
 
 void
@@ -40,12 +45,17 @@ funcionario::setNome(std::string nome){
     this -> nome = nome;
 }
 
+void
+funcionario::setCpf(std::string cpf){
+    this -> cpf = cpf;
+}
+
 void 
 funcionario::setSalario(double salario){
     this -> salario = salario;
 }
 
 void 
-funcionario::setAdmissao(std::string admissao){
-    this -> admissao = admissao;
+funcionario::setCargo(std::string cargo){
+    this -> cargo = cargo;
 }
