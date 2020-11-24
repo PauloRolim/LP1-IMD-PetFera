@@ -3,48 +3,63 @@
 #include <iostream>
 #include <string> 
 
-#include "Tratador.hpp"
-#include "Veterinario.hpp"
-
-enum classificacaoRisco {
+enum classificacaoRisco
+{
     venenoso,
     perigoso,
-    peconhento // esses 3 seriam todos classificados para a mesma cor de tratador, no caso seria um venenoso_perigoso e um normal para diferenciar eu acredito
+    peçonhento
 };
 
-class Animal {
-    private:
-        classificacaoRisco tipo;
-        std::string classe;
-        std::string especie;
-        std::string nome;
-        double preco;
-        Tratador* tratador_responcavel;
-        Veterinario* vet_responcavel;
+enum alimentacao
+{
+    herbivoro,
+    onivoro,
+    carnivoro
+};
 
-    public:
-        Animal(
-            std::string classe,
-            std::string especie,
-            std::string nome,
-            double preco,
-            Tratador* tratador_responcavel,
-            Veterinario* vet_responcavel
-        );
+enum _sexo
+{
+    femea,
+    macho
+};
 
-        ~Animal();
+class animal
+{
+protected:
+    
+    std::string _classe;                
+    std::string especie;
+    std::string id_pet;
+    std::string tratador_responcavel;
+    std::string vet_responcavel;
+    double preco;
+    _sexo sexo;
+    classificacaoRisco risco;
+    alimentacao comida;
 
-        std::string getClasse() const;
-        std::string getEspecie() const;
-        std::string getNome() const;
-        double getPreco() const;
-        Tratador* getTratadorResponcavel() const;
-        Veterinario* getVetResponcavel() const;
+public:
+    animal();
 
-        void setClasse(std::string classe);
-        void setEspecie(std::string especie);
-        void setNome(std::string nome);
-        void setPreco(double preco);
-        void setTratadorResponcavel(Tratador* tratador_responcavel);
-        void setVetResponcavel(Veterinario* vet_responcavel);
+    animal(std::string _classe, std::string especie, std::string id_pet,
+           std::string tratador_responcavel, std::string vet_responcavel, double preco, _sexo sexo, 
+           classificacaoRisco risco, alimentacao comida);
+    
+    ~animal();
+
+    std::string get_classe() const;
+    std::string getEspecie() const;
+    std::string getId_pet() const;
+    std::string getTratador_responcavel() const;
+    std::string getVet_responcavel() const;
+    double getPreco() const;
+    _sexo getSexo() const;
+    classificacaoRisco getRisco() const;
+    alimentacao getComida() const;
+
+
+    void setNome_do_proprietario(std::string nome_do_proprietario);
+    void setClasse(std::string classe);
+    void setEspecie(std::string especie);
+    void setTratador_responcavel(std::string tratador_responcavel);
+    void setVet_responcavel(std::string vet_responcavel);
 };
