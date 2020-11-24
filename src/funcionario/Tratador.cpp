@@ -1,7 +1,11 @@
 #include "Tratador.hpp"
 
-Tratador::Tratador(std::string nome, std::string cpf, double salario, std::string cor_uniforme) {
-    Funcionario(nome, cpf, salario);
+Tratador::Tratador(
+	std::string nome,
+	std::string cpf,
+	double salario,
+	std::string cor_uniforme
+) : Funcionario(nome, cpf, salario) {
     this->setCorUniforme(cor_uniforme);
 }
 

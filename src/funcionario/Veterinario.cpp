@@ -1,7 +1,11 @@
 #include "Veterinario.hpp"
 
-Veterinario::Veterinario (std::string nome, std::string cpf, double salario, std::string numero_CRMV) {
-    Funcionario(nome, cpf, salario);
+Veterinario::Veterinario (
+	std::string nome,
+	std::string cpf,
+	double salario,
+	std::string numero_CRMV
+) : Funcionario(nome, cpf, salario) {
     this->setNumeroCRMV(numero_CRMV);
 }
 

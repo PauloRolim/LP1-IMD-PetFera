@@ -23,7 +23,7 @@ void Loja::removerVeterinarioPeloId(int id) {
 }
 
 void Loja::listarVeterinarios() {
-    if(!this->veterinarios.empty()){
+    if(!this->veterinarios.empty()) {
         std::cout <<  "id | Nome" << std::endl;
         for (const auto& veterinario : this->veterinarios) {
             std::cout << veterinario->getId() << " | " << veterinario->getNome() << std::endl;
@@ -54,7 +54,7 @@ void Loja::removerTratadorPeloId(int id) {
 }
 
 void Loja::listarTratadores() {
-    if(!this->tratadores.empty()){
+    if(!this->tratadores.empty()) {
         std::cout <<  "id | Nome" << std::endl;
         for (const auto& tratador : this->tratadores) {
             std::cout << tratador->getId() << " | " << tratador->getNome() << std::endl;
@@ -85,7 +85,7 @@ void Loja::removerAnimalPeloId(int id) {
 }
 
 void Loja::listarAnimais() {
-    if(!this->animais.empty()){
+    if(!this->animais.empty()) {
         std::cout <<  "id | Classe | Espécie | Nome" << std::endl;
         for (const auto& animal : this->animais) {
             std::cout << animal->getId() << " | " << animal->getClasse() << " | " << animal->getEspecie() << " | " << animal->getNome() << std::endl;

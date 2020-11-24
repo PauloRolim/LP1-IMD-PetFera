@@ -10,9 +10,11 @@
 class Loja {
 	private:
 		std::string nome;
-	    vector<Veterinario*> veterinarios;
-	    vector<Tratador*> tratadores;
-	    vector<Animal*> animais;
+		// vector<Funcionario*> funciona, mas é necessário uma forma de
+		// 	  identificar quando é veterinario e quando é tratador
+	    std::vector<Veterinario*> veterinarios;
+	    std::vector<Tratador*> tratadores;
+	    std::vector<Animal*> animais;
 
 	public:
 		Loja(std::string nome);

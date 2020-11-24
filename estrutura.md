@@ -26,6 +26,7 @@ Estrutura das classes para melhor visualização do todo na construção do proj
   - nome
   - cpf
   - salario
+  - animais -> vector de animal* para conseguir listar com facilidade. Verificar se compensa
 
 #### Veterinário
   - numero_CRMV
