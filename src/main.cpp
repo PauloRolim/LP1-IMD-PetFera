@@ -4,6 +4,25 @@
 #include "Tratador.hpp"
 #include "Loja.hpp"
 
+
+void limpaTela()
+{
+#if defined _WIN32
+    system("cls");
+#elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
+    system("clear");
+#elif defined (__APPLE__)
+    system("clear");
+#endif
+}
+
+void pausar() {
+cout << "Pressione qualquer tecla para continuar...";
+cin.get();
+cin.ignore();
+}
+
+
 int main(){
     Veterinario* vet01 = new Veterinario("Geraldo Azevedo", "111.222.333-44", 2000.00, "1234");
     Veterinario* vet02 = new Veterinario();
