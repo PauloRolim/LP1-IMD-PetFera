@@ -10,8 +10,6 @@
 class Loja {
 	private:
 		std::string nome;
-		// vector<Funcionario*> funciona, mas é necessário uma forma de
-		// 	  identificar quando é veterinario e quando é tratador
 	    std::vector<Veterinario*> veterinarios;
 	    std::vector<Tratador*> tratadores;
 	    std::vector<Animal*> animais;
@@ -22,18 +20,15 @@ class Loja {
 		void setNome(std::string nome);
 		std::string getNome();
 
-	    void addVeterinario(Veterinario* novo);
+	    void adicionarVeterinario();
 	    void removerVeterinarioPeloId(int Id);
 	    void listarVeterinarios();
-	    int getTotalVeterinarios();
 
-	    void addTratador(Tratador* novo);
+	    void adicionarTratador();
 	    void removerTratadorPeloId(int Id);
 	    void listarTratadores();
-	    int getTotalTratadores();
 
-	    void addAnimal(Animal* novo);
+	    void adicionarAnimal();
 	    void removerAnimalPeloId(int Id);
 	    void listarAnimais();
-	    int getTotalAnimais();
 };

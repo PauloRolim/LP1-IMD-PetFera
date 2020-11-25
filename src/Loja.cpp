@@ -7,8 +7,13 @@ Loja::Loja(std::string nome) {
 }
 
 // Veterinario
-void Loja::addVeterinario(Veterinario* novo) {
-    veterinarios.push_back(novo);
+void Loja::adicionarVeterinario() {
+    Veterinario* vet = new Veterinario();
+    
+    // TODO: Solicitar dados do veterinário
+    // TODO: Inserir no veterinário conforme for recendo utilizando os vet->set
+
+    veterinarios.push_back(vet);
 }
 
 void Loja::removerVeterinarioPeloId(int id) {
@@ -23,6 +28,21 @@ void Loja::removerVeterinarioPeloId(int id) {
 }
 
 void Loja::listarVeterinarios() {
+    // TODO: Listar veterinários mostrando apenas dados básicos (id, nome e cpf, por exemplo)
+    // TODO: Mostrar opções para o usuário escolher (ver, editar, remover) e pausar para esperar.
+    //      Ao escolher uma opção, solicitar (cin) o id. Obs.: Não apagar a tela antes do usuário
+    //      inserir o id para que ele possa continuar vendo a lista. Utilizar mesma lógica utilizada no main.
+    // TODO: Fazer o método ver em Funcionario. Ele deve mostrar (cout) todos os dados do funcionario
+    //      e listar os animais que ele cuida.
+    // TODO: Fazer o método editar em Funcionario. Ele deve ir mostrando item por item de um Funcionario
+    //      e ir pausando com a pergunta para o usuário se ele quer editar aquele item. Caso a resposta
+    //      seja sim, deve solicitar (cin) que o usuário insira a nova informação para aquele item.
+    //      Obs.: Não editar id.
+    // TODO: Ver e Editar precisam ter um médoto base em Funcionario e um que é defino em seus filhos
+    //      (Tratador e Veterinario). O dos filhos para mostrar/editar apenas os itens específicos deles.
+    //      O Ver/Editar chamado aqui é o dos filhos.
+    // TODO: Trocar opção do X para Voltar, ao invés de encerrar. Já que vai voltar para opções da main.
+
     if(!this->veterinarios.empty()) {
         std::cout <<  "id | Nome" << std::endl;
         for (const auto& veterinario : this->veterinarios) {
@@ -33,13 +53,14 @@ void Loja::listarVeterinarios() {
     }
 }
 
-int Loja::getTotalVeterinarios() {
-    return this->veterinarios.size();
-}
-
 // Tratador
-void Loja::addTratador(Tratador* novo) {
-    tratadores.push_back(novo);
+void Loja::adicionarTratador() {
+    Tratador* trat = new Tratador();
+    
+    // Solicitar dados do tratador (cin)
+    // Inserir no tratador conforme for recendo utilizando os trat->set
+
+    tratadores.push_back(trat);
 }
 
 void Loja::removerTratadorPeloId(int id) {
@@ -54,6 +75,8 @@ void Loja::removerTratadorPeloId(int id) {
 }
 
 void Loja::listarTratadores() {
+    // TODO: Replicar lógica descrita no listarVeterinarios
+
     if(!this->tratadores.empty()) {
         std::cout <<  "id | Nome" << std::endl;
         for (const auto& tratador : this->tratadores) {
@@ -64,13 +87,14 @@ void Loja::listarTratadores() {
     }
 }
 
-int Loja::getTotalTratadores() {
-    return this->tratadores.size();
-}
-
 // Animal
-void Loja::addAnimal(Animal* novo) {
-    animais.push_back(novo);
+void Loja::adicionarAnimal() {
+    Animal* ani = new Animal();
+    
+    // Solicitar dados do animal (cin)
+    // Inserir no animal conforme for recendo utilizando os ani->set
+
+    animais.push_back(ani);
 }
 
 void Loja::removerAnimalPeloId(int id) {
@@ -85,6 +109,8 @@ void Loja::removerAnimalPeloId(int id) {
 }
 
 void Loja::listarAnimais() {
+    // TODO: Replicar lógica, de maneira análoga, descrita no listarVeterinarios
+
     if(!this->animais.empty()) {
         std::cout <<  "id | Classe | Espécie | Nome" << std::endl;
         for (const auto& animal : this->animais) {
@@ -93,8 +119,4 @@ void Loja::listarAnimais() {
     } else {
         std::cout <<  "Nenhum animal foi adicionado." << std::endl;
     }
-}
-
-int Loja::getTotalAnimais() {
-    return this->animais.size();
 }
