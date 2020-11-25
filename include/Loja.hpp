@@ -31,4 +31,6 @@ class Loja {
 	    void adicionarAnimal();
 	    void removerAnimalPeloId(int Id);
 	    void listarAnimais();
+
+		void printTitle(std::string title, int largura);
 };

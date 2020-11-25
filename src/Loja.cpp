@@ -1,4 +1,7 @@
 #include <iostream>
+#include <iomanip>
+#include <limits>
+#include <sstream>
 
 #include "../include/Loja.hpp"
 
@@ -16,7 +19,44 @@ std::string Loja::getNome(){
 
 // Veterinario
 void Loja::adicionarVeterinario() {
-    Veterinario* vet = new Veterinario();
+
+    std::string vet_nome; 
+    std::string vet_cpf;
+    double vet_salario;
+    std::string vet_numero_CRMV;
+
+    Veterinario* vet = new Veterinario;
+
+    vet->setId();
+
+    this -> printTitle("Add Veterinario", 60);
+
+    std::cout << "Nome: " << std::endl;
+    std::cin.ignore(); 
+    getline(std::cin, vet_nome);
+    vet->setNome(vet_nome);
+
+    std::cout << "Numero do CPF: " << std::endl;
+    std::cin.ignore();
+    getline(std::cin, vet_cpf);
+    vet->setCpf(vet_cpf);
+
+    std::cout << "Valor do salario em R$: " << std::endl;
+    std::cin >> vet_salario;
+    vet->setSalario(vet_salario);
+
+    std::cout << "Numero do CRMV: " << std::endl;
+    std::cin.ignore();
+    getline(std::cin, vet_numero_CRMV);
+    vet->setNumeroCRMV(vet_numero_CRMV);
+
+    veterinarios.push_back(vet);
+
+    std::cout << vet->getNome() << std::endl;
+    std::cout << vet->getCpf() << std::endl;
+    std::cout << vet->getSalario() << std::endl;
+    std::cout << vet->getNumeroCRMV() << std::endl;
+    std::cout << vet->getId() << std::endl;
     
     // TODO: Solicitar dados do veterinário
     // TODO: Inserir no veterinário conforme for recendo utilizando os vet->set
@@ -129,4 +169,17 @@ void Loja::listarAnimais() {
     } else {
         std::cout <<  "Nenhum animal foi adicionado." << std::endl;
     }
+}
+
+void 
+Loja::printTitle(std::string title, int largura) {
+	int spaceOnLeft = (largura-title.length())/2;
+	int spaceExtra = title.length()%2;
+	std::cout << std::setfill('*') << std::setw(largura) << ""<< std::endl;
+	std::cout << "**" 
+		<< std::setfill(' ') << std::setw(spaceOnLeft-2) << ""
+		<< title 
+		<< std::setfill(' ') << std::setw(spaceOnLeft-2+spaceExtra) << ""
+		<< "**" << std::endl;
+	std::cout << std::setfill('*') << std::setw(largura) << "" << std::endl;
 }
