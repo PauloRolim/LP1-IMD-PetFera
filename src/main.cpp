@@ -1,9 +1,10 @@
 #include <iostream>
 
-#include "Veterinario.hpp"
-#include "Tratador.hpp"
-#include "Loja.hpp"
+#include "../include/funcionario/Veterinario.hpp"
+#include "../include/funcionario/Tratador.hpp"
+#include "../include/Loja.hpp"
 
+using namespace std;
 
 // TODO: Os métodos limpaTela e pausar precisam ir para um arquivo (utils.cpp, por exemplo)
 // 		para serem utilizados dentro de outras classes.
@@ -47,19 +48,19 @@ void menuPrincipal(Loja* lj) {
 
 		switch (opcao) {
 			case 'V' :
-			case 'v' :{ lj->adicionarVeterinario(Veterinario* novo);}
+			case 'v' :{ lj->adicionarVeterinario();}
 			break;
 			case 'B' :
 			case 'b' :{ lj->listarVeterinarios();}
 			break;
 			case 'T' :
-			case 't' :{ lj->adicionarTratador(Tratador* novo);}
+			case 't' :{ lj->adicionarTratador();}
 			break;
 			case 'Y' :
 			case 'y' :{ lj->listarTratadores();}
 			break;
 			case 'A' :
-			case 'a' :{ lj->adicionarAnimal(Animal* novo);}
+			case 'a' :{ lj->adicionarAnimal();}
 			break;
 			case 'S' :
 			case 's' :{ lj->listarAnimais();}

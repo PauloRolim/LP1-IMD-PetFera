@@ -9,7 +9,7 @@ PROG = $(BIN)/programa
 CC = g++
 CPPFLAGS = -Wall -std=c++11 -I./include
 
-aniOBJS = $(BIN)/funcionario/Funcionario $(BIN)/funcionario/Tratador $(BIN)/funcionario/Veterinario $(BIN)/animal/Animal $(BIN)/Loja $(BIN)/main
+OBJS = $(BIN)/Funcionario $(BIN)/Tratador $(BIN)/Veterinario $(BIN)/Animal $(BIN)/Loja $(BIN)/main
 
 all : $(OBJS)
 		$(CC) $(OBJS) -o $(PROG)
@@ -19,13 +19,13 @@ debug: clean all
 
 $(BIN)/main : $(SRC)/main.cpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/main.cpp -o $@
-$(BIN)/funcionario/Funcionario : $(SRC)/funcionario/Funcionario.cpp $(INC)/funcionario/Funcionario.hpp
+$(BIN)/Funcionario : $(SRC)/funcionario/Funcionario.cpp $(INC)/funcionario/Funcionario.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/funcionario/Funcionario.cpp -o $@
-$(BIN)/funcionario/Tratador : $(SRC)/funcionario/Tratador.cpp $(INC)/funcionario/Tratador.hpp
+$(BIN)/Tratador : $(SRC)/funcionario/Tratador.cpp $(INC)/funcionario/Tratador.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/funcionario/Tratador.cpp -o $@
-$(BIN)/funcionario/Veterinario : $(SRC)/funcionario/Veterinario.cpp $(INC)/funcionario/Veterinario.hpp
+$(BIN)/Veterinario : $(SRC)/funcionario/Veterinario.cpp $(INC)/funcionario/Veterinario.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/funcionario/Veterinario.cpp -o $@
-$(BIN)/animal/Animal : $(SRC)/animal/Animal.cpp $(INC)/animal/Animal.hpp
+$(BIN)/Animal : $(SRC)/animal/Animal.cpp $(INC)/animal/Animal.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/animal/Animal.cpp -o $@
 $(BIN)/Loja : $(SRC)/Loja.cpp $(INC)/Loja.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/Loja.cpp -o $@

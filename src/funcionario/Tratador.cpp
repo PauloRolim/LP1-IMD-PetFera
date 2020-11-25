@@ -1,4 +1,6 @@
-#include "Tratador.hpp"
+#include "../../include/funcionario/Tratador.hpp"
+
+Tratador::Tratador() {}
 
 Tratador::Tratador(
 	std::string nome,

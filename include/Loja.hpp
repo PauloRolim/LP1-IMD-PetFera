@@ -3,9 +3,9 @@
 #include <iostream>
 #include <vector>
 
-#include "Veterinario.hpp"
-#include "Tratador.hpp"
-#include "Animal.hpp"
+#include "funcionario/Veterinario.hpp"
+#include "funcionario/Tratador.hpp"
+#include "animal/Animal.hpp"
 
 class Loja {
 	private:

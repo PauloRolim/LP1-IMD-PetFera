@@ -1,9 +1,17 @@
 #include <iostream>
 
-#include "Loja.hpp"
+#include "../include/Loja.hpp"
 
 Loja::Loja(std::string nome) {
     this->setNome(nome);
+}
+
+void Loja::setNome(std::string nome) {
+    this->nome = nome;
+}
+
+std::string Loja::getNome(){
+    return this->nome;
 }
 
 // Veterinario
@@ -17,14 +25,16 @@ void Loja::adicionarVeterinario() {
 }
 
 void Loja::removerVeterinarioPeloId(int id) {
-    for (const auto& veterinario : this->veterinarios) {
-        if (veterinario->getId() == id) {
-            std::string nome_removido = veterinario->getNome();
-            std::remove(this->veterinarios.begin(), this->veterinarios.end(), veterinario);
+    // for (const auto& veterinario : this->veterinarios) {
+    //     if (veterinario->getId() == id) {
+    //         std::string nome_removido = veterinario->getNome();
+    //         std::remove(this->veterinarios.begin(), this->veterinarios.end(), veterinario);
 
-            std::cout << "Veterinário " << nome_removido << " removido." << std::endl;
-        }
-    }
+    //         std::cout << "Veterinário " << nome_removido << " removido." << std::endl;
+
+    //         break;
+    //     }
+    // }
 }
 
 void Loja::listarVeterinarios() {
@@ -64,14 +74,14 @@ void Loja::adicionarTratador() {
 }
 
 void Loja::removerTratadorPeloId(int id) {
-    for (const auto& tratador : this->tratadores) {
-        if (tratador->getId() == id) {
-            std::string nome_removido = tratador->getNome();
-            std::remove(this->tratadores.begin(), this->tratadores.end(), tratador);
+    // for (const auto& tratador : this->tratadores) {
+    //     if (tratador->getId() == id) {
+    //         std::string nome_removido = tratador->getNome();
+    //         std::remove(this->tratadores.begin(), this->tratadores.end(), tratador);
 
-            std::cout << "Tratador " << nome_removido << " removido." << std::endl;
-        }
-    }
+    //         std::cout << "Tratador " << nome_removido << " removido." << std::endl;
+    //     }
+    // }
 }
 
 void Loja::listarTratadores() {
@@ -98,14 +108,14 @@ void Loja::adicionarAnimal() {
 }
 
 void Loja::removerAnimalPeloId(int id) {
-    for (const auto& animal : this->animais) {
-        if (animal->getId() == id) {
-            std::string nome_removido = animal->getNome();
-            std::remove(this->animais.begin(), this->animais.end(), animal);
+    // for (const auto& animal : this->animais) {
+    //     if (animal->getId() == id) {
+    //         std::string nome_removido = animal->getNome();
+    //         std::remove(this->animais.begin(), this->animais.end(), animal);
 
-            std::cout << "Animal " << nome_removido << " removido." << std::endl;
-        }
-    }
+    //         std::cout << "Animal " << nome_removido << " removido." << std::endl;
+    //     }
+    // }
 }
 
 void Loja::listarAnimais() {

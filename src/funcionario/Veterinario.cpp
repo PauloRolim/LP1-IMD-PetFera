@@ -1,4 +1,6 @@
-#include "Veterinario.hpp"
+#include "../../include/funcionario/Veterinario.hpp"
+
+Veterinario::Veterinario() {}
 
 Veterinario::Veterinario (
 	std::string nome,

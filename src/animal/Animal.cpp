@@ -1,4 +1,6 @@
-#include "Animal.hpp"
+#include "../../include/animal/Animal.hpp"
+
+Animal::Animal() {}
 
 Animal::Animal(
     std::string classe,
@@ -61,11 +63,11 @@ double Animal::getPreco() const {
     return this->preco;
 }
 
-std::string Animal::getTratadorResponcavel() const {
+Tratador* Animal::getTratadorResponcavel() const {
     return this->tratador_responcavel;
 }
 
-std::string Animal::getVetResponcavel() const {
+Veterinario* Animal::getVetResponcavel() const {
     return this->vet_responcavel;
 }
 
@@ -102,7 +104,7 @@ void Animal::setPreco(double preco) {
     this->preco = preco;
 }
 
-void Animal::setTratadorRresponcavel(Tratador* tratador_responcavel) {
+void Animal::setTratadorResponcavel(Tratador* tratador_responcavel) {
     this->tratador_responcavel = tratador_responcavel;
 }
 

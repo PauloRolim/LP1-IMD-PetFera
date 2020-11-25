@@ -3,10 +3,13 @@
 #include <iostream>
 #include <string> 
 
+#include "../funcionario/Tratador.hpp"
+#include "../funcionario/Veterinario.hpp"
+
 enum _classificacaoRisco {
     venenoso,
     perigoso,
-    peçonhento
+    peconhento
 };
 
 enum _alimentacao {
@@ -22,12 +25,13 @@ enum _sexo {
 
 class Animal {
     protected:
+        int id;
         std::string classe;                
         std::string especie;
-        std::string id_pet;
-        std::string tratador_responcavel;
-        std::string vet_responcavel;
+        std::string nome;
         double preco;
+        Tratador* tratador_responcavel;
+        Veterinario* vet_responcavel;
         _sexo sexo;
         _classificacaoRisco risco;
         _alimentacao comida;
@@ -36,6 +40,7 @@ class Animal {
         static int NEXT_ID;
 
         /*construtores*/
+        Animal();
         Animal(
             std::string classe,
             std::string especie,
@@ -72,4 +77,7 @@ class Animal {
         void setPreco(double preco);
         void setTratadorResponcavel(Tratador* tratador_responcavel);
         void setVetResponcavel(Veterinario* vet_responcavel);
+        void setSexo(_sexo sexo);
+        void setRisco(_classificacaoRisco risco);
+        void setComida(_alimentacao comida);
 };

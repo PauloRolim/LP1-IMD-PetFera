@@ -10,6 +10,7 @@ class Veterinario : public Funcionario {
 
     public:
         /*construtores*/
+        Veterinario();
         Veterinario(std::string nome, std::string cpf, double salario, std::string numero_CRMV);
 
         /*getters*/

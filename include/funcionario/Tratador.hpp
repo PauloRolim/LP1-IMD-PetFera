@@ -10,6 +10,7 @@ class Tratador : public Funcionario {
 
     public:    
         /*construtores*/
+        Tratador();
         Tratador(std::string nome, std::string cpf, double salario, std::string cor_uniforme);
 
         /*getters*/
