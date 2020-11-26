@@ -17,11 +17,11 @@ void menuPrincipal(Loja* lj) {
 		std::cout << std::endl << "Opções: ";
 		std::cout << std::endl << "==========================";
 		std::cout << std::endl << "V - Adicionar um Veterinário.";
-		std::cout << std::endl << "B - Listar Veterinários.";
+		std::cout << std::endl << "B - Listar/Editar/Remover Veterinários.";
 		std::cout << std::endl << "T - Adicionar um Tratador.";
-		std::cout << std::endl << "Y - Listar Tratadores.";
+		std::cout << std::endl << "Y - Listar/Editar/Remover Tratadores.";
 		std::cout << std::endl << "A - Adicionar um Animal.";
-		std::cout << std::endl << "S - Listar Animais.";
+		std::cout << std::endl << "S - Listar/Editar/Remover Animais.";
 		std::cout << std::endl << "---------------------------";
 		std::cout << std::endl << std::endl << "X - Encerrar.";
 
