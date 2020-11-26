@@ -1,6 +1,10 @@
 #pragma once
 
 #include <string>
+#include <vector>
+
+// Forward declaration
+class Animal;
 
 class Funcionario {
     protected:
@@ -8,6 +12,7 @@ class Funcionario {
         std::string nome;
         std::string cpf;
         double salario;
+        std::vector<Animal*> animais;
 
     public:
         static int NEXT_ID;
@@ -40,6 +45,10 @@ class Funcionario {
 
         void editarBase();
         virtual void editar();
+
+        void adicionaAnimal(Animal* ani);
+        void removeAnimal(int id);
+        void listaAnimais();
 
         Funcionario& operator=(const Funcionario &f2);
         bool operator==(const Funcionario &f2) const;

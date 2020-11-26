@@ -1,6 +1,12 @@
 #include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <limits>
+#include <sstream>
 
+#include "../../include/utils.hpp"
 #include "../../include/funcionario/Funcionario.hpp"
+#include "../../include/animal/Animal.hpp"
 
 Funcionario::Funcionario() {
     this->setId();
@@ -133,7 +139,50 @@ void Funcionario::editarBase(){
 }
 
 void Funcionario::editar(){
-    this->verBase();
+    this->editarBase();
+}
+
+void Funcionario::adicionaAnimal(Animal* ani){
+    this->animais.push_back(ani);
+}
+
+void Funcionario::removeAnimal(int id){
+    for (const auto& animal : this->animais) {
+        if (animal->getId() == id) {
+            std::string nome_removido = animal->getNome();
+
+            auto it = std::find(this->animais.begin(), this->animais.end(), animal);
+            this->animais.erase(it);
+
+            std::cout << "O animal " << nome_removido << " foi removido." << std::endl;
+
+            break;
+        }
+    }
+}
+
+void Funcionario::listaAnimais(){
+    if(!this->animais.empty()) {
+        utils::printTitle("Lista de animais aos cuidados de " + this->getNome(), 60);
+        std::cout <<
+        std::left << "| " << std::setfill(' ') << std::setw(2) << "id" <<
+        std::left << " | " << std::setfill(' ') << std::setw(12) << "Classe" <<
+        std::left << " | " << std::setfill(' ') << std::setw(12) << "Espécie" <<
+        std::left << " | " << std::setfill(' ') << std::setw(20) << "Nome" <<
+        " |" << std::endl;
+        std::cout << "------------------------------------------------------------" << std::endl;
+
+        for (const auto& animal : this->animais) {
+            std::cout <<
+            std::left << "| " << std::setfill(' ') << std::setw(2) << animal->getId() << 
+            std::left << " | " << std::setfill(' ') << std::setw(12) << animal->getClasse() << 
+            std::left << " | " << std::setfill(' ') << std::setw(12) << animal->getEspecie() << 
+            std::left << " | " << std::setfill(' ') << std::setw(20) << animal->getNome() << 
+            " |" << std::endl;
+        }
+    } else {
+        std::cout << "Nenhum animal para listar." << std::endl;
+    }
 }
 
 Funcionario& Funcionario::operator=(const Funcionario &f2) {

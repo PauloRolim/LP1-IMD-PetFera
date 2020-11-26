@@ -25,18 +25,20 @@ class Loja {
 	    void editarVeterinario(int id);
 	    void removerVeterinario(int id);
 	    void listarVeterinarios();
+	    void listarAnimaisVeterinario(int id);
 
 	    void adicionarTratador();
 	    void verTratador(int id);
 	    void editarTratador(int id);
 	    void removerTratador(int id);
 	    void listarTratadores();
-	    void menuListaTratador();
+	    void listarAnimaisTratador(int id);
 
 	    void adicionarAnimal();
 	    void verAnimal(int id);
 	    void editarAnimal(int id);
 	    void removerAnimal(int id);
 	    void listarAnimais();
-	    void menuListaAnimal();
+	    void designarAnimalVeterinario(int id);
+	    void designarAnimalTratador(int id);
 };

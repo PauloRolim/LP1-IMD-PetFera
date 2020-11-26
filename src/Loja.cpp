@@ -69,7 +69,7 @@ void Loja::removerVeterinario(int id) {
             auto it = std::find(this->veterinarios.begin(), this->veterinarios.end(), veterinario);
             this->veterinarios.erase(it);
 
-            std::cout << "O veterinário " << nome_removido << " removido." << std::endl;
+            std::cout << "O veterinário " << nome_removido << " foi removido." << std::endl;
 
             return;
         }
@@ -79,21 +79,6 @@ void Loja::removerVeterinario(int id) {
 }
 
 void Loja::listarVeterinarios() {
-    // TODO: Listar veterinários mostrando apenas dados básicos (id, nome e cpf, por exemplo)
-    // TODO: Mostrar opções para o usuário escolher (ver, editar, remover) e pausar para esperar.
-    //      Ao escolher uma opção, solicitar (cin) o id. Obs.: Não apagar a tela antes do usuário
-    //      inserir o id para que ele possa continuar vendo a lista. Utilizar mesma lógica utilizada no main.
-    // TODO: Fazer o método ver em Funcionario. Ele deve mostrar (cout) todos os dados do funcionario
-    //      e listar os animais que ele cuida.
-    // TODO: Fazer o método editar em Funcionario. Ele deve ir mostrando item por item de um Funcionario
-    //      e ir pausando com a pergunta para o usuário se ele quer editar aquele item. Caso a resposta
-    //      seja sim, deve solicitar (cin) que o usuário insira a nova informação para aquele item.
-    //      Obs.: Não editar id.
-    // TODO: Ver e Editar precisam ter um médoto base em Funcionario e um que é defino em seus filhos
-    //      (Tratador e Veterinario). O dos filhos para mostrar/editar apenas os itens específicos deles.
-    //      O Ver/Editar chamado aqui é o dos filhos.
-    // TODO: Trocar opção do X para Voltar, ao invés de encerrar. Já que vai voltar para opções da main.
-
     if(!this->veterinarios.empty()) {
         char opcao;
         int id;
@@ -125,6 +110,7 @@ void Loja::listarVeterinarios() {
             std::cout << std::endl << "V - Ver.";
             std::cout << std::endl << "E - Editar.";
             std::cout << std::endl << "R - Remover.";
+            std::cout << std::endl << "A - Listar animais de um veterinário.";
             std::cout << std::endl << "---------------------------";
             std::cout << std::endl << std::endl << "X - Voltar.";
 
@@ -153,6 +139,13 @@ void Loja::listarVeterinarios() {
                     this->removerVeterinario(id);
                 }
                 break;
+                case 'A' :
+                case 'a' : {
+                    std::cout << std::endl << std::endl << "Informe o id: ";
+                    std::cin >> id;
+                    this->listarAnimaisVeterinario(id);
+                }
+                break;
                 case 'X' :
                 case 'x' : { return;}
                 break;
@@ -166,6 +159,18 @@ void Loja::listarVeterinarios() {
     } else {
         std::cout << "Nenhum veterinário foi adicionado." << std::endl;
     }
+}
+
+void Loja::listarAnimaisVeterinario(int id){
+    for (const auto& veterinario : this->veterinarios) {
+        if (veterinario->getId() == id) {
+            veterinario->listaAnimais();
+
+            return;
+        }
+    }
+
+    std::cout << "Nenhum veterinário foi encontrado com o ID informado." << std::endl;
 }
 
 // Tratador
@@ -218,11 +223,12 @@ void Loja::removerTratador(int id) {
             auto it = std::find(this->tratadores.begin(), this->tratadores.end(), tratador);
             this->tratadores.erase(it);
 
-            std::cout << "O tratador " << nome_removido << " removido." << std::endl;
+            std::cout << "O tratador " << nome_removido << " foi removido." << std::endl;
 
-            break;
+            return;
         }
     }
+    std::cout << "Nenhum tratador foi encontrado com o ID informado." << std::endl;
 }
 
 void Loja::listarTratadores() {
@@ -257,6 +263,7 @@ void Loja::listarTratadores() {
             std::cout << std::endl << "V - Ver.";
             std::cout << std::endl << "E - Editar.";
             std::cout << std::endl << "R - Remover.";
+            std::cout << std::endl << "A - Listar animais de um tratador.";
             std::cout << std::endl << "---------------------------";
             std::cout << std::endl << std::endl << "X - Voltar.";
 
@@ -285,6 +292,12 @@ void Loja::listarTratadores() {
                     this->removerTratador(id);
                 }
                 break;
+                case 'A' :
+                case 'a' : {
+                    std::cout << std::endl << std::endl << "Informe o id: ";
+                    std::cin >> id;
+                    this->listarAnimaisTratador(id);
+                }
                 case 'X' :
                 case 'x' : { return;}
                 break;
@@ -298,6 +311,18 @@ void Loja::listarTratadores() {
     } else {
         std::cout << "Nenhum tratador foi adicionado." << std::endl;
     }
+}
+
+void Loja::listarAnimaisTratador(int id){
+    for (const auto& tratador : this->tratadores) {
+        if (tratador->getId() == id) {
+            tratador->listaAnimais();
+
+            return;
+        }
+    }
+
+    std::cout << "Nenhum tratador foi encontrado com o ID informado." << std::endl;
 }
 
 // Animal
@@ -350,9 +375,13 @@ void Loja::removerAnimal(int id) {
             auto it = std::find(this->animais.begin(), this->animais.end(), animal);
             this->animais.erase(it);
 
-            std::cout << "O animal " << nome_removido << " removido." << std::endl;
+            std::cout << "O animal " << nome_removido << " foi removido." << std::endl;
         }
+
+        return;
     }
+
+    std::cout << "Nenhum animal foi encontrado com o ID informado." << std::endl;
 }
 
 void Loja::listarAnimais() {
@@ -385,6 +414,8 @@ void Loja::listarAnimais() {
             std::cout << std::endl << "V - Ver.";
             std::cout << std::endl << "E - Editar.";
             std::cout << std::endl << "R - Remover.";
+            std::cout << std::endl << "T - Designar tratador de um animal.";
+            std::cout << std::endl << "Y - Designar veterinário de um animal.";
             std::cout << std::endl << "---------------------------";
             std::cout << std::endl << std::endl << "X - Voltar.";
 
@@ -413,6 +444,20 @@ void Loja::listarAnimais() {
                     this->removerAnimal(id);
                 }
                 break;
+                case 'T' :
+                case 't' : {
+                    std::cout << std::endl << std::endl << "Informe o id: ";
+                    std::cin >> id;
+                    this->designarAnimalTratador(id);
+                }
+                break;
+                case 'Y' :
+                case 'y' : {
+                    std::cout << std::endl << std::endl << "Informe o id: ";
+                    std::cin >> id;
+                    this->designarAnimalVeterinario(id);
+                }
+                break;
                 case 'X' :
                 case 'x' : { return;}
                 break;
@@ -425,5 +470,113 @@ void Loja::listarAnimais() {
         } while (opcao != 'X' && opcao !='x');
     } else {
         std::cout << "Nenhum animal foi adicionado." << std::endl;
+    }
+}
+
+void Loja::designarAnimalTratador(int id) {
+    if(!this->tratadores.empty()) {
+        for (const auto& animal : this->animais) {
+            if (animal->getId() == id) {
+                utils::printTitle("Lista de Tratadores", 60);
+                std::cout <<
+                std::left << "| " << std::setfill(' ') << std::setw(2) << "id" <<
+                std::left << " | " << std::setfill(' ') << std::setw(20) << "Nome" <<
+                std::left << " | " << std::setfill(' ') << std::setw(15) << "CPF" <<
+                std::left << " | " << std::setfill(' ') << std::setw(11) << "Salário" <<
+                std::left << " | " << std::setfill(' ') << std::setw(6) << "Uniforme" <<
+                " |" << std::endl;
+                std::cout << "------------------------------------------------------------" << std::endl;
+
+                for (const auto& tratador : this->tratadores) {
+                    std::cout <<
+                    std::left << "| " << std::setfill(' ') << std::setw(2) << tratador->getId() << 
+                    std::left << " | " << std::setfill(' ') << std::setw(20) << tratador->getNome() << 
+                    std::left << " | " << std::setfill(' ') << std::setw(15) << tratador->getCpf() << 
+                    std::left << " | " << std::setfill(' ') << std::setw(10) << std::fixed << std::setprecision(2) << tratador->getSalario() << 
+                    std::left << " | " << std::setfill(' ') << std::setw(6) << tratador->getCorUniforme() << 
+                    " |" << std::endl;
+                }
+
+                int id;
+
+                std::cout << std::endl << std::endl << "Informe o id do tratador: ";
+                std::cin >> id;
+
+                for (const auto& tratador : this->tratadores) {
+                    if (tratador->getId() == id) {
+                        if(animal->getTratadorResponcavel() != nullptr) {
+                            animal->getTratadorResponcavel()->removeAnimal(animal->getId());
+                        }
+
+                        tratador->adicionaAnimal(animal);
+
+                        animal->setTratadorResponcavel(tratador);
+
+                        std::cout << "O tratador " << tratador->getNome() <<
+                            " foi vinculado ao animal " << animal->getNome() << "." << std::endl;
+                    }
+                }
+
+                std::cout << "Nenhum animal foi encontrado com o ID informado." << std::endl;
+            }
+        }
+
+        std::cout << "Nenhum animal foi encontrado com o ID informado." << std::endl;
+    } else {
+        std::cout << "Nenhum tratador cadastrado. Cadastre primeiro um tratador." << std::endl;
+    }
+}
+
+void Loja::designarAnimalVeterinario(int id) {
+    if(!this->veterinarios.empty()) {
+        for (const auto& animal : this->animais) {
+            if (animal->getId() == id) {
+                utils::printTitle("Lista de veterinários", 60);
+                std::cout <<
+                std::left << "| " << std::setfill(' ') << std::setw(2) << "id" <<
+                std::left << " | " << std::setfill(' ') << std::setw(20) << "Nome" <<
+                std::left << " | " << std::setfill(' ') << std::setw(15) << "CPF" <<
+                std::left << " | " << std::setfill(' ') << std::setw(11) << "Salário" <<
+                std::left << " | " << std::setfill(' ') << std::setw(6) << "CRMV" <<
+                " |" << std::endl;
+                std::cout << "------------------------------------------------------------" << std::endl;
+
+                for (const auto& veterinario : this->veterinarios) {
+                    std::cout <<
+                    std::left << "| " << std::setfill(' ') << std::setw(2) << veterinario->getId() << 
+                    std::left << " | " << std::setfill(' ') << std::setw(20) << veterinario->getNome() << 
+                    std::left << " | " << std::setfill(' ') << std::setw(15) << veterinario->getCpf() << 
+                    std::left << " | " << std::setfill(' ') << std::setw(10) << std::fixed << std::setprecision(2) << veterinario->getSalario() << 
+                    std::left << " | " << std::setfill(' ') << std::setw(6) << veterinario->getNumeroCRMV() << 
+                    " |" << std::endl;
+                }
+
+                int id;
+
+                std::cout << std::endl << std::endl << "Informe o id do veterinário: ";
+                std::cin >> id;
+
+                for (const auto& veterinario : this->veterinarios) {
+                    if (veterinario->getId() == id) {
+                        if(animal->getVetResponcavel() != nullptr) {
+                            animal->getVetResponcavel()->removeAnimal(animal->getId());
+                        }
+
+                        veterinario->adicionaAnimal(animal);
+
+                        animal->setVetResponcavel(veterinario);
+
+                        std::cout << "O veterinário " << veterinario->getNome() <<
+                            " foi vinculado ao animal " << animal->getNome() << "." << std::endl;
+                    }
+                }
+
+                std::cout << "Nenhum animal foi encontrado com o ID informado." << std::endl;
+            }
+        }
+
+        std::cout << "Nenhum animal foi encontrado com o ID informado." << std::endl;
+    } else {
+        std::cout << "Nenhum veterinário cadastrado. Cadastre primeiro um veterinário." << std::endl;
     }
 }

@@ -8,8 +8,10 @@ Animal::Animal() {
     this->setEspecie("");
     this->setNome("");
     this->setPreco(0.0);
-    // this->setTratadorResponcavel(tratador_responcavel);
-    // this->setVetResponcavel(vet_responcavel);
+
+    this->setTratadorResponcavel(nullptr);
+    this->setVetResponcavel(nullptr);
+
     // this->setSexo(sexo); 
     // this->setRisco(risco);
     // this->setComida(comida);
@@ -185,7 +187,6 @@ void Animal::setComida(_alimentacao comida){
     this->comida = comida;
 }
 
-
 void Animal::solicitaDadosBase(){
     std::string classe;
     std::string especie;
@@ -250,7 +251,7 @@ void Animal::editarBase(){
 }
 
 void Animal::editar(){
-    this->verBase();
+    this->editarBase();
 }
 
 Animal& Animal::operator=(const Animal &a2) {
