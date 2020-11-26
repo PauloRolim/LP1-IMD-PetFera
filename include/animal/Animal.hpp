@@ -9,7 +9,8 @@
 enum _classificacaoRisco {
     venenoso,
     perigoso,
-    peconhento
+    peconhento,
+    semRisco
 };
 
 enum _alimentacao {
