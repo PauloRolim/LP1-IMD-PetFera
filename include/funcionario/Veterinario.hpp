@@ -18,4 +18,10 @@ class Veterinario : public Funcionario {
         
         /*setters*/
         void setNumeroCRMV(std::string numero_CRMV);
+
+        void solicitaDados() override;
+
+        void ver() override;
+
+        void editar() override;
 };

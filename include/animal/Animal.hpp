@@ -66,8 +66,11 @@ class Animal {
         Tratador* getTratadorResponcavel() const;
         Veterinario* getVetResponcavel() const;
         _sexo getSexo() const;
+        std::string getSexoTexto() const;
         _classificacaoRisco getRisco() const;
+        std::string getRiscoTexto() const;
         _alimentacao getComida() const;
+        std::string getComidaTexto() const;
 
         /*setters*/
         void setId();
@@ -80,4 +83,16 @@ class Animal {
         void setSexo(_sexo sexo);
         void setRisco(_classificacaoRisco risco);
         void setComida(_alimentacao comida);
+
+        void solicitaDadosBase();
+        virtual void solicitaDados();
+
+        void verBase();
+        virtual void ver();
+
+        void editarBase();
+        virtual void editar();
+
+        Animal& operator=(const Animal &a2);
+        bool operator==(const Animal &a2) const;
 };

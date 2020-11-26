@@ -21,16 +21,22 @@ class Loja {
 		std::string getNome();
 
 	    void adicionarVeterinario();
-	    void removerVeterinarioPeloId(int Id);
+	    void verVeterinario(int id);
+	    void editarVeterinario(int id);
+	    void removerVeterinario(int id);
 	    void listarVeterinarios();
 
 	    void adicionarTratador();
-	    void removerTratadorPeloId(int Id);
+	    void verTratador(int id);
+	    void editarTratador(int id);
+	    void removerTratador(int id);
 	    void listarTratadores();
+	    void menuListaTratador();
 
 	    void adicionarAnimal();
-	    void removerAnimalPeloId(int Id);
+	    void verAnimal(int id);
+	    void editarAnimal(int id);
+	    void removerAnimal(int id);
 	    void listarAnimais();
-
-		void printTitle(std::string title, int largura);
+	    void menuListaAnimal();
 };

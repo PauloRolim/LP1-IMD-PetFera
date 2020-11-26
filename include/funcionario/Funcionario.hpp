@@ -31,4 +31,16 @@ class Funcionario {
         void setNome(std::string nome);
         void setCpf(std::string cpf);
         void setSalario(double salario);
+
+        void solicitaDadosBase();
+        virtual void solicitaDados();
+
+        void verBase();
+        virtual void ver();
+
+        void editarBase();
+        virtual void editar();
+
+        Funcionario& operator=(const Funcionario &f2);
+        bool operator==(const Funcionario &f2) const;
 };

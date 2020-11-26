@@ -1,8 +1,10 @@
 #include <iostream>
+#include <algorithm>
 #include <iomanip>
 #include <limits>
 #include <sstream>
 
+#include "../include/utils.hpp"
 #include "../include/Loja.hpp"
 
 Loja::Loja(std::string nome) {
@@ -19,62 +21,61 @@ std::string Loja::getNome(){
 
 // Veterinario
 void Loja::adicionarVeterinario() {
+    Veterinario* vet = new Veterinario();
+    vet->solicitaDados();
 
-    std::string vet_nome; 
-    std::string vet_cpf;
-    double vet_salario;
-    std::string vet_numero_CRMV;
+    this->veterinarios.push_back(vet);
 
-    Veterinario* vet = new Veterinario;
-
-    vet->setId();
-
-    this -> printTitle("Add Veterinario", 60);
-
-    std::cout << "Nome: " << std::endl;
-    std::cin.ignore(); 
-    getline(std::cin, vet_nome);
-    vet->setNome(vet_nome);
-
-    std::cout << "Numero do CPF: " << std::endl;
-    std::cin.ignore();
-    getline(std::cin, vet_cpf);
-    vet->setCpf(vet_cpf);
-
-    std::cout << "Valor do salario em R$: " << std::endl;
-    std::cin >> vet_salario;
-    vet->setSalario(vet_salario);
-
-    std::cout << "Numero do CRMV: " << std::endl;
-    std::cin.ignore();
-    getline(std::cin, vet_numero_CRMV);
-    vet->setNumeroCRMV(vet_numero_CRMV);
-
-    veterinarios.push_back(vet);
-
-    std::cout << vet->getNome() << std::endl;
-    std::cout << vet->getCpf() << std::endl;
-    std::cout << vet->getSalario() << std::endl;
-    std::cout << vet->getNumeroCRMV() << std::endl;
-    std::cout << vet->getId() << std::endl;
-    
-    // TODO: Solicitar dados do veterinário
-    // TODO: Inserir no veterinário conforme for recendo utilizando os vet->set
-
-    veterinarios.push_back(vet);
+    std::cout << std::endl << "O veterinário " << vet->getNome() << " foi adicionado.";
 }
 
-void Loja::removerVeterinarioPeloId(int id) {
-    // for (const auto& veterinario : this->veterinarios) {
-    //     if (veterinario->getId() == id) {
-    //         std::string nome_removido = veterinario->getNome();
-    //         std::remove(this->veterinarios.begin(), this->veterinarios.end(), veterinario);
+void Loja::verVeterinario(int id) {
+    for (const auto& veterinario : this->veterinarios) {
+        if (veterinario->getId() == id) {
+            utils::limpaTela();
 
-    //         std::cout << "Veterinário " << nome_removido << " removido." << std::endl;
+            veterinario->ver();
 
-    //         break;
-    //     }
-    // }
+            utils::pausar();
+            utils::limpaTela();
+            return;
+        }
+    }
+
+    std::cout << "Nenhum veterinário foi encontrado com o ID informado." << std::endl;
+}
+
+void Loja::editarVeterinario(int id) {
+    for (const auto& veterinario : this->veterinarios) {
+        if (veterinario->getId() == id) {
+            utils::limpaTela();
+
+            veterinario->editar();
+
+            utils::pausar();
+            utils::limpaTela();
+            return;
+        }
+    }
+
+    std::cout << "Nenhum veterinário foi encontrado com o ID informado." << std::endl;
+}
+
+void Loja::removerVeterinario(int id) {
+    for (const auto& veterinario : this->veterinarios) {
+        if (veterinario->getId() == id) {
+            std::string nome_removido = veterinario->getNome();
+
+            auto it = std::find(this->veterinarios.begin(), this->veterinarios.end(), veterinario);
+            this->veterinarios.erase(it);
+
+            std::cout << "O veterinário " << nome_removido << " removido." << std::endl;
+
+            return;
+        }
+    }
+
+    std::cout << "Nenhum veterinário foi encontrado com o ID informado." << std::endl;
 }
 
 void Loja::listarVeterinarios() {
@@ -94,92 +95,335 @@ void Loja::listarVeterinarios() {
     // TODO: Trocar opção do X para Voltar, ao invés de encerrar. Já que vai voltar para opções da main.
 
     if(!this->veterinarios.empty()) {
-        std::cout <<  "id | Nome" << std::endl;
-        for (const auto& veterinario : this->veterinarios) {
-            std::cout << veterinario->getId() << " | " << veterinario->getNome() << std::endl;
-        }
+        char opcao;
+        int id;
+
+        do {
+            utils::printTitle("Lista de Veterinários", 60);
+            std::cout <<
+            std::left << "| " << std::setfill(' ') << std::setw(2) << "id" <<
+            std::left << " | " << std::setfill(' ') << std::setw(20) << "Nome" <<
+            std::left << " | " << std::setfill(' ') << std::setw(15) << "CPF" <<
+            std::left << " | " << std::setfill(' ') << std::setw(11) << "Salário" <<
+            std::left << " | " << std::setfill(' ') << std::setw(6) << "CRMV" <<
+            " |" << std::endl;
+            std::cout << "------------------------------------------------------------" << std::endl;
+
+            for (const auto& veterinario : this->veterinarios) {
+                std::cout <<
+                std::left << "| " << std::setfill(' ') << std::setw(2) << veterinario->getId() << 
+                std::left << " | " << std::setfill(' ') << std::setw(20) << veterinario->getNome() << 
+                std::left << " | " << std::setfill(' ') << std::setw(15) << veterinario->getCpf() << 
+                std::left << " | " << std::setfill(' ') << std::setw(10) << std::fixed << std::setprecision(2) << veterinario->getSalario() << 
+                std::left << " | " << std::setfill(' ') << std::setw(6) << veterinario->getNumeroCRMV() << 
+                " |" << std::endl;
+            }
+
+            std::cout << std::endl << "==========================";
+            std::cout << std::endl << "Opções: ";
+            std::cout << std::endl << "==========================";
+            std::cout << std::endl << "V - Ver.";
+            std::cout << std::endl << "E - Editar.";
+            std::cout << std::endl << "R - Remover.";
+            std::cout << std::endl << "---------------------------";
+            std::cout << std::endl << std::endl << "X - Voltar.";
+
+            std::cout << std::endl << std::endl << "Selecione a opção: ";
+            std::cin >> opcao;
+
+            switch (opcao) {
+                case 'V' :
+                case 'v' : {
+                    std::cout << std::endl << std::endl << "Informe o id: ";
+                    std::cin >> id;
+                    this->verVeterinario(id);
+                }
+                break;
+                case 'E' :
+                case 'e' : {
+                    std::cout << std::endl << std::endl << "Informe o id: ";
+                    std::cin >> id;
+                    this->editarVeterinario(id);
+                }
+                break;
+                case 'R' :
+                case 'r' : {
+                    std::cout << std::endl << std::endl << "Informe o id: ";
+                    std::cin >> id;
+                    this->removerVeterinario(id);
+                }
+                break;
+                case 'X' :
+                case 'x' : { return;}
+                break;
+                default : std::cout << std::endl << "Opção inválida!";
+            }
+            std::cout << std::endl;
+
+            utils::pausar();
+            utils::limpaTela();
+        } while (opcao != 'X' && opcao !='x');
     } else {
-        std::cout <<  "Nenhum veterinário foi adicionado." << std::endl;
+        std::cout << "Nenhum veterinário foi adicionado." << std::endl;
     }
 }
 
 // Tratador
 void Loja::adicionarTratador() {
     Tratador* trat = new Tratador();
-    
-    // Solicitar dados do tratador (cin)
-    // Inserir no tratador conforme for recendo utilizando os trat->set
+    trat->solicitaDados();
 
-    tratadores.push_back(trat);
+    this->tratadores.push_back(trat);
+
+    std::cout << std::endl << "O tratador " << trat->getNome() << " foi adicionado.";
 }
 
-void Loja::removerTratadorPeloId(int id) {
-    // for (const auto& tratador : this->tratadores) {
-    //     if (tratador->getId() == id) {
-    //         std::string nome_removido = tratador->getNome();
-    //         std::remove(this->tratadores.begin(), this->tratadores.end(), tratador);
+void Loja::verTratador(int id) {
+    for (const auto& tratador : this->tratadores) {
+        if (tratador->getId() == id) {
+            utils::limpaTela();
 
-    //         std::cout << "Tratador " << nome_removido << " removido." << std::endl;
-    //     }
-    // }
+            tratador->ver();
+
+            utils::pausar();
+            utils::limpaTela();
+            return;
+        }
+    }
+
+    std::cout << "Nenhum tratador foi encontrado com o ID informado." << std::endl;
+}
+
+void Loja::editarTratador(int id) {
+    for (const auto& tratador : this->tratadores) {
+        if (tratador->getId() == id) {
+            utils::limpaTela();
+
+            tratador->editar();
+
+            utils::pausar();
+            utils::limpaTela();
+            return;
+        }
+    }
+
+    std::cout << "Nenhum tratador foi encontrado com o ID informado." << std::endl;
+}
+
+void Loja::removerTratador(int id) {
+    for (const auto& tratador : this->tratadores) {
+        if (tratador->getId() == id) {
+            std::string nome_removido = tratador->getNome();
+
+            auto it = std::find(this->tratadores.begin(), this->tratadores.end(), tratador);
+            this->tratadores.erase(it);
+
+            std::cout << "O tratador " << nome_removido << " removido." << std::endl;
+
+            break;
+        }
+    }
 }
 
 void Loja::listarTratadores() {
-    // TODO: Replicar lógica descrita no listarVeterinarios
-
     if(!this->tratadores.empty()) {
-        std::cout <<  "id | Nome" << std::endl;
-        for (const auto& tratador : this->tratadores) {
-            std::cout << tratador->getId() << " | " << tratador->getNome() << std::endl;
-        }
+        char opcao;
+        int id;
+
+        do {
+            utils::printTitle("Lista de Tratadores", 60);
+            std::cout <<
+            std::left << "| " << std::setfill(' ') << std::setw(2) << "id" <<
+            std::left << " | " << std::setfill(' ') << std::setw(20) << "Nome" <<
+            std::left << " | " << std::setfill(' ') << std::setw(15) << "CPF" <<
+            std::left << " | " << std::setfill(' ') << std::setw(11) << "Salário" <<
+            std::left << " | " << std::setfill(' ') << std::setw(6) << "Uniforme" <<
+            " |" << std::endl;
+            std::cout << "------------------------------------------------------------" << std::endl;
+
+            for (const auto& tratador : this->tratadores) {
+                std::cout <<
+                std::left << "| " << std::setfill(' ') << std::setw(2) << tratador->getId() << 
+                std::left << " | " << std::setfill(' ') << std::setw(20) << tratador->getNome() << 
+                std::left << " | " << std::setfill(' ') << std::setw(15) << tratador->getCpf() << 
+                std::left << " | " << std::setfill(' ') << std::setw(10) << std::fixed << std::setprecision(2) << tratador->getSalario() << 
+                std::left << " | " << std::setfill(' ') << std::setw(6) << tratador->getCorUniforme() << 
+                " |" << std::endl;
+            }
+
+            std::cout << std::endl << "==========================";
+            std::cout << std::endl << "Opções: ";
+            std::cout << std::endl << "==========================";
+            std::cout << std::endl << "V - Ver.";
+            std::cout << std::endl << "E - Editar.";
+            std::cout << std::endl << "R - Remover.";
+            std::cout << std::endl << "---------------------------";
+            std::cout << std::endl << std::endl << "X - Voltar.";
+
+            std::cout << std::endl << std::endl << "Selecione a opção: ";
+            std::cin >> opcao;
+
+            switch (opcao) {
+                case 'V' :
+                case 'v' : {
+                    std::cout << std::endl << std::endl << "Informe o id: ";
+                    std::cin >> id;
+                    this->verTratador(id);
+                }
+                break;
+                case 'E' :
+                case 'e' : {
+                    std::cout << std::endl << std::endl << "Informe o id: ";
+                    std::cin >> id;
+                    this->editarTratador(id);
+                }
+                break;
+                case 'R' :
+                case 'r' : {
+                    std::cout << std::endl << std::endl << "Informe o id: ";
+                    std::cin >> id;
+                    this->removerTratador(id);
+                }
+                break;
+                case 'X' :
+                case 'x' : { return;}
+                break;
+                default : std::cout << std::endl << "Opção inválida!";
+            }
+            std::cout << std::endl;
+
+            utils::pausar();
+            utils::limpaTela();
+        } while (opcao != 'X' && opcao !='x');
     } else {
-        std::cout <<  "Nenhum tratador foi adicionado." << std::endl;
+        std::cout << "Nenhum tratador foi adicionado." << std::endl;
     }
 }
 
 // Animal
 void Loja::adicionarAnimal() {
     Animal* ani = new Animal();
+    ani->solicitaDados();
     
-    // Solicitar dados do animal (cin)
-    // Inserir no animal conforme for recendo utilizando os ani->set
+    this->animais.push_back(ani);
 
-    animais.push_back(ani);
+    std::cout << std::endl << "O animal " << ani->getNome() << " foi adicionado.";
 }
 
-void Loja::removerAnimalPeloId(int id) {
-    // for (const auto& animal : this->animais) {
-    //     if (animal->getId() == id) {
-    //         std::string nome_removido = animal->getNome();
-    //         std::remove(this->animais.begin(), this->animais.end(), animal);
+void Loja::verAnimal(int id) {
+    for (const auto& animal : this->animais) {
+        if (animal->getId() == id) {
+            utils::limpaTela();
 
-    //         std::cout << "Animal " << nome_removido << " removido." << std::endl;
-    //     }
-    // }
-}
+            animal->ver();
 
-void Loja::listarAnimais() {
-    // TODO: Replicar lógica, de maneira análoga, descrita no listarVeterinarios
-
-    if(!this->animais.empty()) {
-        std::cout <<  "id | Classe | Espécie | Nome" << std::endl;
-        for (const auto& animal : this->animais) {
-            std::cout << animal->getId() << " | " << animal->getClasse() << " | " << animal->getEspecie() << " | " << animal->getNome() << std::endl;
+            utils::pausar();
+            utils::limpaTela();
+            return;
         }
-    } else {
-        std::cout <<  "Nenhum animal foi adicionado." << std::endl;
+    }
+
+    std::cout << "Nenhum animal foi encontrado com o ID informado." << std::endl;
+}
+
+void Loja::editarAnimal(int id) {
+    for (const auto& animal : this->animais) {
+        if (animal->getId() == id) {
+            utils::limpaTela();
+
+            animal->editar();
+
+            utils::pausar();
+            utils::limpaTela();
+            return;
+        }
+    }
+
+    std::cout << "Nenhum animal foi encontrado com o ID informado." << std::endl;
+}
+
+void Loja::removerAnimal(int id) {
+    for (const auto& animal : this->animais) {
+        if (animal->getId() == id) {
+            std::string nome_removido = animal->getNome();
+
+            auto it = std::find(this->animais.begin(), this->animais.end(), animal);
+            this->animais.erase(it);
+
+            std::cout << "O animal " << nome_removido << " removido." << std::endl;
+        }
     }
 }
 
-void 
-Loja::printTitle(std::string title, int largura) {
-	int spaceOnLeft = (largura-title.length())/2;
-	int spaceExtra = title.length()%2;
-	std::cout << std::setfill('*') << std::setw(largura) << ""<< std::endl;
-	std::cout << "**" 
-		<< std::setfill(' ') << std::setw(spaceOnLeft-2) << ""
-		<< title 
-		<< std::setfill(' ') << std::setw(spaceOnLeft-2+spaceExtra) << ""
-		<< "**" << std::endl;
-	std::cout << std::setfill('*') << std::setw(largura) << "" << std::endl;
+void Loja::listarAnimais() {
+    if(!this->animais.empty()) {
+        char opcao;
+        int id;
+
+        do {
+            utils::printTitle("Lista de Animais", 60);
+            std::cout <<
+            std::left << "| " << std::setfill(' ') << std::setw(2) << "id" <<
+            std::left << " | " << std::setfill(' ') << std::setw(12) << "Classe" <<
+            std::left << " | " << std::setfill(' ') << std::setw(12) << "Espécie" <<
+            std::left << " | " << std::setfill(' ') << std::setw(20) << "Nome" <<
+            " |" << std::endl;
+            std::cout << "------------------------------------------------------------" << std::endl;
+
+            for (const auto& animal : this->animais) {
+                std::cout <<
+                std::left << "| " << std::setfill(' ') << std::setw(2) << animal->getId() << 
+                std::left << " | " << std::setfill(' ') << std::setw(12) << animal->getClasse() << 
+                std::left << " | " << std::setfill(' ') << std::setw(12) << animal->getEspecie() << 
+                std::left << " | " << std::setfill(' ') << std::setw(20) << animal->getNome() << 
+                " |" << std::endl;
+            }
+
+            std::cout << std::endl << "==========================";
+            std::cout << std::endl << "Opções: ";
+            std::cout << std::endl << "==========================";
+            std::cout << std::endl << "V - Ver.";
+            std::cout << std::endl << "E - Editar.";
+            std::cout << std::endl << "R - Remover.";
+            std::cout << std::endl << "---------------------------";
+            std::cout << std::endl << std::endl << "X - Voltar.";
+
+            std::cout << std::endl << std::endl << "Selecione a opção: ";
+            std::cin >> opcao;
+
+            switch (opcao) {
+                case 'V' :
+                case 'v' : {
+                    std::cout << std::endl << std::endl << "Informe o id: ";
+                    std::cin >> id;
+                    this->verAnimal(id);
+                }
+                break;
+                case 'E' :
+                case 'e' : {
+                    std::cout << std::endl << std::endl << "Informe o id: ";
+                    std::cin >> id;
+                    this->editarAnimal(id);
+                }
+                break;
+                case 'R' :
+                case 'r' : {
+                    std::cout << std::endl << std::endl << "Informe o id: ";
+                    std::cin >> id;
+                    this->removerAnimal(id);
+                }
+                break;
+                case 'X' :
+                case 'x' : { return;}
+                break;
+                default : std::cout << std::endl << "Opção inválida!";
+            }
+            std::cout << std::endl;
+
+            utils::pausar();
+            utils::limpaTela();
+        } while (opcao != 'X' && opcao !='x');
+    } else {
+        std::cout << "Nenhum animal foi adicionado." << std::endl;
+    }
 }

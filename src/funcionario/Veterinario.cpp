@@ -1,6 +1,9 @@
+#include <iostream>
+
+#include "../../include/utils.hpp"
 #include "../../include/funcionario/Veterinario.hpp"
 
-Veterinario::Veterinario() {}
+Veterinario::Veterinario(): Funcionario() {}
 
 Veterinario::Veterinario (
 	std::string nome,
@@ -17,4 +20,45 @@ std::string Veterinario::getNumeroCRMV() {
 
 void Veterinario::setNumeroCRMV(std::string numero_CRMV) {
     this->numero_CRMV = numero_CRMV;
+}
+
+void Veterinario::solicitaDados(){
+    utils::printTitle("Adicionar Veterinário", 60);
+
+    this->solicitaDadosBase();
+
+    std::string vet_numero_CRMV;
+
+    std::cout << "Número do CRMV: ";
+    std::cin.ignore();
+    getline(std::cin, vet_numero_CRMV);
+    this->setNumeroCRMV(vet_numero_CRMV);
+}
+
+void Veterinario::ver(){
+    utils::printTitle("Veterinário", 60);
+
+    this->verBase();
+
+    std::cout << "Número do CRMV: " << this->getNumeroCRMV() << std::endl;
+}
+
+void Veterinario::editar(){
+    utils::printTitle("Editar Veterinário", 60);
+
+    this->editarBase();
+
+    std::string vet_numero_CRMV;
+
+    char opcao;
+
+    std::cout << "Editar Cor do uniforme? (s: sim, n: não)";
+    std::cin >> opcao;
+
+    if(opcao == 'S' || opcao == 's') {
+        std::cout << "Número do CRMV: ";
+        std::cin.ignore();
+        getline(std::cin, vet_numero_CRMV);
+        this->setNumeroCRMV(vet_numero_CRMV);
+    }
 }

@@ -18,4 +18,10 @@ class Tratador : public Funcionario {
 
         /*setters*/
         void setCorUniforme(std::string cor_uniforme);
+
+        void solicitaDados() override;
+
+        void ver() override;
+
+        void editar() override;
 };

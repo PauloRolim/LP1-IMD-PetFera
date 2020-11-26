@@ -1,90 +1,71 @@
 #include <iostream>
 
+#include "../include/utils.hpp"
 #include "../include/funcionario/Veterinario.hpp"
 #include "../include/funcionario/Tratador.hpp"
 #include "../include/Loja.hpp"
 
-using namespace std;
-
-// TODO: Os métodos limpaTela e pausar precisam ir para um arquivo (utils.cpp, por exemplo)
-// 		para serem utilizados dentro de outras classes.
-
-void limpaTela() {
-	#if defined _WIN32
-	    system("cls");
-	#elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
-	    system("clear");
-	#elif defined (__APPLE__)
-	    system("clear");
-	#endif
-}
-
-void pausar() {
-	cout << "Pressione qualquer tecla para continuar...";
-	cin.get();
-	cin.ignore();
-}
-
 void menuPrincipal(Loja* lj) {
 	char opcao;
-	limpaTela();
-	do {	
-		cout<< endl << "Opções: ";
-		cout<< endl << "========";
-		cout<< endl << "V - Adicionar um Veterinário.";
-		cout<< endl << "B - Listar Veterinários.";
-		cout<< endl << "T - Adicionar um Tratador.";
-		cout<< endl << "Y - Listar Tratadores.";
-		cout<< endl << "A - Adicionar um Animal.";
-		cout<< endl << "S - Listar Animais.";
-		cout<< endl << "---------";
-		cout<< endl << endl << "X - Encerrar.";
 
-		cout<< endl << endl << "Selecione a opção: ";
+	utils::limpaTela();
 
-		cin >> opcao;
+	do {
+		utils::printTitle(lj->getNome(), 60);
 
-		limpaTela();
+		std::cout << std::endl << "==========================";
+		std::cout << std::endl << "Opções: ";
+		std::cout << std::endl << "==========================";
+		std::cout << std::endl << "V - Adicionar um Veterinário.";
+		std::cout << std::endl << "B - Listar Veterinários.";
+		std::cout << std::endl << "T - Adicionar um Tratador.";
+		std::cout << std::endl << "Y - Listar Tratadores.";
+		std::cout << std::endl << "A - Adicionar um Animal.";
+		std::cout << std::endl << "S - Listar Animais.";
+		std::cout << std::endl << "---------------------------";
+		std::cout << std::endl << std::endl << "X - Encerrar.";
+
+		std::cout << std::endl << std::endl << "Selecione a opção: ";
+		std::cin >> opcao;
+
+		utils::limpaTela();
 
 		switch (opcao) {
 			case 'V' :
-			case 'v' :{ lj->adicionarVeterinario();}
+			case 'v' : { lj->adicionarVeterinario(); }
 			break;
 			case 'B' :
-			case 'b' :{ lj->listarVeterinarios();}
+			case 'b' : { lj->listarVeterinarios(); }
 			break;
 			case 'T' :
-			case 't' :{ lj->adicionarTratador();}
+			case 't' : { lj->adicionarTratador(); }
 			break;
 			case 'Y' :
-			case 'y' :{ lj->listarTratadores();}
+			case 'y' : { lj->listarTratadores(); }
 			break;
 			case 'A' :
-			case 'a' :{ lj->adicionarAnimal();}
+			case 'a' : { lj->adicionarAnimal(); }
 			break;
 			case 'S' :
-			case 's' :{ lj->listarAnimais();}
+			case 's' : { lj->listarAnimais(); }
 			break;
 			case 'X' :
-			case 'x' :{ return;}
+			case 'x' : { return; }
 			break;
-			default : cout << endl << "Opção inválida!";
+			default : std::cout << std::endl << "Opção inválida!";
 		}
-		cout << endl;
+		std::cout << std::endl;
 
-		pausar();
-		limpaTela();
+		utils::pausar();
+		utils::limpaTela();
 	
 	} while (opcao != 'X' && opcao !='x');
 }
 
 int main(int argc, char const *argv[]) {
-
 	Loja* lj1 = new Loja("PetFera");
 
 	menuPrincipal(lj1);
 
 	return 0;
 }
-
-
