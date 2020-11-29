@@ -21,7 +21,7 @@ enum tipo_do_habitat
 
 
 class Anfibio : public Animal {
-    private:
+    protected:
      tamanho_do_habitat tamanho_tipo;
      tipo_do_habitat habitat_tipo;
 
