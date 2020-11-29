@@ -14,9 +14,9 @@ enum tamanho_do_habitat
 
 enum tipo_do_habitat 
 {
-    aquatico,
-    hibrido,
-    umido 
+    mata_fechada,
+    tropical_humido,
+    varzea_tropical 
 };
 
 
