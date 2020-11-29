@@ -1,7 +1,17 @@
  #include "../../include/animal/Mamifero.hpp"
 
-Mamifero::Mamifero(porte_do_mamifero porte_tipo, 
-                   requer_gaiola gaiola_tipo){}
+Mamifero::Mamifero(
+            std::string classe,
+            std::string especie,
+            std::string nome,
+            double preco,
+            Tratador* tratador_responcavel,
+            Veterinario* vet_responcavel,
+            _sexo sexo,
+            _classificacaoRisco risco,
+            _alimentacao comida,
+            porte_do_mamifero porte_tipo, 
+            requer_gaiola gaiola_tipo){}
 
 
 porte_do_mamifero 
