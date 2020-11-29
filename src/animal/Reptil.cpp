@@ -1,5 +1,7 @@
 #include "../../include/animal/Reptil.hpp"
 
+Reptil::Reptil(): Animal() {}
+
 Reptil::Reptil(
         std::string classe,
         std::string especie,

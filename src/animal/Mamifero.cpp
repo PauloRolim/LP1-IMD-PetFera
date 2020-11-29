@@ -1,5 +1,7 @@
  #include "../../include/animal/Mamifero.hpp"
 
+Mamifero::Mamifero(): Animal() {}
+
 Mamifero::Mamifero(
             std::string classe,
             std::string especie,
