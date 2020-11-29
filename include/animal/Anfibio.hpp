@@ -8,7 +8,7 @@ enum tamanho_do_habitat
 {
     pequeno,
     medio,
-    grande 
+    gigante
 };
 
 
