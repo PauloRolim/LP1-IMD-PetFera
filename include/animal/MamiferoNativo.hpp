@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "../../include/animal/Mamifero.hpp"
 #include "../../include/animal/Nativo.hpp"
 
