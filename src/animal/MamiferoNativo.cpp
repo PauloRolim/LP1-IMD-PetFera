@@ -13,6 +13,12 @@ MamiferoNativo::MamiferoNativo(
     porte_do_mamifero porte_tipo, 
     requer_gaiola gaiola_tipo,
     std::string licenca_IBAMA
+<<<<<<< HEAD
 )
 {
 }
+=======
+    )
+{
+}
+>>>>>>> 89f69e570c600d668f188fcf5436dfc071e8fec1

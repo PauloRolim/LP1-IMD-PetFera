@@ -14,6 +14,12 @@ ReptilNativo::ReptilNativo(
     tipo_do_habitat habitat_tipo, 
     requer_luz_uv luz_tipo,
     std::string licenca_IBAMA
+<<<<<<< HEAD
 )
 {
 }
+=======
+    )
+{
+}
+>>>>>>> 89f69e570c600d668f188fcf5436dfc071e8fec1

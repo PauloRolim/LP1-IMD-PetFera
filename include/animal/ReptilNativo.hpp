@@ -1,12 +1,21 @@
+<<<<<<< HEAD
 #pragma once
+=======
+#include <iostream>
+>>>>>>> 89f69e570c600d668f188fcf5436dfc071e8fec1
 
 #include "../../include/animal/Reptil.hpp"
 #include "../../include/animal/Nativo.hpp"
 
 class ReptilNativo: public Reptil, public Nativo
 {
+<<<<<<< HEAD
 private:
     /* data */
+=======
+protected:
+ 
+>>>>>>> 89f69e570c600d668f188fcf5436dfc071e8fec1
 public:
     ReptilNativo();
     ReptilNativo(
@@ -24,5 +33,11 @@ public:
         requer_luz_uv luz_tipo,
         std::string licenca_IBAMA
     );
+<<<<<<< HEAD
     ~ReptilNativo();
 };
+=======
+
+    virtual ~ReptilNativo();
+};
+>>>>>>> 89f69e570c600d668f188fcf5436dfc071e8fec1
