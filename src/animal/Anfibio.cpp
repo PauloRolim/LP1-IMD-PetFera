@@ -88,6 +88,8 @@ void Anfibio::verBase2(){
 void Anfibio::ver(){
     utils::printTitle("Anfíbio", 60);
 
+    std::cout << "Tipo: Doméstico";
+
     this->verBase2();
 }
 
