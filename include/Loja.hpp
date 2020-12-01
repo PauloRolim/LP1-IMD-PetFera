@@ -7,11 +7,16 @@
 #include "funcionario/Tratador.hpp"
 #include "animal/Anfibio.hpp"
 #include "animal/AnfibioExotico.hpp"
+#include "animal/AnfibioNativo.hpp"
 #include "animal/Ave.hpp"
 #include "animal/AveExotico.hpp"
+#include "animal/AveNativo.hpp"
+#include "animal/Mamifero.hpp"
 #include "animal/MamiferoExotico.hpp"
+#include "animal/MamiferoNativo.hpp"
 #include "animal/Reptil.hpp"
 #include "animal/ReptilExotico.hpp"
+#include "animal/ReptilNativo.hpp"
 
 class Loja {
 	private:

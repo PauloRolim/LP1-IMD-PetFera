@@ -1,25 +1,26 @@
 #include "../../include/animal/ReptilNativo.hpp"
+#include "../../include/utils.hpp"
 
-ReptilNativo::ReptilNativo(
-    std::string classe,
-    std::string especie,
-    std::string nome,
-    double preco,
-    Tratador* tratador_responcavel,
-    Veterinario* vet_responcavel,
-    _sexo sexo,
-    _classificacaoRisco risco,
-    _alimentacao comida,
-    tamanho_do_habitat tamanho_tipo, 
-    tipo_do_habitat habitat_tipo, 
-    requer_luz_uv luz_tipo,
-    std::string licenca_IBAMA
-<<<<<<< HEAD
-)
-{
+ReptilNativo::ReptilNativo(): Reptil() {}
+
+void Reptil::solicitaDados(){
+    utils::printTitle("Adicionar Réptil", 60);
+
+    this->solicitaDadosBase2();
+    this->solicitaDadosNativo();
 }
-=======
-    )
-{
+
+void Reptil::ver(){
+    utils::printTitle("Réptil", 60);
+
+    std::cout << "Tipo: Nativo" << std::endl;
+    this->verBase2();
+    this->verNativo();
 }
->>>>>>> 89f69e570c600d668f188fcf5436dfc071e8fec1
+
+void Reptil::editar(){
+    utils::printTitle("Editar Réptil", 60);
+
+    this->editarBase2();
+    this->editarNativo();
+}

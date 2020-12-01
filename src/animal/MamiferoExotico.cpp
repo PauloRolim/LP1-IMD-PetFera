@@ -16,7 +16,7 @@ void Mamifero::ver(){
 
     std::cout << "Tipo: Exótico" << std::endl;
     this->verBase2();
-    this->vetExotico();
+    this->verExotico();
 }
 
 void Mamifero::editar(){

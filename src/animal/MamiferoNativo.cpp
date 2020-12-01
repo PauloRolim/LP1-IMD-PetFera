@@ -1,24 +1,26 @@
 #include "../../include/animal/MamiferoNativo.hpp"
+#include "../../include/utils.hpp"
 
-MamiferoNativo::MamiferoNativo(
-    std::string classe,
-    std::string especie,
-    std::string nome,
-    double preco,
-    Tratador* tratador_responcavel,
-    Veterinario* vet_responcavel,
-    _sexo sexo,
-    _classificacaoRisco risco,
-    _alimentacao comida,
-    porte_do_mamifero porte_tipo, 
-    requer_gaiola gaiola_tipo,
-    std::string licenca_IBAMA
-<<<<<<< HEAD
-)
-{
+MamiferoNativo::MamiferoNativo(): Mamifero(){}
+
+void Mamifero::solicitaDados(){
+    utils::printTitle("Adicionar Mamífero", 60);
+
+    this->solicitaDadosBase2();
+    this->solicitaDadosNativo();
 }
-=======
-    )
-{
+
+void Mamifero::ver(){
+    utils::printTitle("Mamífero", 60);
+
+    std::cout << "Tipo: Nativo" << std::endl;
+    this->verBase2();
+    this->verNativo();
 }
->>>>>>> 89f69e570c600d668f188fcf5436dfc071e8fec1
+
+void Mamifero::editar(){
+    utils::printTitle("Editar Mamífero", 60);
+
+    this->editarBase2();
+    this->editarNativo();
+}

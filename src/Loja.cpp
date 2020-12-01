@@ -346,6 +346,8 @@ void Loja::adicionarAnimal() {
             switch (origem) {
                 case 0:
                     // Silvestre nativo;
+                    ani = static_cast<AnfibioNativo*>(ani);
+                    ani->setClasse(_classe::anfibio);
                     break;
                 case 1:
                     // Silvestre exótico;
@@ -367,6 +369,8 @@ void Loja::adicionarAnimal() {
             switch (origem) {
                 case 0:
                     // Silvestre nativo;
+                    ani = static_cast<AveNativo*>(ani);
+                    ani->setClasse(_classe::ave);
                     break;
                 case 1:
                     // Silvestre exótico;
@@ -388,6 +392,8 @@ void Loja::adicionarAnimal() {
             switch (origem) {
                 case 0:
                     // Silvestre nativo;
+                    ani = static_cast<MamiferoNativo*>(ani);
+                    ani->setClasse(_classe::mamifero);
                     break;
                 case 1:
                     // Silvestre exótico;
@@ -409,6 +415,8 @@ void Loja::adicionarAnimal() {
             switch (origem) {
                 case 0:
                     // Silvestre nativo;
+                    ani = static_cast<ReptilNativo*>(ani);
+                    ani->setClasse(_classe::reptil);
                     break;
                 case 1:
                     // Silvestre exótico;

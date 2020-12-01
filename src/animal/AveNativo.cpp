@@ -1,18 +1,28 @@
 #include "../../include/animal/AveNativo.hpp"
+#include "../../include/utils.hpp"
 
-AveNativo::AveNativo(
-        std::string classe,
-        std::string especie,
-        std::string nome,
-        double preco,
-        Tratador* tratador_responcavel,
-        Veterinario* vet_responcavel,
-        _sexo sexo,
-        _classificacaoRisco risco,
-        _alimentacao comida,
-        tamanho_da_gaiola tamanho_tipo, 
-        ave_voadora voa_tipo,
-        std::string licenca_IBAMA
-        )
+AveNativo::AveNativo(): Ave()
 {
+}
+
+void Ave::solicitaDados(){
+    utils::printTitle("Adicionar Ave", 60);
+
+    this->solicitaDadosBase2();
+    this->solicitaDadosNativo();
+}
+
+void Ave::ver(){
+    utils::printTitle("Ave", 60);
+
+    std::cout << "Tipo: Nativo" << std::endl;
+    this->verBase2();
+    this->verNativo();
+}
+
+void Ave::editar(){
+    utils::printTitle("Editar Ave", 60);
+
+    this->editarBase2();
+    this->editarNativo();
 }

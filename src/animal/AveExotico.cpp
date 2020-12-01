@@ -11,7 +11,7 @@ void Ave::solicitaDados(){
 }
 
 void Ave::ver(){
-    utils::printTitle("Anfibio", 60);
+    utils::printTitle("Ave", 60);
 
     std::cout << "Tipo: Exótico" << std::endl;
     this->verBase2();
@@ -19,7 +19,7 @@ void Ave::ver(){
 }
 
 void Ave::editar(){
-    utils::printTitle("Editar Anfibio", 60);
+    utils::printTitle("Editar Ave", 60);
 
     this->editarBase2();
     this->editarExotico();

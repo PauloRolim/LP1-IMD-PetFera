@@ -1,18 +1,26 @@
 #include "../../include/animal/AnfibioNativo.hpp"
+#include "../../include/utils.hpp"
 
-AnfibioNativo::AnfibioNativo(
-    std::string classe,
-    std::string especie,
-    std::string nome,
-    double preco,
-    Tratador* tratador_responcavel,
-    Veterinario* vet_responcavel,
-    _sexo sexo,
-    _classificacaoRisco risco,
-    _alimentacao comida,
-    tamanho_do_habitat tamanho_tipo, 
-    tipo_do_habitat habitat_tipo,
-    std::string licenca_IBAMA
-)
-{
+AnfibioNativo::AnfibioNativo(): Anfibio() {}
+
+void Anfibio::solicitaDados(){
+    utils::printTitle("Adicionar Anfibio", 60);
+
+    this->solicitaDadosBase2();
+    this->solicitaDadosNativo();
+}
+
+void Anfibio::ver(){
+    utils::printTitle("Anfibio", 60);
+
+    std::cout << "Tipo: Nativo" << std::endl;
+    this->verBase2();
+    this->verNativo();
+}
+
+void Anfibio::editar(){
+    utils::printTitle("Editar Anfibio", 60);
+
+    this->editarBase2();
+    this->editarNativo();
 }
