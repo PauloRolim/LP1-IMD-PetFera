@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "../../include/animal/Animal.hpp"
+#include "../../include/utils.hpp"
 
 Animal::Animal() {
     this->setId();
@@ -195,6 +196,10 @@ void Animal::solicitaDadosBase(){
     int sexo; // pegando como int para depois transformar no enum
     int risco;
     int comida;
+
+    utils::printTitle("Adicionar Animais", 60);
+
+    
 
     std::cout << "Classe: ";
     std::cin.ignore(); 
