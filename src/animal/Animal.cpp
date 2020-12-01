@@ -113,11 +113,8 @@ std::string Animal::getRiscoTexto() const{
         case _classificacaoRisco::perigoso:
             return "Perigoso";
             break;
-        case _classificacaoRisco::peconhento:
-            return "Peçonhento";
-            break;
         case _classificacaoRisco::semRisco:
-            return "Sem Risco";
+            return "Sem risco";
             break;
         default:
             return "";
@@ -214,15 +211,15 @@ void Animal::solicitaDadosBase(){
     std::cin >> preco;
     this->setPreco(preco);
 
-    std::cout << "Sexo (0: fêmea, 1: macho): ";
+    std::cout << "Sexo (0: Fêmea, 1: Macho): ";
     std::cin >> sexo;
     this->setSexo(static_cast<_sexo>( sexo ));
 
-    std::cout << "Classificação de risco (0: venenoso, 1: perigoso, 2: peçonhento, 3: Sem Risco): ";
+    std::cout << "Classificação de risco (0: Venenoso, 1: Perigoso, 2: Sem risco): ";
     std::cin >> risco;
     this->setRisco(static_cast<_classificacaoRisco>( risco ));
 
-    std::cout << "Alimentação (0: herbívoro, 1: onívoro, 2: carnívoro): ";
+    std::cout << "Alimentação (0: Herbívoro, 1: Onívoro, 2: Carnívoro): ";
     std::cin >> comida;
     this->setComida(static_cast<_alimentacao>( comida ));
 }
@@ -232,14 +229,13 @@ void Animal::solicitaDados(){
 }
 
 void Animal::verBase(){
-    
     std::cout << "Classe: " << this->getClasse() << std::endl;
     std::cout << "Espécie: " << this->getEspecie() << std::endl;
     std::cout << "Nome: " << this->getNome() << std::endl;
     std::cout << "Preço em R$: " << this->getPreco() << std::endl;
-    std::cout << "Sexo: " << this->getSexo() << std::endl;
-    std::cout << "Classificação de risco: " << this->getRisco() << std::endl;
-    std::cout << "Alimentação: " << this->getComida() << std::endl;
+    std::cout << "Sexo: " << this->getSexoTexto() << std::endl;
+    std::cout << "Classificação de risco: " << this->getRiscoTexto() << std::endl;
+    std::cout << "Alimentação: " << this->getComidaTexto() << std::endl;
 }
 
 void Animal::ver(){

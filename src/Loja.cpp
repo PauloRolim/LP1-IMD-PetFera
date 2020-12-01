@@ -327,9 +327,94 @@ void Loja::listarAnimaisTratador(int id){
 
 // Animal
 void Loja::adicionarAnimal() {
+    int classe;
+    int origem;
+
+    utils::printTitle("Adicionar Animal", 60);
+
+    std::cout << "Classe (0: Anfíbio, 1: Ave, 2: Mamífero, 3: Réptil): ";
+    std::cin >> classe;
+
+    std::cout << "Origem (0: Silvestre Natívo, 1: Silvestre Exótico, 2: Doméstico): ";
+    std::cin >> origem;
+
+    switch (classe) {
+        case 0:
+            // Anfíbio;
+            switch (origem) {
+                case 0:
+                    // Silvestre nativo;
+                    break;
+                case 1:
+                    // Silvestre exótico;
+                    break;
+                case 2:
+                    // Doméstico;
+                    break;
+
+                default:
+                    return "";
+            }
+            break;
+        case 1:
+            // Ave;
+            switch (origem) {
+                case 0:
+                    // Silvestre nativo;
+                    break;
+                case 1:
+                    // Silvestre exótico;
+                    break;
+                case 2:
+                    // Doméstico;
+                    break;
+
+                default:
+                    return "";
+            }
+            break;
+        case 2:
+            // Mamífero;
+            switch (origem) {
+                case 0:
+                    // Silvestre nativo;
+                    break;
+                case 1:
+                    // Silvestre exótico;
+                    break;
+                case 2:
+                    // Doméstico;
+                    break;
+
+                default:
+                    return "";
+            }
+            break;
+        case 3:
+            // Réptil;
+            switch (origem) {
+                case 0:
+                    // Silvestre nativo;
+                    break;
+                case 1:
+                    // Silvestre exótico;
+                    break;
+                case 2:
+                    // Doméstico;
+                    break;
+
+                default:
+                    return "";
+            }
+            break;
+
+        default:
+            return "";
+    }
+
     Animal* ani = new Animal();
     ani->solicitaDados();
-    
+
     this->animais.push_back(ani);
 
     std::cout << std::endl << "O animal " << ani->getNome() << " foi adicionado.";

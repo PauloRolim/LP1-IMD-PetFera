@@ -9,7 +9,6 @@
 enum _classificacaoRisco {
     venenoso,
     perigoso,
-    peconhento,
     semRisco
 };
 
