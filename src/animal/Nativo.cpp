@@ -2,7 +2,6 @@
 
 Nativo::Nativo() {}
 Nativo::Nativo(std::string licencaIBAMA) : licencaIBAMA(licencaIBAMA) {}
-
 Nativo::~Nativo() {}
 
 std::string Nativo::getLicencaIBAMA() const{

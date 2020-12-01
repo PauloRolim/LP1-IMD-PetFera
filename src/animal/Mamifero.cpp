@@ -86,6 +86,7 @@ void Mamifero::ver(){
     utils::printTitle("Mamífero", 60);
 
     this->verBase2();
+    std::cout << "Tipo: Doméstico" << std::endl;
 }
 
 void Mamifero::editarBase2(){
