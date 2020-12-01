@@ -389,6 +389,8 @@ void Loja::adicionarAnimal() {
                     break;
                 case 1:
                     // Silvestre exótico;
+                    ani = static_cast<MamiferoExotico*>(ani);
+                    ani->setClasse(_classe::mamifero);
                     break;
                 case 2:
                     // Doméstico;

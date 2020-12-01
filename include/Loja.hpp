@@ -8,7 +8,7 @@
 #include "animal/Anfibio.hpp"
 #include "animal/AnfibioExotico.hpp"
 #include "animal/Ave.hpp"
-#include "animal/Mamifero.hpp"
+#include "animal/MamiferoExotico.hpp"
 #include "animal/Reptil.hpp"
 
 class Loja {
