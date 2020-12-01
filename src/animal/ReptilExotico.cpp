@@ -1,18 +1,27 @@
 #include "../../include/animal/ReptilExotico.hpp"
+#include "../../include/utils.hpp"
 
-ReptilExotico::ReptilExotico(
-    std::string classe,
-    std::string especie,
-    std::string nome,
-    double preco,
-    Tratador* tratador_responcavel,
-    Veterinario* vet_responcavel,
-    _sexo sexo,
-    _classificacaoRisco risco,
-    _alimentacao comida,
-    tamanho_do_habitat tamanho_tipo, 
-    tipo_do_habitat habitat_tipo, 
-    requer_luz_uv luz_tipo,
-    std::string pais_de_origem)
-{
+ReptilExotico::ReptilExotico(): Reptil()    
+{ }
+
+void Reptil::solicitaDados(){
+    utils::printTitle("Adicionar Reptil", 60);
+
+    this->solicitaDadosBase2();
+    this->solicitaDadosExotico();
+}
+
+void Reptil::ver(){
+    utils::printTitle("Anfibio", 60);
+
+    std::cout << "Tipo: Exótico" << std::endl;
+    this->verBase2();
+    this->vetExotico();
+}
+
+void Reptil::editar(){
+    utils::printTitle("Editar Anfibio", 60);
+
+    this->editarBase2();
+    this->editarExotico();
 }

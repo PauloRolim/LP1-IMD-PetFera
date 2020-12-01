@@ -8,8 +8,10 @@
 #include "animal/Anfibio.hpp"
 #include "animal/AnfibioExotico.hpp"
 #include "animal/Ave.hpp"
+#include "animal/AveExotico.hpp"
 #include "animal/MamiferoExotico.hpp"
 #include "animal/Reptil.hpp"
+#include "animal/ReptilExotico.hpp"
 
 class Loja {
 	private:

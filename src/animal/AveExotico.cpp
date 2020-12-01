@@ -1,17 +1,26 @@
 #include "../../include/animal/AveExotico.hpp"
+#include "../../include/utils.hpp"
 
-AveExotica::AveExotico(
-        std::string classe,
-        std::string especie,
-        std::string nome,
-        double preco,
-        Tratador* tratador_responcavel,
-        Veterinario* vet_responcavel,
-        _sexo sexo,
-        _classificacaoRisco risco,
-        _alimentacao comida,
-        tamanho_da_gaiola tamanho_tipo, 
-        ave_voadora voa_tipo,
-        std::string pais_de_origem)
-{
+AveExotico::AveExotico(): Ave(){}
+
+void Ave::solicitaDados(){
+    utils::printTitle("Adicionar Ave", 60);
+
+    this->solicitaDadosBase2();
+    this->solicitaDadosExotico();
+}
+
+void Ave::ver(){
+    utils::printTitle("Anfibio", 60);
+
+    std::cout << "Tipo: Exótico" << std::endl;
+    this->verBase2();
+    this->vetExotico();
+}
+
+void Ave::editar(){
+    utils::printTitle("Editar Anfibio", 60);
+
+    this->editarBase2();
+    this->editarExotico();
 }
