@@ -253,7 +253,7 @@ void Loja::listarTratadores() {
                 std::left << " | " << std::setfill(' ') << std::setw(20) << tratador->getNome() << 
                 std::left << " | " << std::setfill(' ') << std::setw(15) << tratador->getCpf() << 
                 std::left << " | " << std::setfill(' ') << std::setw(10) << std::fixed << std::setprecision(2) << tratador->getSalario() << 
-                std::left << " | " << std::setfill(' ') << std::setw(6) << tratador->getCorUniforme() << 
+                std::left << " | " << std::setfill(' ') << std::setw(6) << tratador->getCorUniformeTexto() << 
                 " |" << std::endl;
             }
 
@@ -493,7 +493,7 @@ void Loja::designarAnimalTratador(int id) {
                     std::left << " | " << std::setfill(' ') << std::setw(20) << tratador->getNome() << 
                     std::left << " | " << std::setfill(' ') << std::setw(15) << tratador->getCpf() << 
                     std::left << " | " << std::setfill(' ') << std::setw(10) << std::fixed << std::setprecision(2) << tratador->getSalario() << 
-                    std::left << " | " << std::setfill(' ') << std::setw(6) << tratador->getCorUniforme() << 
+                    std::left << " | " << std::setfill(' ') << std::setw(6) << tratador->getCorUniformeTexto() << 
                     " |" << std::endl;
                 }
 
