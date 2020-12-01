@@ -9,7 +9,7 @@ PROG = $(BIN)/programa
 CC = g++
 CPPFLAGS = -Wall -std=c++11 -I./include
 
-OBJS = $(BIN)/Funcionario $(BIN)/Tratador $(BIN)/Veterinario $(BIN)/Animal $(BIN)/Anfibio $(BIN)/Ave $(BIN)/Mamifero $(BIN)/Reptil $(BIN)/Loja $(BIN)/utils $(BIN)/main
+OBJS = $(BIN)/Funcionario $(BIN)/Tratador $(BIN)/Veterinario $(BIN)/Animal $(BIN)/Anfibio $(BIN)/Ave $(BIN)/Mamifero $(BIN)/Reptil $(BIN)/Exotico $(BIN)/Nativo $(BIN)/Loja $(BIN)/utils $(BIN)/main
 
 all : $(OBJS)
 		$(CC) $(OBJS) -o $(PROG)
