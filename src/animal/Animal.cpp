@@ -194,7 +194,7 @@ void Animal::solicitaDadosBase(){
     int risco;
     int comida;
 
-    utils::printTitle("Adicionar Animais", 60);
+    utils::printTitle("Adicionar Animal", 60);
 
    /* std::cout << "Classe: ";
     std::cin.ignore(); 
