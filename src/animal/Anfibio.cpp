@@ -1,73 +1,124 @@
+#include <iostream>
+
+#include "../../include/utils.hpp"
 #include "../../include/animal/Anfibio.hpp"
 
-Anfibio::Anfibio(): Animal() {}
+Anfibio::Anfibio(): Animal() {
+    this->classe = _classe::anfibio;
+}
 
-Anfibio::Anfibio(
-    std::string classe,
-    std::string especie,
-    std::string nome,
-    double preco,
-    Tratador* tratador_responcavel,
-    Veterinario* vet_responcavel,
-    _sexo sexo,
-    _classificacaoRisco risco,
-    _alimentacao comida,
-    tamanho_do_habitat tamanho_tipo, 
-    tipo_do_habitat habitat_tipo){
-        
-        classe = "Anfibio";
+Anfibio::~Anfibio() {}
+
+_tamanhoHabitat Anfibio::getTamanhoHabitat() const{
+    return this->tamanhoHabitat;
+}
+
+std::string Anfibio::getTamanhoHabitatTexto() const{
+    switch (this->getTamanhoHabitat()) {
+        case _tamanhoHabitat::pequeno:
+            return "Pequeno";
+            break;
+        case _tamanhoHabitat::medio:
+            return "Médio";
+            break;
+        case _tamanhoHabitat::grande:
+            return "Grande";
+            break;
+        default:
+            return "";
     }
-
-tamanho_do_habitat 
-Anfibio::getTamanho_tipo() const{
-    return this->tamanho_tipo;
 }
 
-tipo_do_habitat 
-Anfibio::getHabitat_tipo() const{
-    return this->habitat_tipo;
+_tipoHabitat Anfibio::getTipoHabitat() const{
+    return this->tipoHabitat;
 }
 
-void 
-Anfibio::setTamanho_do_habitat(tamanho_do_habitat tamanho_tipo){
-    tamanho_tipo = tamanho_tipo;
+std::string Anfibio::getTipoHabitatTexto() const{
+    switch (this->getTipoHabitat()) {
+        case _tipoHabitat::mata_fechada:
+            return "Mata fechada";
+            break;
+        case _tipoHabitat::tropical_umido:
+            return "Tropical úmido";
+            break;
+        case _tipoHabitat::varzea_tropical:
+            return "Várzea tropical";
+            break;
+        default:
+            return "";
+    }
 }
 
-void 
-Anfibio::setTipo_do_habitat(tipo_do_habitat habitat_tipo){
-    habitat_tipo = habitat_tipo;
+void Anfibio::setTamanhoHabitat(_tamanhoHabitat tamanhoHabitat){
+    tamanhoHabitat = tamanhoHabitat;
+}
+
+void Anfibio::setTipoHabitat(_tipoHabitat tipoHabitat){
+    tipoHabitat = tipoHabitat;
 }
 
 void Anfibio::solicitaDadosBase2(){
-
-    int tamanho_tipo;
-    int habitat_tipo;
+    int tamanhoHabitat;
+    int tipoHabitat;
 
     Animal::solicitaDadosBase();
   
-    std::cout << "Tamanho do Habitat (0: pequeno, 1: medio, 2: gigante): ";
-    std::cin >> tamanho_tipo;
-    this->setTamanho_do_habitat(static_cast<tamanho_do_habitat>( tamanho_tipo ));
+    std::cout << "Tamanho do Habitat (0: Pequeno, 1: Médio, 2: Grande): ";
+    std::cin >> tamanhoHabitat;
+    this->setTamanhoHabitat(static_cast<_tamanhoHabitat>( tamanhoHabitat ));
 
-    std::cout << "Tipo do Habitat (0: herbívoro, 1: onívoro, 2: carnívoro): ";
-    std::cin >> habitat_tipo;
-    this->setTipo_do_habitat(static_cast<tipo_do_habitat>( habitat_tipo ));
+    std::cout << "Tipo do Habitat (0: Mata fechada, 1: Tropical úmido, 2: Várzea tropical): ";
+    std::cin >> tipoHabitat;
+    this->setTipoHabitat(static_cast<_tipoHabitat>( tipoHabitat ));
 }
 
-void Anfibio::verBase(){
-    
-    std::cout << "Tamanho do Habitat:  " << this->getTamanho_tipo() << std::endl;
-    std::cout << "Tipo do Habitat: " << this->getHabitat_tipo() << std::endl;
-}
+void Anfibio::solicitaDados(){
+    utils::printTitle("Adicionar Anfíbio", 60);
 
-void Anfibio::ver(){
-    this->verBase();
-}
-
-void Anfibio::editarBase(){
     this->solicitaDadosBase2();
 }
 
-void Anfibio::editar(){
+void Anfibio::verBase2(){
+    this->verBase();
+
+    std::cout << "Tamanho do Habitat:  " << this->getTamanhoHabitatTexto() << std::endl;
+    std::cout << "Tipo do Habitat: " << this->getTipoHabitatTexto() << std::endl;
+}
+
+void Anfibio::ver(){
+    utils::printTitle("Anfíbio", 60);
+
+    this->verBase2();
+}
+
+void Anfibio::editarBase2(){
     this->editarBase();
+
+    int tamanhoHabitat;
+    int tipoHabitat;
+    char opcao;
+
+    std::cout << "Editar Cor do uniforme? (s: sim, n: não) ";
+    std::cin >> opcao;
+
+    if(opcao == 'S' || opcao == 's') {
+        std::cout << "Tamanho do Habitat (0: Pequeno, 1: Médio, 2: Grande): ";
+        std::cin >> tamanhoHabitat;
+        this->setTamanhoHabitat(static_cast<_tamanhoHabitat>( tamanhoHabitat ));
+    }
+
+    std::cout << "Editar Tipo do Habitat? (s: sim, n: não) ";
+    std::cin >> opcao;
+
+    if(opcao == 'S' || opcao == 's') {
+        std::cout << "Tipo do Habitat (0: Mata fechada, 1: Tropical úmido, 2: Várzea tropical): ";
+        std::cin >> tipoHabitat;
+        this->setTipoHabitat(static_cast<_tipoHabitat>( tipoHabitat ));
+    }
+}
+
+void Anfibio::editar(){
+    utils::printTitle("Editar Anfíbio", 60);
+
+    this->editarBase2();
 }

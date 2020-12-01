@@ -14,7 +14,6 @@ Tratador::Tratador(
     this->setCorUniforme(cor_uniforme);
 }
 
-
 _corUniforme Tratador::getCorUniforme() const{
     return this->cor_uniforme;
 }

@@ -17,7 +17,6 @@ Animal::Animal() {
 }
 
 Animal::Animal(
-    std::string classe,
     std::string especie,
     std::string nome,
     double preco,
@@ -38,18 +37,6 @@ Animal::Animal(
     this->setComida(comida);
 }
 
-Animal::Animal(const Animal &a2) {
-    this->setId();
-    this->setEspecie(a2.getEspecie());
-    this->setNome(a2.getNome());
-    this->setPreco(a2.getPreco());
-    this->setTratadorResponcavel(a2.getTratadorResponcavel());
-    this->setVetResponcavel(a2.getVetResponcavel());
-    this->setSexo(a2.getSexo()); 
-    this->setRisco(a2.getRisco());
-    this->setComida(a2.getComida());
-}
-
 Animal::~Animal() {}
 
 int Animal::NEXT_ID = 1;
@@ -59,8 +46,27 @@ int Animal::getId() const {
     return this->id;
 }
 
-std::string Animal::getClasse() const {
+_classe Animal::getClasse() const {
     return this->classe;
+}
+
+std::string Animal::getClasseTexto() const{
+    switch (this->getClasse()) {
+        case _classe::anfibio:
+            return "Anfíbio";
+            break;
+        case _classe::ave:
+            return "Ave";
+            break;
+        case _classe::mamifero:
+            return "Mamífero";
+            break;
+        case _classe::reptil:
+            return "Réptil";
+            break;
+        default:
+            return "";
+    }
 }
 
 std::string Animal::getEspecie() const {
@@ -145,8 +151,8 @@ void Animal::setId() {
     this->id = this->NEXT_ID++;
 }
 
-void Animal::setClasse(std::string classe){
-    this-> classe = classe;
+void Animal::setClasse(_classe classe){
+    this->classe = classe;
 }
 
 void Animal::setEspecie(std::string especie) {
@@ -226,7 +232,6 @@ void Animal::solicitaDados(){
 }
 
 void Animal::verBase(){
-    
     std::cout << "Classe: " << this->getClasse() << std::endl;
     std::cout << "Espécie: " << this->getEspecie() << std::endl;
     std::cout << "Nome: " << this->getNome() << std::endl;
@@ -246,26 +251,4 @@ void Animal::editarBase(){
 
 void Animal::editar(){
     this->editarBase();
-}
-
-Animal& Animal::operator=(const Animal &a2) {
-    
-    this->setEspecie(a2.getEspecie());
-    this->setNome(a2.getNome());
-    this->setPreco(a2.getPreco());
-    this->setTratadorResponcavel(a2.getTratadorResponcavel());
-    this->setVetResponcavel(a2.getVetResponcavel());
-    this->setSexo(a2.getSexo()); 
-    this->setRisco(a2.getRisco());
-    this->setComida(a2.getComida());
-
-    return *this;
-}
-
-bool Animal::operator==(const Animal &a2) const {
-    return this->getClasse() != ""
-        && this->getEspecie() != ""
-        && this->getNome() != ""
-        && this->getEspecie() == a2.getEspecie()
-        && this->getNome() == a2.getNome();
 }

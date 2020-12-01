@@ -2,64 +2,53 @@
 
 #include <iostream>
 
-#include "../../include/animal/Animal.hpp"
+#include "Animal.hpp"
 
-enum tamanho_do_habitat 
+enum _tamanhoHabitat 
 {
     pequeno,
     medio,
-    gigante
+    grande
 };
 
 
-enum tipo_do_habitat 
+enum _tipoHabitat 
 {
     mata_fechada,
-    tropical_humido,
+    tropical_umido,
     varzea_tropical 
 };
 
-
 class Anfibio : public Animal {
     protected:
-    tamanho_do_habitat tamanho_tipo;
-    tipo_do_habitat habitat_tipo;
+    _tamanhoHabitat tamanhoHabitat;
+    _tipoHabitat tipoHabitat;
 
     public:
     
     /*construtores*/
     Anfibio();
-    Anfibio(
-        std::string classe,
-        std::string especie,
-        std::string nome,
-        double preco,
-        Tratador* tratador_responcavel,
-        Veterinario* vet_responcavel,
-        _sexo sexo,
-        _classificacaoRisco risco,
-        _alimentacao comida,
-        tamanho_do_habitat tamanho_tipo, 
-        tipo_do_habitat habitat_tipo);
 
     /*destrutor*/
-    virtual ~Anfibio();
+    ~Anfibio();
 
     /*geters*/
-    tamanho_do_habitat getTamanho_tipo() const;
-    tipo_do_habitat getHabitat_tipo() const;
+    _tamanhoHabitat getTamanhoHabitat() const;
+    std::string getTamanhoHabitatTexto() const;
+    _tipoHabitat getTipoHabitat() const;
+    std::string getTipoHabitatTexto() const;
 
     /*seters*/
-    void setTamanho_do_habitat(tamanho_do_habitat tamanho_tipo);
-    void setTipo_do_habitat(tipo_do_habitat habitat_tipo);
+    void setTamanhoHabitat(_tamanhoHabitat tamanhoHabitat);
+    void setTipoHabitat(_tipoHabitat tipoHabitat);
 
     void solicitaDadosBase2();
-    virtual void solicitaDados();
+    void solicitaDados() override;
 
-    void verBase();
-    virtual void ver();
+    void verBase2();
+    void ver() override;
 
-    void editarBase();
-    virtual void editar();
+    void editarBase2();
+    void editar() override;
 
 };

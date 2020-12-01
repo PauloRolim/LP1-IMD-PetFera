@@ -9,7 +9,7 @@ PROG = $(BIN)/programa
 CC = g++
 CPPFLAGS = -Wall -std=c++11 -I./include
 
-OBJS = $(BIN)/Anfibio $(BIN)/Funcionario $(BIN)/Tratador $(BIN)/Veterinario $(BIN)/Animal $(BIN)/Loja $(BIN)/utils $(BIN)/main
+OBJS = $(BIN)/Funcionario $(BIN)/Tratador $(BIN)/Veterinario $(BIN)/Animal $(BIN)/Anfibio $(BIN)/Loja $(BIN)/utils $(BIN)/main
 
 all : $(OBJS)
 		$(CC) $(OBJS) -o $(PROG)
@@ -29,10 +29,10 @@ $(BIN)/Veterinario : $(SRC)/funcionario/Veterinario.cpp $(INC)/funcionario/Veter
 	$(CC) $(CPPFLAGS) -c $(SRC)/funcionario/Veterinario.cpp -o $@
 $(BIN)/Animal : $(SRC)/animal/Animal.cpp $(INC)/animal/Animal.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/animal/Animal.cpp -o $@
-$(BIN)/Loja : $(SRC)/Loja.cpp $(INC)/Loja.hpp
-	$(CC) $(CPPFLAGS) -c $(SRC)/Loja.cpp -o $@
 $(BIN)/Anfibio : $(SRC)/animal/Anfibio.cpp $(INC)/animal/Anfibio.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/animal/Anfibio.cpp -o $@
+$(BIN)/Loja : $(SRC)/Loja.cpp $(INC)/Loja.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/Loja.cpp -o $@
 
 clean:
 	rm -f core $(PROG) $(OBJS)

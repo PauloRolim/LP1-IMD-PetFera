@@ -175,7 +175,7 @@ void Funcionario::listaAnimais(){
         for (const auto& animal : this->animais) {
             std::cout <<
             std::left << "| " << std::setfill(' ') << std::setw(2) << animal->getId() << 
-            std::left << " | " << std::setfill(' ') << std::setw(12) << animal->getClasse() << 
+            std::left << " | " << std::setfill(' ') << std::setw(12) << animal->getClasseTexto() << 
             std::left << " | " << std::setfill(' ') << std::setw(12) << animal->getEspecie() << 
             std::left << " | " << std::setfill(' ') << std::setw(20) << animal->getNome() << 
             " |" << std::endl;

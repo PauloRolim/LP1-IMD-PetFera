@@ -559,6 +559,8 @@ void Loja::listarAnimais() {
 }
 
 void Loja::designarAnimalTratador(int id) {
+    bool flagMostrouTratador = false;
+
     if(!this->tratadores.empty()) {
         for (const auto& animal : this->animais) {
             if (animal->getId() == id) {
@@ -573,36 +575,68 @@ void Loja::designarAnimalTratador(int id) {
                 std::cout << "------------------------------------------------------------" << std::endl;
 
                 for (const auto& tratador : this->tratadores) {
-                    std::cout <<
-                    std::left << "| " << std::setfill(' ') << std::setw(2) << tratador->getId() << 
-                    std::left << " | " << std::setfill(' ') << std::setw(20) << tratador->getNome() << 
-                    std::left << " | " << std::setfill(' ') << std::setw(15) << tratador->getCpf() << 
-                    std::left << " | " << std::setfill(' ') << std::setw(10) << std::fixed << std::setprecision(2) << tratador->getSalario() << 
-                    std::left << " | " << std::setfill(' ') << std::setw(6) << tratador->getCorUniformeTexto() << 
-                    " |" << std::endl;
-                }
+                    if(
+                        (
+                            (
+                                animal->getRisco() == _classificacaoRisco::venenoso ||
+                                animal->getRisco() == _classificacaoRisco::perigoso
+                            ) &&
+                            tratador->getCorUniforme() == _corUniforme::vermelho
+                        ) ||
+                        (
+                            (
+                                animal->getRisco() != _classificacaoRisco::venenoso &&
+                                animal->getRisco() != _classificacaoRisco::perigoso
+                            ) &&
+                            (
+                                tratador->getCorUniforme() == _corUniforme::azul ||
+                                (
+                                    tratador->getCorUniforme() == _corUniforme::verde &&
+                                    (
+                                        animal->getClasse() == _classe::ave ||
+                                        animal->getClasse() == _classe::anfibio
+                                    )
+                                )
+                            )
+                        )
+                    ) {
+                        flagMostrouTratador = true;
 
-                int id;
-
-                std::cout << std::endl << std::endl << "Informe o id do tratador: ";
-                std::cin >> id;
-
-                for (const auto& tratador : this->tratadores) {
-                    if (tratador->getId() == id) {
-                        if(animal->getTratadorResponcavel() != nullptr) {
-                            animal->getTratadorResponcavel()->removeAnimal(animal->getId());
-                        }
-
-                        tratador->adicionaAnimal(animal);
-
-                        animal->setTratadorResponcavel(tratador);
-
-                        std::cout << "O tratador " << tratador->getNome() <<
-                            " foi vinculado ao animal " << animal->getNome() << "." << std::endl;
+                        std::cout <<
+                        std::left << "| " << std::setfill(' ') << std::setw(2) << tratador->getId() << 
+                        std::left << " | " << std::setfill(' ') << std::setw(20) << tratador->getNome() << 
+                        std::left << " | " << std::setfill(' ') << std::setw(15) << tratador->getCpf() << 
+                        std::left << " | " << std::setfill(' ') << std::setw(10) << std::fixed << std::setprecision(2) << tratador->getSalario() << 
+                        std::left << " | " << std::setfill(' ') << std::setw(6) << tratador->getCorUniformeTexto() << 
+                        " |" << std::endl;
                     }
                 }
 
-                std::cout << "Nenhum animal foi encontrado com o ID informado." << std::endl;
+                if(flagMostrouTratador) {
+                    int id;
+
+                    std::cout << std::endl << std::endl << "Informe o id do tratador: ";
+                    std::cin >> id;
+
+                    for (const auto& tratador : this->tratadores) {
+                        if (tratador->getId() == id) {
+                            if(animal->getTratadorResponcavel() != nullptr) {
+                                animal->getTratadorResponcavel()->removeAnimal(animal->getId());
+                            }
+
+                            tratador->adicionaAnimal(animal);
+
+                            animal->setTratadorResponcavel(tratador);
+
+                            std::cout << "O tratador " << tratador->getNome() <<
+                                " foi vinculado ao animal " << animal->getNome() << "." << std::endl;
+                        }
+                    }
+
+                    std::cout << "Nenhum tratador foi encontrado com o ID informado." << std::endl;
+                } else {
+                    std::cout << "Nenhum tratador qualificado para este animal foi encontrado." << std::endl;
+                }
             }
         }
 
