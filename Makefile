@@ -37,6 +37,10 @@ $(BIN)/Mamifero : $(SRC)/animal/Mamifero.cpp $(INC)/animal/Mamifero.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/animal/Mamifero.cpp -o $@
 $(BIN)/Reptil : $(SRC)/animal/Reptil.cpp $(INC)/animal/Reptil.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/animal/Reptil.cpp -o $@
+$(BIN)/Nativo : $(SRC)/animal/Nativo.cpp $(INC)/animal/Nativo.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/animal/Nativo.cpp -o $@
+$(BIN)/Exotico : $(SRC)/animal/Exotico.cpp $(INC)/animal/Exotico.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/animal/Exotico.cpp -o $@
 $(BIN)/Loja : $(SRC)/Loja.cpp $(INC)/Loja.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/Loja.cpp -o $@
 
