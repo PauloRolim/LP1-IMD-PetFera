@@ -6,6 +6,7 @@
 #include "funcionario/Veterinario.hpp"
 #include "funcionario/Tratador.hpp"
 #include "animal/Anfibio.hpp"
+#include "animal/AnfibioExotico.hpp"
 #include "animal/Ave.hpp"
 #include "animal/Mamifero.hpp"
 #include "animal/Reptil.hpp"
