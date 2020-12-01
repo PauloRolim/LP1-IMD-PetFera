@@ -1,6 +1,15 @@
-#include "../../include/animal/AveExotica.hpp"
+#include <iostream>
 
-AveExotica::AveExotica(
+#include "../../include/animal/Ave.hpp"
+#include "../../include/animal/Exotico.hpp"
+
+class AveExotico: public Ave, public Exotico
+{
+protected:
+    /* data */
+public:
+    AveExotico();
+    AveExotico(
         std::string classe,
         std::string especie,
         std::string nome,
@@ -12,6 +21,7 @@ AveExotica::AveExotica(
         _alimentacao comida,
         tamanho_da_gaiola tamanho_tipo, 
         ave_voadora voa_tipo,
-        std::string pais_de_origem)
-{
-}
+        std::string pais_de_origem
+    );
+    virtual ~AveExotica();
+};

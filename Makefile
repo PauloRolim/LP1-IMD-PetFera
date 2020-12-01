@@ -9,7 +9,7 @@ PROG = $(BIN)/programa
 CC = g++
 CPPFLAGS = -Wall -std=c++11 -I./include
 
-OBJS = $(BIN)/Funcionario $(BIN)/Tratador $(BIN)/Veterinario $(BIN)/Animal $(BIN)/Anfibio $(BIN)/Loja $(BIN)/utils $(BIN)/main
+OBJS = $(BIN)/Funcionario $(BIN)/Tratador $(BIN)/Veterinario $(BIN)/Animal $(BIN)/Anfibio $(BIN)/Ave $(BIN)/Mamifero $(BIN)/Reptil $(BIN)/Loja $(BIN)/utils $(BIN)/main
 
 all : $(OBJS)
 		$(CC) $(OBJS) -o $(PROG)
@@ -31,6 +31,12 @@ $(BIN)/Animal : $(SRC)/animal/Animal.cpp $(INC)/animal/Animal.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/animal/Animal.cpp -o $@
 $(BIN)/Anfibio : $(SRC)/animal/Anfibio.cpp $(INC)/animal/Anfibio.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/animal/Anfibio.cpp -o $@
+$(BIN)/Ave : $(SRC)/animal/Ave.cpp $(INC)/animal/Ave.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/animal/Ave.cpp -o $@
+$(BIN)/Mamifero : $(SRC)/animal/Mamifero.cpp $(INC)/animal/Mamifero.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/animal/Mamifero.cpp -o $@
+$(BIN)/Reptil : $(SRC)/animal/Reptil.cpp $(INC)/animal/Reptil.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/animal/Reptil.cpp -o $@
 $(BIN)/Loja : $(SRC)/Loja.cpp $(INC)/Loja.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/Loja.cpp -o $@
 

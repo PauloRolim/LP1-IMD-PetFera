@@ -10,7 +10,6 @@ enum _tamanhoHabitat {
     grande
 };
 
-
 enum _tipoHabitat {
     mata_fechada,
     tropical_umido,
@@ -26,9 +25,6 @@ class Anfibio : public Animal {
     
     /*construtores*/
     Anfibio();
-
-    /*destrutor*/
-    ~Anfibio();
 
     /*geters*/
     _tamanhoHabitat getTamanhoHabitat() const;

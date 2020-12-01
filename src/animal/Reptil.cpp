@@ -1,3 +1,6 @@
+#include <iostream>
+
+#include "../../include/utils.hpp"
 #include "../../include/animal/Reptil.hpp"
 
 Reptil::Reptil(): Animal() {
@@ -5,7 +8,7 @@ Reptil::Reptil(): Animal() {
 }
 
 _tamanhoHabitat Reptil::getTamanhoHabitat() const{
-    return this->tamanho_tipo;
+    return this->tamanhoHabitat;
 }
 
 Reptil::~Reptil() {}
@@ -138,7 +141,7 @@ void Reptil::editarBase2(){
     if(opcao == 'S' || opcao == 's') {
         std::cout << "Tipo do Habitat (0: Mata fechada, 1: Tropical úmido, 2: Várzea tropical): ";
         std::cin >> tipoHabitat;
-        this->setTipoHabitat(static_cast<_tipoHabitat>( tipoHabitat ));
+        this->setTipoHabitat(static_cast<_tipoHabitatReptil>( tipoHabitat ));
     }
 
     std::cout << "Editar Requer Luz UV? (s: sim, n: não) ";

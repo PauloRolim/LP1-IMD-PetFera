@@ -7,8 +7,6 @@ Anfibio::Anfibio(): Animal() {
     this->classe = _classe::anfibio;
 }
 
-Anfibio::~Anfibio() {}
-
 _tamanhoHabitat Anfibio::getTamanhoHabitat() const{
     return this->tamanhoHabitat;
 }

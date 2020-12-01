@@ -12,13 +12,13 @@ enum _tamanhoHabitat {
 };
 
 
-enum _tipoHabitatReptilReptil {
+enum _tipoHabitatReptil {
     arido,
     hibrido,
     umido 
 };
 
-enum requerLuzUv {
+enum _requerLuzUv {
     sim,
     nao
 };
