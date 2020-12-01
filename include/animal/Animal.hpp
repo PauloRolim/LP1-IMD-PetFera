@@ -26,8 +26,7 @@ enum _sexo {
 
 class Animal {
     protected:
-        int id;
-        std::string classe;                
+        int id;            
         std::string especie;
         std::string nome;
         double preco;
@@ -43,7 +42,6 @@ class Animal {
         /*construtores*/
         Animal();
         Animal(
-            std::string classe,
             std::string especie,
             std::string nome,
             double preco,
@@ -60,7 +58,6 @@ class Animal {
 
         /*getters*/
         int getId() const;
-        std::string getClasse() const;
         std::string getEspecie() const;
         std::string getNome() const;
         double getPreco() const;
@@ -75,7 +72,6 @@ class Animal {
 
         /*setters*/
         void setId();
-        void setClasse(std::string classe);
         void setEspecie(std::string especie);
         void setNome(std::string nome);
         void setPreco(double preco);
