@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include <string> 
+#include <string>
 
 #include "../funcionario/Tratador.hpp"
 #include "../funcionario/Veterinario.hpp"

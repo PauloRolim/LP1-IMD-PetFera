@@ -1,14 +1,13 @@
-#include <iostream>
+#include <string>
 
-class Nativo
-{
+class Nativo {
 protected:
-    std::string licenca_IBAMA;
+    std::string licencaIBAMA;
 public:
-    Nativo(/* args */);
-    Nativo(std::string licenca_IBAMA);
+    Nativo();
+    Nativo(std::string licencaIBAMA);
     ~Nativo();
 
-    std::string getLicenca_IBAMA() const;
-    void setLicenca_IBAMA(std::string licenca_IBAMA);
+    std::string getLicencaIBAMA() const;
+    void setLicencaIBAMA(std::string licencaIBAMA);
 };

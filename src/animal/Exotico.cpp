@@ -1,16 +1,13 @@
 #include "../../include/animal/Exotico.hpp"
 
-Exotico::Exotico(std::string pais_de_origem)
-{
+Exotico::Exotico() {}
+Exotico::Exotico(std::string paisOrigem) : paisOrigem(paisOrigem) {}
+
+std::string Exotico::getPaisOrigem() const{
+    return this->paisOrigem;
 }
 
-std::string 
-Exotico::getPais_de_origem() const{
-    return this->pais_de_origem;
-}
-
-void 
-Exotico::setPais_de_origem(std::string pais_de_origem){
-    std::string pais_de_origem = pais_de_origem;
+void Exotico::setPaisOrigem(std::string paisOrigem){
+    this->paisOrigem = paisOrigem;
 }
 

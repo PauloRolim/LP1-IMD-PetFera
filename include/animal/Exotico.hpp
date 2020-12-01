@@ -1,17 +1,15 @@
-#include <iostream>
+#include <string>
 
-class Exotico
-{
+class Exotico {
 protected:
-    std::string pais_de_origem;
+    std::string paisOrigem;
     
 public:
     Exotico();
-    Exotico(std::string pais_de_origem);
-    virtual ~Exotico();
+    Exotico(std::string paisOrigem);
+    ~Exotico();
 
-    std::string getPais_de_origem() const;
+    std::string getPaisOrigem() const;
     
-    void setPais_de_origem(std::string pais_de_origem);
-    
+    void setPaisOrigem(std::string paisOrigem);
 };
