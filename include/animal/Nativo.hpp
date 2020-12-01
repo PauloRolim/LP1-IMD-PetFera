@@ -10,4 +10,8 @@ public:
 
     std::string getLicencaIBAMA() const;
     void setLicencaIBAMA(std::string licencaIBAMA);
+
+    void solicitaDadosNativo();
+    void verNativo();
+    void editarNativo();
 };

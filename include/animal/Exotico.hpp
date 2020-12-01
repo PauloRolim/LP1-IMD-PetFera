@@ -10,9 +10,8 @@ public:
     ~Exotico();
 
     std::string getPaisOrigem() const;
-    
     void setPaisOrigem(std::string paisOrigem);
-    
+
     void solicitaDadosExotico();
     void verExotico();
     void editarExotico();

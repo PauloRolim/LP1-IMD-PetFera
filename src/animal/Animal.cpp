@@ -188,7 +188,6 @@ void Animal::setComida(_alimentacao comida){
 }
 
 void Animal::solicitaDadosBase(){
-  //  std::string classe;
     std::string especie;
     std::string nome;
     double preco;
@@ -242,7 +241,69 @@ void Animal::ver(){
 }
 
 void Animal::editarBase(){
-    this->solicitaDadosBase();
+    char opcao;
+    std::string especie;
+    std::string nome;
+    double preco;
+    int sexo; // pegando como int para depois transformar no enum
+    int risco;
+    int comida;
+
+    std::cout << "Editar Espécie? ";
+    std::cin >> opcao;
+
+    if(opcao == 'S' || opcao == 's') {
+        std::cout << "Espécie: ";
+        std::cin.ignore();
+        getline(std::cin, especie);
+        this->setEspecie(especie);
+    }
+
+    std::cout << "Editar Nome? ";
+    std::cin >> opcao;
+
+    if(opcao == 'S' || opcao == 's') {
+        std::cout << "Nome: ";
+        std::cin.ignore(0, ' ');
+        getline(std::cin, nome);
+        this->setNome(nome);
+    }
+
+    std::cout << "Editar Preço? ";
+    std::cin >> opcao;
+
+    if(opcao == 'S' || opcao == 's') {
+        std::cout << "Preço em R$: ";
+        std::cin >> preco;
+        this->setPreco(preco);
+    }
+
+    std::cout << "Editar Sexo? ";
+    std::cin >> opcao;
+
+    if(opcao == 'S' || opcao == 's') {
+        std::cout << "Sexo (0: fêmea, 1: macho): ";
+        std::cin >> sexo;
+        this->setSexo(static_cast<_sexo>( sexo ));
+    }
+
+    std::cout << "Editar Classificação de risco? ";
+    std::cin >> opcao;
+
+    if(opcao == 'S' || opcao == 's') {
+        std::cout << "Classificação de risco (0: venenoso, 1: perigoso, 2: peçonhento, 3: Sem Risco): ";
+        std::cin >> risco;
+        this->setRisco(static_cast<_classificacaoRisco>( risco ));
+    }
+
+    std::cout << "Editar Alimentação? ";
+    std::cin >> opcao;
+
+    if(opcao == 'S' || opcao == 's') {
+        std::cout << "Alimentação (0: herbívoro, 1: onívoro, 2: carnívoro): ";
+        std::cin >> comida;
+        this->setComida(static_cast<_alimentacao>( comida ));
+    }
 }
 
 void Animal::editar(){
