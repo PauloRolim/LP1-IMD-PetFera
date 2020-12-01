@@ -1,8 +1,9 @@
 #pragma once
 
-#include "../../include/animal/Animal.hpp"
+#include "Animal.hpp"
 
-enum tamanho_da_gaiola 
+
+enum _tamanho_da_gaiola 
 {
     pequena,
     media,
@@ -10,7 +11,7 @@ enum tamanho_da_gaiola
 };
 
 
-enum ave_voadora 
+enum _ave_voadora 
 {
     sim,
     nao
@@ -19,37 +20,35 @@ enum ave_voadora
 
 class Ave : public Animal {
     protected:
-    tamanho_da_gaiola tamanho_tipo;
-    ave_voadora voa_tipo;
+    _tamanho_da_gaiola tamanho_tipo;
+    _ave_voadora voa_tipo;
 
     public:
     
     /*construtores*/
     Ave();
-    Ave(
-        std::string classe,
-        std::string especie,
-        std::string nome,
-        double preco,
-        Tratador* tratador_responcavel,
-        Veterinario* vet_responcavel,
-        _sexo sexo,
-        _classificacaoRisco risco,
-        _alimentacao comida,
-        tamanho_da_gaiola tamanho_tipo, 
-        ave_voadora voa_tipo
-    );
-
+   
     /*destrutor*/
     virtual ~Ave();
 
     /*geters*/
-    tamanho_da_gaiola getTamanho_tipo() const;
-    ave_voadora getVoa_tipo() const;
+    _tamanho_da_gaiola getTamanho_Tipo() const;
+    std::string getTamanho_tipoTexto() const;
+    _ave_voadora getVoa_Tipo() const;
+    std::string getVoa_TipoTexto() const;
 
     /*seters*/
-    void setTamanho_da_gaiola(tamanho_da_gaiola tamanho_tipo);
-    void setAve_voadora(ave_voadora voa_tipo);
+    void setTamanho_da_gaiola(_tamanho_da_gaiola tamanho_tipo);
+    void setAve_voadora(_ave_voadora voa_tipo);
+
+    void solicitaDadosBase2();
+    void solicitaDados() override;
+
+    void verBase2();
+    void ver() override;
+
+    void editarBase2();
+    void editar() override;
 
 };
 
