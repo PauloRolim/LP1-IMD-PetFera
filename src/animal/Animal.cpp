@@ -18,6 +18,7 @@ Animal::Animal() {
 }
 
 Animal::Animal(
+    std::string classe,
     std::string especie,
     std::string nome,
     double preco,
@@ -57,6 +58,10 @@ int Animal::NEXT_ID = 1;
 /*getters*/
 int Animal::getId() const {
     return this->id;
+}
+
+std::string Animal::getClasse() const {
+    return this->classe;
 }
 
 std::string Animal::getEspecie() const {
@@ -144,6 +149,10 @@ void Animal::setId() {
     this->id = this->NEXT_ID++;
 }
 
+void Animal::setClasse(std::string classe){
+    this-> classe = classe;
+}
+
 void Animal::setEspecie(std::string especie) {
     this->especie = especie;
 }
@@ -177,7 +186,7 @@ void Animal::setComida(_alimentacao comida){
 }
 
 void Animal::solicitaDadosBase(){
-    std::string classe;
+  //  std::string classe;
     std::string especie;
     std::string nome;
     double preco;
@@ -187,9 +196,9 @@ void Animal::solicitaDadosBase(){
 
     utils::printTitle("Adicionar Animais", 60);
 
-    std::cout << "Classe: ";
+   /* std::cout << "Classe: ";
     std::cin.ignore(); 
-    getline(std::cin, classe);
+    getline(std::cin, classe);*/
     
     std::cout << "Espécie: ";
     std::cin.ignore(0,' ');
@@ -224,6 +233,7 @@ void Animal::solicitaDados(){
 
 void Animal::verBase(){
     
+    std::cout << "Classe: " << this->getClasse() << std::endl;
     std::cout << "Espécie: " << this->getEspecie() << std::endl;
     std::cout << "Nome: " << this->getNome() << std::endl;
     std::cout << "Preço em R$: " << this->getPreco() << std::endl;
@@ -259,7 +269,8 @@ Animal& Animal::operator=(const Animal &a2) {
 }
 
 bool Animal::operator==(const Animal &a2) const {
-    return this->getEspecie() != ""
+    return this->getClasse() != ""
+        && this->getEspecie() != ""
         && this->getNome() != ""
         && this->getEspecie() == a2.getEspecie()
         && this->getNome() == a2.getNome();
