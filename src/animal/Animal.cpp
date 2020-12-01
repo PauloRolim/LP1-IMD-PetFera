@@ -202,12 +202,12 @@ void Animal::solicitaDadosBase(){
     this->setClasse(classe);
 
     std::cout << "Espécie: ";
-    std::cin.ignore();
+    std::cin.ignore(0,' ');
     getline(std::cin, especie);
     this->setEspecie(especie);
 
     std::cout << "Nome: ";
-    std::cin.ignore();
+    std::cin.ignore(0,' ');
     getline(std::cin, nome);
     this->setNome(nome);
 
