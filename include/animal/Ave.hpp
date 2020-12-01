@@ -2,26 +2,21 @@
 
 #include "Animal.hpp"
 
-
-enum _tamanho_da_gaiola 
-{
-    pequena,
-    media,
-    grande 
+enum _tamanhoGaiola {
+    gaiola_p,
+    gaiola_m,
+    gaiola_g
 };
 
-
-enum _ave_voadora 
-{
-    sim,
-    nao
+enum _voadora {
+    voadora_s,
+    voadora_n
 };
-
 
 class Ave : public Animal {
     protected:
-    _tamanho_da_gaiola tamanho_tipo;
-    _ave_voadora voa_tipo;
+    _tamanhoGaiola tamanhoGaiola;
+    _voadora voadora;
 
     public:
     
@@ -29,17 +24,17 @@ class Ave : public Animal {
     Ave();
    
     /*destrutor*/
-    virtual ~Ave();
+    ~Ave();
 
     /*geters*/
-    _tamanho_da_gaiola getTamanho_Tipo() const;
-    std::string getTamanho_tipoTexto() const;
-    _ave_voadora getVoa_Tipo() const;
-    std::string getVoa_TipoTexto() const;
+    _tamanhoGaiola getTamanhoGaiola() const;
+    std::string getTamanhoGaiolaTexto() const;
+    _voadora getVoadora() const;
+    std::string getVoadoraTexto() const;
 
     /*seters*/
-    void setTamanho_da_gaiola(_tamanho_da_gaiola tamanho_tipo);
-    void setAve_voadora(_ave_voadora voa_tipo);
+    void setTamanhoGaiola(_tamanhoGaiola tamanhoGaiola);
+    void setVoadora(_voadora voadora);
 
     void solicitaDadosBase2();
     void solicitaDados() override;
@@ -49,6 +44,5 @@ class Ave : public Animal {
 
     void editarBase2();
     void editar() override;
-
 };
 

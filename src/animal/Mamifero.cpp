@@ -7,19 +7,21 @@ Mamifero::Mamifero() : Animal() {
     this->classe = _classe::mamifero;
 }
 
+Mamifero::~Mamifero() {}
+
 _porte Mamifero::getPorte() const{
     return this->porte;
 }
 
 std::string Mamifero::getPorteTexto() const{
     switch (this->getPorte()) {
-        case _porte::pequeno:
+        case _porte::porte_p:
             return "Pequeno";
             break;
-        case _porte::medio:
+        case _porte::porte_m:
             return "Médio";
             break;
-        case _porte::grande:
+        case _porte::porte_g:
             return "Grande";
             break;
         default:
@@ -33,10 +35,10 @@ _requerGaiola Mamifero::getRequerGaiola() const{
 
 std::string Mamifero::getRequerGaiolaTexto() const{
     switch (this->getRequerGaiola()) {
-        case _requerGaiola::sim:
+        case _requerGaiola::gaiola_sim:
             return "Não";
             break;
-        case _requerGaiola::nao:
+        case _requerGaiola::gaiola_nao:
             return "Sim";
             break;
         default:

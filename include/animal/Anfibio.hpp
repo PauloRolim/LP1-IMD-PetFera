@@ -5,15 +5,15 @@
 #include "Animal.hpp"
 
 enum _tamanhoHabitat {
-    pequeno,
-    medio,
-    grande
+    habitat_p,
+    habitat_m,
+    habitat_g
 };
 
 enum _tipoHabitat {
-    mata_fechada,
-    tropical_umido,
-    varzea_tropical 
+    habitat_mata_fechada,
+    habitat_tropical_umido,
+    habitat_varzea_tropical 
 };
 
 class Anfibio : public Animal {
@@ -25,6 +25,9 @@ class Anfibio : public Animal {
     
     /*construtores*/
     Anfibio();
+
+    /*destrutor*/
+    ~Anfibio();
 
     /*geters*/
     _tamanhoHabitat getTamanhoHabitat() const;

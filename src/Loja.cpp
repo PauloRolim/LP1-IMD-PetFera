@@ -350,6 +350,7 @@ void Loja::adicionarAnimal() {
                     break;
                 case 2:
                     // Doméstico;
+                    // Anfibio* ani = new Anfibio();
                     break;
 
                 default:
@@ -367,6 +368,7 @@ void Loja::adicionarAnimal() {
                     break;
                 case 2:
                     // Doméstico;
+                    // Ave* ani = new Ave();
                     break;
 
                 default:
@@ -384,6 +386,7 @@ void Loja::adicionarAnimal() {
                     break;
                 case 2:
                     // Doméstico;
+                    // Mamifero* ani = new Mamifero();
                     break;
 
                 default:
@@ -401,23 +404,25 @@ void Loja::adicionarAnimal() {
                     break;
                 case 2:
                     // Doméstico;
+                    // Reptil* ani = new Reptil();
                     break;
 
                 default:
+                    std::cout << std::endl << "Origem inválida.";
                     return;
             }
             break;
 
         default:
+            std::cout << std::endl << "Classe inválida.";
             return;
     }
 
-    Animal* ani = new Animal();
-    ani->solicitaDados();
+    // ani->solicitaDados();
 
-    this->animais.push_back(ani);
+    // this->animais.push_back(ani);
 
-    std::cout << std::endl << "O animal " << ani->getNome() << " foi adicionado.";
+    // std::cout << std::endl << "O animal " << ani->getNome() << " foi adicionado.";
 }
 
 void Loja::verAnimal(int id) {

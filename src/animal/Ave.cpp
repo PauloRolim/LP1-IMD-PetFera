@@ -9,19 +9,19 @@ Ave::Ave(): Animal() {
 
 Ave::~Ave() {}
 
-_tamanho_da_gaiola Ave::getTamanho_Tipo() const{
-    return this-> tamanho_tipo;
+_tamanhoGaiola Ave::getTamanhoGaiola() const{
+    return this->tamanhoGaiola;
 }
 
-std::string Ave::getTamanho_tipoTexto() const {
-    switch (this->getTamanho_Tipo()) {
-        case _tamanho_da_gaiola::pequena:
+std::string Ave::getTamanhoGaiolaTexto() const {
+    switch (this->getTamanhoGaiola()) {
+        case _tamanhoGaiola::gaiola_p:
             return "Pequena";
             break;
-        case _tamanho_da_gaiola::media:
+        case _tamanhoGaiola::gaiola_m:
             return "Média";
             break;
-        case _tamanho_da_gaiola::grande:
+        case _tamanhoGaiola::gaiola_g:
             return "Grande";
             break;
         default:
@@ -29,16 +29,16 @@ std::string Ave::getTamanho_tipoTexto() const {
     }
 }
 
-_ave_voadora Ave::getVoa_Tipo() const{
-    return this-> voa_tipo;
+_voadora Ave::getVoadora() const{
+    return this->voadora;
 }
 
-std::string Ave::getVoa_TipoTexto() const{
-    switch (this->getVoa_Tipo()) {
-        case _ave_voadora::sim:
+std::string Ave::getVoadoraTexto() const{
+    switch (this->getVoadora()) {
+        case _voadora::voadora_s:
             return "Sim";
             break;
-        case _ave_voadora::nao:
+        case _voadora::voadora_n:
             return "Não";
             break;
         default:
@@ -46,14 +46,12 @@ std::string Ave::getVoa_TipoTexto() const{
     }
 }
 
-void 
-Ave::setTamanho_da_gaiola(_tamanho_da_gaiola tamanho_tipo){
-    tamanho_tipo = tamanho_tipo;
+void Ave::setTamanhoGaiola(_tamanhoGaiola tamanhoGaiola){
+    this->tamanhoGaiola = tamanhoGaiola;
 }
 
-void 
-Ave::setAve_voadora(_ave_voadora voa_tipo){
-    voa_tipo = voa_tipo;
+void Ave::setVoadora(_voadora voadora){
+    this->voadora = voadora;
 }
 
 void Ave::solicitaDadosBase2(){
@@ -64,11 +62,11 @@ void Ave::solicitaDadosBase2(){
   
     std::cout << "Tamanho da Gaiola (0: Pequena, 1: Média, 2: Grande): ";
     std::cin >> gaiola;
-    this->setTamanho_da_gaiola(static_cast<_tamanho_da_gaiola>( gaiola ));
+    this->setTamanhoGaiola(static_cast<_tamanhoGaiola>( gaiola ));
 
-    std::cout << "Voa: (0: Sim, 1: Não): ";
+    std::cout << "Voadora: (0: Sim, 1: Não): ";
     std::cin >> voa;
-    this->setAve_voadora(static_cast<_ave_voadora>( voa ));
+    this->setVoadora(static_cast<_voadora>( voa ));
 }
 
 void Ave::solicitaDados(){
@@ -80,8 +78,8 @@ void Ave::solicitaDados(){
 void Ave::verBase2(){
     this->verBase();
 
-    std::cout << "Tamanho da Gaiola:  " << this->getTamanho_Tipo() << std::endl;
-    std::cout << "Voa: " << this->getVoa_Tipo() << std::endl;
+    std::cout << "Tamanho da Gaiola: " << this->getTamanhoGaiola() << std::endl;
+    std::cout << "Voadora: " << this->getVoadora() << std::endl;
 }
 
 void Ave::ver(){
@@ -97,27 +95,27 @@ void Ave::editarBase2(){
     int voa;
     char opcao;
 
-    std::cout << "Editar tamanho da gaiola? (s: sim, n: não) ";
+    std::cout << "Editar tamanho da gaiola? (s: Sim, n: Não) ";
     std::cin >> opcao;
 
     if(opcao == 'S' || opcao == 's') {
         std::cout << "Tamanho da Gaiola (0: Pequena, 1: Média, 2: Grande): ";
         std::cin >> gaiola;
-        this->setTamanho_da_gaiola(static_cast<_tamanho_da_gaiola>( gaiola ));
+        this->setTamanhoGaiola(static_cast<_tamanhoGaiola>( gaiola ));
     }
 
-    std::cout << "Editar Voa? (s: sim, n: não) ";
+    std::cout << "Editar Voadora? (s: Sim, n: Não) ";
     std::cin >> opcao;
 
     if(opcao == 'S' || opcao == 's') {
-        std::cout << "Voa: (0: Sim, 1: Não): ";
+        std::cout << "Voadora: (0: Sim, 1: Não): ";
         std::cin >> voa;
-        this->setAve_voadora(static_cast<_ave_voadora>( voa ));
+        this->setVoadora(static_cast<_voadora>( voa ));
     }
 }
 
 void Ave::editar(){
-    utils::printTitle("Editar Anfíbio", 60);
+    utils::printTitle("Editar Ave", 60);
 
     this->editarBase2();
 }

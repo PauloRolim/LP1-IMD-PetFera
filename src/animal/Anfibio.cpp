@@ -7,19 +7,21 @@ Anfibio::Anfibio(): Animal() {
     this->classe = _classe::anfibio;
 }
 
+Anfibio::~Anfibio() {}
+
 _tamanhoHabitat Anfibio::getTamanhoHabitat() const{
     return this->tamanhoHabitat;
 }
 
 std::string Anfibio::getTamanhoHabitatTexto() const{
     switch (this->getTamanhoHabitat()) {
-        case _tamanhoHabitat::pequeno:
+        case _tamanhoHabitat::habitat_p:
             return "Pequeno";
             break;
-        case _tamanhoHabitat::medio:
+        case _tamanhoHabitat::habitat_m:
             return "Médio";
             break;
-        case _tamanhoHabitat::grande:
+        case _tamanhoHabitat::habitat_g:
             return "Grande";
             break;
         default:
@@ -33,13 +35,13 @@ _tipoHabitat Anfibio::getTipoHabitat() const{
 
 std::string Anfibio::getTipoHabitatTexto() const{
     switch (this->getTipoHabitat()) {
-        case _tipoHabitat::mata_fechada:
+        case _tipoHabitat::habitat_mata_fechada:
             return "Mata fechada";
             break;
-        case _tipoHabitat::tropical_umido:
+        case _tipoHabitat::habitat_tropical_umido:
             return "Tropical úmido";
             break;
-        case _tipoHabitat::varzea_tropical:
+        case _tipoHabitat::habitat_varzea_tropical:
             return "Várzea tropical";
             break;
         default:

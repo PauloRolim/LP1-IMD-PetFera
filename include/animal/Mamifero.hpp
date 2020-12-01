@@ -3,14 +3,14 @@
 #include "../../include/animal/Animal.hpp"
 
 enum _porte {
-    pequeno,
-    medio,
-    grande 
+    porte_p,
+    porte_m,
+    porte_g 
 };
 
 enum _requerGaiola {
-    sim,
-    nao 
+    gaiola_sim,
+    gaiola_nao 
 };
 
 class Mamifero : public Animal {
@@ -22,6 +22,9 @@ class Mamifero : public Animal {
     
     /*construtores*/
     Mamifero();
+
+    /*destrutor*/
+    ~Mamifero();
 
     /*geters*/
     _porte getPorte() const;
