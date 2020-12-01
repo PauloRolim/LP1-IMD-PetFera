@@ -196,17 +196,13 @@ void Animal::solicitaDadosBase(){
     int risco;
     int comida;
 
-   /* std::cout << "Classe: ";
-    std::cin.ignore(); 
-    getline(std::cin, classe);*/
-    
     std::cout << "Espécie: ";
-    std::cin.ignore(0,' ');
+    std::cin.ignore();
     getline(std::cin, especie);
     this->setEspecie(especie);
 
     std::cout << "Nome: ";
-    std::cin.ignore(0,' ');
+    std::cin.ignore(0, ' ');
     getline(std::cin, nome);
     this->setNome(nome);
 
@@ -232,7 +228,7 @@ void Animal::solicitaDados(){
 }
 
 void Animal::verBase(){
-    std::cout << "Classe: " << this->getClasse() << std::endl;
+    std::cout << "Classe: " << this->getClasseTexto() << std::endl;
     std::cout << "Espécie: " << this->getEspecie() << std::endl;
     std::cout << "Nome: " << this->getNome() << std::endl;
     std::cout << "Preço em R$: " << this->getPreco() << std::endl;

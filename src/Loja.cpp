@@ -338,6 +338,8 @@ void Loja::adicionarAnimal() {
     std::cout << "Origem (0: Silvestre Natívo, 1: Silvestre Exótico, 2: Doméstico): ";
     std::cin >> origem;
 
+    Animal* ani = new Animal();
+
     switch (classe) {
         case 0:
             // Anfíbio;
@@ -350,7 +352,8 @@ void Loja::adicionarAnimal() {
                     break;
                 case 2:
                     // Doméstico;
-                    // Anfibio* ani = new Anfibio();
+                    ani = static_cast<Anfibio*>(ani);
+                    ani->setClasse(_classe::anfibio);
                     break;
 
                 default:
@@ -368,7 +371,8 @@ void Loja::adicionarAnimal() {
                     break;
                 case 2:
                     // Doméstico;
-                    // Ave* ani = new Ave();
+                    ani = static_cast<Ave*>(ani);
+                    ani->setClasse(_classe::ave);
                     break;
 
                 default:
@@ -386,7 +390,8 @@ void Loja::adicionarAnimal() {
                     break;
                 case 2:
                     // Doméstico;
-                    // Mamifero* ani = new Mamifero();
+                    ani = static_cast<Mamifero*>(ani);
+                    ani->setClasse(_classe::mamifero);
                     break;
 
                 default:
@@ -404,7 +409,8 @@ void Loja::adicionarAnimal() {
                     break;
                 case 2:
                     // Doméstico;
-                    // Reptil* ani = new Reptil();
+                    ani = static_cast<Reptil*>(ani);
+                    ani->setClasse(_classe::reptil);
                     break;
 
                 default:
@@ -418,11 +424,11 @@ void Loja::adicionarAnimal() {
             return;
     }
 
-    // ani->solicitaDados();
+    ani->solicitaDados();
 
-    // this->animais.push_back(ani);
+    this->animais.push_back(ani);
 
-    // std::cout << std::endl << "O animal " << ani->getNome() << " foi adicionado.";
+    std::cout << std::endl << "O animal " << ani->getNome() << " foi adicionado.";
 }
 
 void Loja::verAnimal(int id) {
@@ -492,7 +498,7 @@ void Loja::listarAnimais() {
             for (const auto& animal : this->animais) {
                 std::cout <<
                 std::left << "| " << std::setfill(' ') << std::setw(2) << animal->getId() << 
-                std::left << " | " << std::setfill(' ') << std::setw(12) << animal->getClasse() << 
+                std::left << " | " << std::setfill(' ') << std::setw(12) << animal->getClasseTexto() << 
                 std::left << " | " << std::setfill(' ') << std::setw(12) << animal->getEspecie() << 
                 std::left << " | " << std::setfill(' ') << std::setw(20) << animal->getNome() << 
                 " |" << std::endl;
