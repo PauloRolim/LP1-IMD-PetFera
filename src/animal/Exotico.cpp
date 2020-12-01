@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "../../include/animal/Exotico.hpp"
 
 Exotico::Exotico() {}
@@ -12,6 +14,30 @@ void Exotico::setPaisOrigem(std::string paisOrigem){
     this->paisOrigem = paisOrigem;
 }
 
-void Exotico::solicitaDadosExotico() {}
-void Exotico::verExotico() {}
-void Exotico::editarExotico() {}
+void Exotico::solicitaDadosExotico() {
+    std::string pais;
+
+    std::cout << "País de origem: ";
+    std::cin.ignore();
+    getline(std::cin, pais);
+    this->setPaisOrigem(pais);
+}
+
+void Exotico::verExotico() {
+    std::cout << "País de origem: " << this->getPaisOrigem() << std::endl;
+}
+
+void Exotico::editarExotico() {
+    char opcao;
+    std::string pais;
+
+    std::cout << "Editar País de origem? (s: sim, n: não) ";
+    std::cin >> opcao;
+
+    if(opcao == 'S' || opcao == 's') {
+        std::cout << "País de origem: ";
+	    std::cin.ignore();
+	    getline(std::cin, pais);
+	    this->setPaisOrigem(pais);
+    }
+}
