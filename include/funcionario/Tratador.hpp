@@ -4,20 +4,27 @@
 
 #include "Funcionario.hpp"
 
+enum _corUniforme {
+    azul,
+    verde,
+    vermelho
+};
+
 class Tratador : public Funcionario {
     private:
-        std::string cor_uniforme;
+        _corUniforme cor_uniforme;
 
     public:    
         /*construtores*/
         Tratador();
-        Tratador(std::string nome, std::string cpf, double salario, std::string cor_uniforme);
+        Tratador(std::string nome, std::string cpf, double salario, _corUniforme cor_uniforme);
 
         /*getters*/
-        std::string getCorUniforme() const;
+        _corUniforme getCorUniforme() const;
+        std::string getCorUniformeTexto() const;
 
         /*setters*/
-        void setCorUniforme(std::string cor_uniforme);
+        void setCorUniforme(_corUniforme cor_uniforme);
 
         void solicitaDados() override;
 

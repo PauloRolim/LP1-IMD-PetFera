@@ -219,7 +219,7 @@ void Animal::solicitaDadosBase(){
     std::cin >> sexo;
     this->setSexo(static_cast<_sexo>( sexo ));
 
-    std::cout << "Classificação de risco (0: venenoso, 1: perigoso, 2: peçonhento, 3:Sem Risco): ";
+    std::cout << "Classificação de risco (0: venenoso, 1: perigoso, 2: peçonhento, 3: Sem Risco): ";
     std::cin >> risco;
     this->setRisco(static_cast<_classificacaoRisco>( risco ));
 
