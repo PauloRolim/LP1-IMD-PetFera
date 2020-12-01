@@ -22,8 +22,8 @@ enum tipo_do_habitat
 
 class Anfibio : public Animal {
     protected:
-     tamanho_do_habitat tamanho_tipo;
-     tipo_do_habitat habitat_tipo;
+    tamanho_do_habitat tamanho_tipo;
+    tipo_do_habitat habitat_tipo;
 
     public:
     
@@ -52,5 +52,14 @@ class Anfibio : public Animal {
     /*seters*/
     void setTamanho_do_habitat(tamanho_do_habitat tamanho_tipo);
     void setTipo_do_habitat(tipo_do_habitat habitat_tipo);
+
+    void solicitaDadosBase2();
+    virtual void solicitaDados();
+
+    void verBase();
+    virtual void ver();
+
+    void editarBase();
+    virtual void editar();
 
 };

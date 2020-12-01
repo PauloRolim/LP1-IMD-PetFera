@@ -353,7 +353,7 @@ void Loja::adicionarAnimal() {
                     break;
 
                 default:
-                    return "";
+                    return;
             }
             break;
         case 1:
@@ -370,7 +370,7 @@ void Loja::adicionarAnimal() {
                     break;
 
                 default:
-                    return "";
+                    return;
             }
             break;
         case 2:
@@ -387,7 +387,7 @@ void Loja::adicionarAnimal() {
                     break;
 
                 default:
-                    return "";
+                    return;
             }
             break;
         case 3:
@@ -404,12 +404,12 @@ void Loja::adicionarAnimal() {
                     break;
 
                 default:
-                    return "";
+                    return;
             }
             break;
 
         default:
-            return "";
+            return;
     }
 
     Animal* ani = new Animal();
