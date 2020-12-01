@@ -5,7 +5,6 @@
 
 Animal::Animal() {
     this->setId();
-    this->setClasse("");
     this->setEspecie("");
     this->setNome("");
     this->setPreco(0.0);
@@ -19,7 +18,6 @@ Animal::Animal() {
 }
 
 Animal::Animal(
-    std::string classe,
     std::string especie,
     std::string nome,
     double preco,
@@ -30,7 +28,6 @@ Animal::Animal(
     _alimentacao comida
 ) {
     this->setId();
-    this->setClasse(classe);
     this->setEspecie(especie);
     this->setNome(nome);
     this->setPreco(preco);
@@ -43,7 +40,6 @@ Animal::Animal(
 
 Animal::Animal(const Animal &a2) {
     this->setId();
-    this->setClasse(a2.getClasse());
     this->setEspecie(a2.getEspecie());
     this->setNome(a2.getNome());
     this->setPreco(a2.getPreco());
@@ -61,10 +57,6 @@ int Animal::NEXT_ID = 1;
 /*getters*/
 int Animal::getId() const {
     return this->id;
-}
-
-std::string Animal::getClasse() const {
-    return this->classe;
 }
 
 std::string Animal::getEspecie() const {
@@ -152,10 +144,6 @@ void Animal::setId() {
     this->id = this->NEXT_ID++;
 }
 
-void Animal::setClasse(std::string classe) {
-    this->classe = classe;
-}
-
 void Animal::setEspecie(std::string especie) {
     this->especie = especie;
 }
@@ -199,13 +187,10 @@ void Animal::solicitaDadosBase(){
 
     utils::printTitle("Adicionar Animais", 60);
 
-    
-
     std::cout << "Classe: ";
     std::cin.ignore(); 
     getline(std::cin, classe);
-    this->setClasse(classe);
-
+    
     std::cout << "Espécie: ";
     std::cin.ignore(0,' ');
     getline(std::cin, especie);
@@ -238,7 +223,7 @@ void Animal::solicitaDados(){
 }
 
 void Animal::verBase(){
-    std::cout << "Classe: " << this->getClasse() << std::endl;
+    
     std::cout << "Espécie: " << this->getEspecie() << std::endl;
     std::cout << "Nome: " << this->getNome() << std::endl;
     std::cout << "Preço em R$: " << this->getPreco() << std::endl;
@@ -260,7 +245,7 @@ void Animal::editar(){
 }
 
 Animal& Animal::operator=(const Animal &a2) {
-    this->setClasse(a2.getClasse());
+    
     this->setEspecie(a2.getEspecie());
     this->setNome(a2.getNome());
     this->setPreco(a2.getPreco());
@@ -274,10 +259,8 @@ Animal& Animal::operator=(const Animal &a2) {
 }
 
 bool Animal::operator==(const Animal &a2) const {
-    return this->getClasse() != ""
-        && this->getEspecie() != ""
+    return this->getEspecie() != ""
         && this->getNome() != ""
-        && this->getClasse() == a2.getClasse()
         && this->getEspecie() == a2.getEspecie()
         && this->getNome() == a2.getNome();
 }
