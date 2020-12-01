@@ -12,4 +12,11 @@ public:
     AnfibioExotico();
     
     virtual ~AnfibioExotico();
+
+    void solicitaDados() override;
+
+    void ver() override;
+
+    void editar() override;
 };
+
