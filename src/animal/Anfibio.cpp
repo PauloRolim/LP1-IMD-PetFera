@@ -50,11 +50,11 @@ std::string Anfibio::getTipoHabitatTexto() const{
 }
 
 void Anfibio::setTamanhoHabitat(_tamanhoHabitat tamanhoHabitat){
-    tamanhoHabitat = tamanhoHabitat;
+    this->tamanhoHabitat = tamanhoHabitat;
 }
 
 void Anfibio::setTipoHabitat(_tipoHabitat tipoHabitat){
-    tipoHabitat = tipoHabitat;
+    this->tipoHabitat = tipoHabitat;
 }
 
 void Anfibio::solicitaDadosBase2(){
@@ -98,7 +98,7 @@ void Anfibio::editarBase2(){
     int tipoHabitat;
     char opcao;
 
-    std::cout << "Editar Cor do uniforme? (s: sim, n: não) ";
+    std::cout << "Editar Tamanho do Habitat? (s: sim, n: não) ";
     std::cin >> opcao;
 
     if(opcao == 'S' || opcao == 's') {

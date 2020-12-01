@@ -1,47 +1,158 @@
 #include "../../include/animal/Reptil.hpp"
 
-Reptil::Reptil(): Animal() {}
+Reptil::Reptil(): Animal() {
+    this->classe = _classe::reptil;
+}
 
-Reptil::Reptil(
-        std::string classe,
-        std::string especie,
-        std::string nome,
-        double preco,
-        Tratador* tratador_responcavel,
-        Veterinario* vet_responcavel,
-        _sexo sexo,
-        _classificacaoRisco risco,
-        _alimentacao comida,
-        tamanho_do_habitat tamanho_tipo, 
-        tipo_do_habitat habitat_tipo, 
-        requer_luz_uv luz_tipo){}
-    
-tamanho_do_habitat 
-Reptil::getTamanho_tipo() const{
+_tamanhoHabitat Reptil::getTamanhoHabitat() const{
     return this->tamanho_tipo;
 }
 
-tipo_do_habitat 
-Reptil::getHabitat_tipo() const{
-    return this->habitat_tipo;
+Reptil::~Reptil() {}
+
+_tipoHabitatReptil Reptil::getTipoHabitat() const{
+    return this->tipoHabitat;
 }
 
-requer_luz_uv 
-Reptil::getLuz_tipo() const{
-    return this->luz_tipo;
+std::string Reptil::getTamanhoHabitatTexto() const{
+    switch (this->getTamanhoHabitat()) {
+        case _tamanhoHabitat::pequeno:
+            return "Pequeno";
+            break;
+        case _tamanhoHabitat::medio:
+            return "Médio";
+            break;
+        case _tamanhoHabitat::grande:
+            return "Grande";
+            break;
+        default:
+            return "";
+    }
 }
 
-void 
-Reptil::setTamanho_do_habitat(tamanho_do_habitat tamanho_tipo){
-    tamanho_do_habitat tamanho_tipo = tamanho_tipo;
+std::string Reptil::getTipoHabitatTexto() const{
+    switch (this->getTipoHabitat()) {
+        case _tipoHabitatReptil::arido:
+            return "Árido";
+            break;
+        case _tipoHabitatReptil::hibrido:
+            return "Híbrido";
+            break;
+        case _tipoHabitatReptil::umido:
+            return "Úmido";
+            break;
+        default:
+            return "";
+    }
 }
 
-void 
-Reptil::setTipo_do_habitat(tipo_do_habitat habitat_tipo){
-    tipo_do_habitat habitat_tipo = habitat_tipo;
+_requerLuzUv Reptil::getRequerLuzUv() const{
+    return this->requerLuzUv;
 }
 
-void 
-Reptil::setRequer_luz_uv(requer_luz_uv luz_tipo){
-    requer_luz_uv luz_tipo = luz_tipo;
+std::string Reptil::getRequerLuzUvTexto() const{
+    switch (this->getRequerLuzUv()) {
+        case _requerLuzUv::sim:
+            return "Não";
+            break;
+        case _requerLuzUv::nao:
+            return "Sim";
+            break;
+        default:
+            return "";
+    }
+}
+
+void Reptil::setTamanhoHabitat(_tamanhoHabitat tamanhoHabitat){
+    this->tamanhoHabitat = tamanhoHabitat;
+}
+
+void Reptil::setTipoHabitat(_tipoHabitatReptil tipoHabitat){
+    this->tipoHabitat = tipoHabitat;
+}
+
+void Reptil::setRequerLuzUv(_requerLuzUv requerLuzUv){
+    this->requerLuzUv = requerLuzUv;
+}
+
+void Reptil::solicitaDadosBase2(){
+    int tamanhoHabitat;
+    int tipoHabitat;
+    int requer;
+
+    Animal::solicitaDadosBase();
+  
+    std::cout << "Tamanho do Habitat (0: Pequeno, 1: Médio, 2: Grande): ";
+    std::cin >> tamanhoHabitat;
+    this->setTamanhoHabitat(static_cast<_tamanhoHabitat>( tamanhoHabitat ));
+
+    std::cout << "Tipo do Habitat (0: Árido, 1: Híbrido, 2: Úmido): ";
+    std::cin >> tipoHabitat;
+    this->setTipoHabitat(static_cast<_tipoHabitatReptil>( tipoHabitat ));
+
+    std::cout << "Requer luz uv (0: Sim, 1: Não): ";
+    std::cin >> requer;
+    this->setRequerLuzUv(static_cast<_requerLuzUv>( requer ));
+}
+
+void Reptil::solicitaDados(){
+    utils::printTitle("Adicionar Réptil", 60);
+
+    this->solicitaDadosBase2();
+}
+
+void Reptil::verBase2(){
+    this->verBase();
+
+    std::cout << "Tamanho do Habitat:  " << this->getTamanhoHabitatTexto() << std::endl;
+    std::cout << "Tipo do Habitat: " << this->getTipoHabitatTexto() << std::endl;
+    std::cout << "Requer luz uv: " << this->getRequerLuzUvTexto() << std::endl;
+}
+
+void Reptil::ver(){
+    utils::printTitle("Réptil", 60);
+
+    this->verBase2();
+}
+
+void Reptil::editarBase2(){
+    this->editarBase();
+
+    int tamanhoHabitat;
+    int tipoHabitat;
+    int requer;
+    char opcao;
+
+    std::cout << "Editar Tamanho do Habitat? (s: sim, n: não) ";
+    std::cin >> opcao;
+
+    if(opcao == 'S' || opcao == 's') {
+        std::cout << "Tamanho do Habitat (0: Pequeno, 1: Médio, 2: Grande): ";
+        std::cin >> tamanhoHabitat;
+        this->setTamanhoHabitat(static_cast<_tamanhoHabitat>( tamanhoHabitat ));
+    }
+
+    std::cout << "Editar Tipo do Habitat? (s: sim, n: não) ";
+    std::cin >> opcao;
+
+    if(opcao == 'S' || opcao == 's') {
+        std::cout << "Tipo do Habitat (0: Mata fechada, 1: Tropical úmido, 2: Várzea tropical): ";
+        std::cin >> tipoHabitat;
+        this->setTipoHabitat(static_cast<_tipoHabitat>( tipoHabitat ));
+    }
+
+    std::cout << "Editar Requer Luz UV? (s: sim, n: não) ";
+    std::cin >> opcao;
+
+    if(opcao == 'S' || opcao == 's') {
+        std::cout << "Requer luz uv (0: Sim, 1: Não): ";
+        std::cin >> requer;
+        this->setRequerLuzUv(static_cast<_requerLuzUv>( requer ));
+    }
+}
+
+void Reptil::editar(){
+    utils::printTitle("Editar Réptil", 60);
+
+    this->editarBase2();
 }

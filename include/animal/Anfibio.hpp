@@ -4,16 +4,14 @@
 
 #include "Animal.hpp"
 
-enum _tamanhoHabitat 
-{
+enum _tamanhoHabitat {
     pequeno,
     medio,
     grande
 };
 
 
-enum _tipoHabitat 
-{
+enum _tipoHabitat {
     mata_fechada,
     tropical_umido,
     varzea_tropical 
@@ -50,5 +48,4 @@ class Anfibio : public Animal {
 
     void editarBase2();
     void editar() override;
-
 };

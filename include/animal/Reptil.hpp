@@ -5,23 +5,20 @@
 
 #include "../../include/animal/Animal.hpp"
 
-enum tamanho_do_habitat 
-{
+enum _tamanhoHabitat {
     pequeno,
     medio,
     grande 
 };
 
 
-enum tipo_do_habitat 
-{
+enum _tipoHabitatReptilReptil {
     arido,
     hibrido,
     umido 
 };
 
-enum requer_luz_uv  
-{
+enum requerLuzUv {
     sim,
     nao
 };
@@ -29,40 +26,37 @@ enum requer_luz_uv
 
 class Reptil : public Animal {
     protected:
-    tamanho_do_habitat tamanho_tipo;
-    tipo_do_habitat habitat_tipo;
-    requer_luz_uv luz_tipo;
+    _tamanhoHabitat tamanhoHabitat;
+    _tipoHabitatReptil tipoHabitat;
+    _requerLuzUv requerLuzUv;
 
     public:
     
     /*construtores*/
     Reptil();
-    Reptil(
-        std::string classe,
-        std::string especie,
-        std::string nome,
-        double preco,
-        Tratador* tratador_responcavel,
-        Veterinario* vet_responcavel,
-        _sexo sexo,
-        _classificacaoRisco risco,
-        _alimentacao comida,
-        tamanho_do_habitat tamanho_tipo, 
-        tipo_do_habitat habitat_tipo, 
-        requer_luz_uv luz_tipo
-    );
 
     /*destrutor*/
-    virtual ~Reptil();
+    ~Reptil();
 
     /*geters*/
-    tamanho_do_habitat getTamanho_tipo() const;
-    tipo_do_habitat getHabitat_tipo() const;
-    requer_luz_uv getLuz_tipo() const;
+    _tamanhoHabitat getTamanhoHabitat() const;
+    std::string getTamanhoHabitatTexto() const;
+    _tipoHabitatReptil getTipoHabitat() const;
+    std::string getTipoHabitatTexto() const;
+    _requerLuzUv getRequerLuzUv() const;
+    std::string getRequerLuzUvTexto() const;
 
     /*seters*/
-    void setTamanho_do_habitat(tamanho_do_habitat tamanho_tipo);
-    void setTipo_do_habitat(tipo_do_habitat habitat_tipo);
-    void setRequer_luz_uv(requer_luz_uv luz_tipo);
+    void setTamanhoHabitat(_tamanhoHabitat tamanhoHabitat);
+    void setTipoHabitat(_tipoHabitatReptil tipoHabitat);
+    void setRequerLuzUv(_requerLuzUv requerLuzUv);
 
+    void solicitaDadosBase2();
+    void solicitaDados() override;
+
+    void verBase2();
+    void ver() override;
+
+    void editarBase2();
+    void editar() override;
 };
