@@ -52,7 +52,7 @@ void Veterinario::editar(){
 
     char opcao;
 
-    std::cout << "Editar Cor do uniforme? (s: sim, n: não)";
+    std::cout << "Editar numero do CRMV? (s: sim, n: não)";
     std::cin >> opcao;
 
     if(opcao == 'S' || opcao == 's') {
