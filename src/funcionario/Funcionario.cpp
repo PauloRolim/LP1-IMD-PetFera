@@ -78,7 +78,7 @@ void Funcionario::solicitaDadosBase(){
     this->setNome(vet_nome);
 
     std::cout << "Numero do CPF: ";
-    std::cin.ignore();
+    std::cin.ignore(0,' ');
     getline(std::cin, vet_cpf);
     this->setCpf(vet_cpf);
 
