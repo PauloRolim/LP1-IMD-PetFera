@@ -4,22 +4,22 @@
 ReptilExotico::ReptilExotico(): Reptil()    
 { }
 
-void Reptil::solicitaDados(){
+void ReptilExotico::solicitaDados(){
     utils::printTitle("Adicionar Reptil", 60);
 
     this->solicitaDadosBase2();
     this->solicitaDadosExotico();
 }
 
-void Reptil::ver(){
+void ReptilExotico::ver(){
     utils::printTitle("Anfibio", 60);
 
     std::cout << "Tipo: Exótico" << std::endl;
     this->verBase2();
-    this->vetExotico();
+    this->verExotico();
 }
 
-void Reptil::editar(){
+void ReptilExotico::editar(){
     utils::printTitle("Editar Anfibio", 60);
 
     this->editarBase2();

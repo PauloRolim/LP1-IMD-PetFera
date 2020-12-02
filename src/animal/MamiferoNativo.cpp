@@ -3,14 +3,14 @@
 
 MamiferoNativo::MamiferoNativo(): Mamifero(){}
 
-void Mamifero::solicitaDados(){
+void MamiferoNativo::solicitaDados(){
     utils::printTitle("Adicionar Mamífero", 60);
 
     this->solicitaDadosBase2();
     this->solicitaDadosNativo();
 }
 
-void Mamifero::ver(){
+void MamiferoNativo::ver(){
     utils::printTitle("Mamífero", 60);
 
     std::cout << "Tipo: Nativo" << std::endl;
@@ -18,7 +18,7 @@ void Mamifero::ver(){
     this->verNativo();
 }
 
-void Mamifero::editar(){
+void MamiferoNativo::editar(){
     utils::printTitle("Editar Mamífero", 60);
 
     this->editarBase2();

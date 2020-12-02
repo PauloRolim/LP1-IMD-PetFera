@@ -3,14 +3,14 @@
 
 AnfibioNativo::AnfibioNativo(): Anfibio() {}
 
-void Anfibio::solicitaDados(){
+void AnfibioNativo::solicitaDados(){
     utils::printTitle("Adicionar Anfibio", 60);
 
     this->solicitaDadosBase2();
     this->solicitaDadosNativo();
 }
 
-void Anfibio::ver(){
+void AnfibioNativo::ver(){
     utils::printTitle("Anfibio", 60);
 
     std::cout << "Tipo: Nativo" << std::endl;
@@ -18,7 +18,7 @@ void Anfibio::ver(){
     this->verNativo();
 }
 
-void Anfibio::editar(){
+void AnfibioNativo::editar(){
     utils::printTitle("Editar Anfibio", 60);
 
     this->editarBase2();

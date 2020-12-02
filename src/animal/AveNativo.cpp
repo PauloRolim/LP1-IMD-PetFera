@@ -5,14 +5,14 @@ AveNativo::AveNativo(): Ave()
 {
 }
 
-void Ave::solicitaDados(){
+void AveNativo::solicitaDados(){
     utils::printTitle("Adicionar Ave", 60);
 
     this->solicitaDadosBase2();
     this->solicitaDadosNativo();
 }
 
-void Ave::ver(){
+void AveNativo::ver(){
     utils::printTitle("Ave", 60);
 
     std::cout << "Tipo: Nativo" << std::endl;
@@ -20,7 +20,7 @@ void Ave::ver(){
     this->verNativo();
 }
 
-void Ave::editar(){
+void AveNativo::editar(){
     utils::printTitle("Editar Ave", 60);
 
     this->editarBase2();

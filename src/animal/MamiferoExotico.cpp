@@ -1,17 +1,18 @@
 #include "../../include/animal/MamiferoExotico.hpp"
+#include "../../include/utils.hpp"
 
 MamiferoExotico::MamiferoExotico() : Mamifero(), Exotico() {}
 MamiferoExotico::~MamiferoExotico() {}
 
 
-void Mamifero::solicitaDados(){
+void MamiferoExotico::solicitaDados(){
     utils::printTitle("Adicionar Mamífero", 60);
 
     this->solicitaDadosBase2();
     this->solicitaDadosExotico();
 }
 
-void Mamifero::ver(){
+void MamiferoExotico::ver(){
     utils::printTitle("Mamífero", 60);
 
     std::cout << "Tipo: Exótico" << std::endl;
@@ -19,7 +20,7 @@ void Mamifero::ver(){
     this->verExotico();
 }
 
-void Mamifero::editar(){
+void MamiferoExotico::editar(){
     utils::printTitle("Editar Mamífero", 60);
 
     this->editarBase2();

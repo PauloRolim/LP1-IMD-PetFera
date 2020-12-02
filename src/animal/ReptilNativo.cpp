@@ -3,14 +3,14 @@
 
 ReptilNativo::ReptilNativo(): Reptil() {}
 
-void Reptil::solicitaDados(){
+void ReptilNativo::solicitaDados(){
     utils::printTitle("Adicionar Réptil", 60);
 
     this->solicitaDadosBase2();
     this->solicitaDadosNativo();
 }
 
-void Reptil::ver(){
+void ReptilNativo::ver(){
     utils::printTitle("Réptil", 60);
 
     std::cout << "Tipo: Nativo" << std::endl;
@@ -18,7 +18,7 @@ void Reptil::ver(){
     this->verNativo();
 }
 
-void Reptil::editar(){
+void ReptilNativo::editar(){
     utils::printTitle("Editar Réptil", 60);
 
     this->editarBase2();
