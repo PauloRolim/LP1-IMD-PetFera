@@ -5,3 +5,5 @@ Componentes:
 ANDRE LUIS GURGEL DE FARIA JUNIOR - 20190045378
 DAVID MARTINS DOS SANTOS - 20200050888
 PAULO ENEAS ROLIM BEZERRA - 20190000812
+
+Como rodar e testar o programa: Utilizar o make para gerar o executável do programa e executa-lo no promt para realizar os testes.
