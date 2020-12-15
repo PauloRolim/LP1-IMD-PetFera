@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "../../include/utils.hpp"
-#include "../../include/animal/Reptil.hpp"
+#include "utils.hpp"
+#include "animal/Reptil.hpp"
 
 Reptil::Reptil(): Animal() {
     this->classe = _classe::reptil;

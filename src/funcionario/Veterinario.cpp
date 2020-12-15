@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "../../include/utils.hpp"
-#include "../../include/funcionario/Veterinario.hpp"
+#include "utils.hpp"
+#include "funcionario/Veterinario.hpp"
 
 Veterinario::Veterinario(): Funcionario() {}
 

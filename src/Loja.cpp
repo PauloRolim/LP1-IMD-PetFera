@@ -4,8 +4,8 @@
 #include <limits>
 #include <sstream>
 
-#include "../include/utils.hpp"
-#include "../include/Loja.hpp"
+#include "utils.hpp"
+#include "Loja.hpp"
 
 Loja::Loja(std::string nome) {
     this->setNome(nome);

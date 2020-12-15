@@ -1,5 +1,5 @@
-#include "../../include/animal/MamiferoNativo.hpp"
-#include "../../include/utils.hpp"
+#include "utils.hpp"
+#include "animal/MamiferoNativo.hpp"
 
 MamiferoNativo::MamiferoNativo(): Mamifero(){}
 

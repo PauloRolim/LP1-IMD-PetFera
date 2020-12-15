@@ -1,9 +1,9 @@
 #include <iostream>
 
-#include "../include/utils.hpp"
-#include "../include/funcionario/Veterinario.hpp"
-#include "../include/funcionario/Tratador.hpp"
-#include "../include/Loja.hpp"
+#include "utils.hpp"
+#include "funcionario/Veterinario.hpp"
+#include "funcionario/Tratador.hpp"
+#include "Loja.hpp"
 
 void menuPrincipal(Loja* lj) {
 	char opcao;

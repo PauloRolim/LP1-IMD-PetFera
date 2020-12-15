@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "../../include/utils.hpp"
-#include "../../include/animal/Mamifero.hpp"
+#include "utils.hpp"
+#include "animal/Mamifero.hpp"
 
 Mamifero::Mamifero() : Animal() {
     this->classe = _classe::mamifero;

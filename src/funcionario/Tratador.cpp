@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "../../include/utils.hpp"
-#include "../../include/funcionario/Tratador.hpp"
+#include "utils.hpp"
+#include "funcionario/Tratador.hpp"
 
 Tratador::Tratador(): Funcionario() {}
 

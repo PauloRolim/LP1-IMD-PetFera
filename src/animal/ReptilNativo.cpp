@@ -1,5 +1,5 @@
-#include "../../include/animal/ReptilNativo.hpp"
-#include "../../include/utils.hpp"
+#include "utils.hpp"
+#include "animal/ReptilNativo.hpp"
 
 ReptilNativo::ReptilNativo(): Reptil() {}
 

@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "../../include/animal/Exotico.hpp"
+#include "animal/Exotico.hpp"
 
 Exotico::Exotico() {}
 Exotico::Exotico(std::string paisOrigem) : paisOrigem(paisOrigem) {}

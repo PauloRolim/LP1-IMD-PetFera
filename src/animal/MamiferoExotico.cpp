@@ -1,5 +1,5 @@
-#include "../../include/animal/MamiferoExotico.hpp"
-#include "../../include/utils.hpp"
+#include "utils.hpp"
+#include "animal/MamiferoExotico.hpp"
 
 MamiferoExotico::MamiferoExotico() : Mamifero(), Exotico() {}
 MamiferoExotico::~MamiferoExotico() {}

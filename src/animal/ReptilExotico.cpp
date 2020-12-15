@@ -1,8 +1,7 @@
-#include "../../include/animal/ReptilExotico.hpp"
-#include "../../include/utils.hpp"
+#include "utils.hpp"
+#include "animal/ReptilExotico.hpp"
 
-ReptilExotico::ReptilExotico(): Reptil()    
-{ }
+ReptilExotico::ReptilExotico(): Reptil() {}
 
 void ReptilExotico::solicitaDados(){
     utils::printTitle("Adicionar Reptil", 60);

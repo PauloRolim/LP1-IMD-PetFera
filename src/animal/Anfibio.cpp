@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "../../include/utils.hpp"
-#include "../../include/animal/Anfibio.hpp"
+#include "utils.hpp"
+#include "animal/Anfibio.hpp"
 
 Anfibio::Anfibio(): Animal() {
     this->classe = _classe::anfibio;

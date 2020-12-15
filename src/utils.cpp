@@ -3,7 +3,7 @@
 #include <limits>
 #include <sstream>
 
-#include "../include/utils.hpp"
+#include "utils.hpp"
 
 void utils::printTitle(std::string title, int largura) {
 	int spaceOnLeft = (largura-title.length())/2;

@@ -1,9 +1,7 @@
-#include "../../include/animal/AveNativo.hpp"
-#include "../../include/utils.hpp"
+#include "utils.hpp"
+#include "animal/AveNativo.hpp"
 
-AveNativo::AveNativo(): Ave()
-{
-}
+AveNativo::AveNativo(): Ave() {}
 
 void AveNativo::solicitaDados(){
     utils::printTitle("Adicionar Ave", 60);

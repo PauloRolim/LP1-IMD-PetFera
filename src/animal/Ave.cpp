@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "../../include/utils.hpp"
-#include "../../include/animal/Ave.hpp"
+#include "utils.hpp"
+#include "animal/Ave.hpp"
 
 Ave::Ave(): Animal() {
     this->classe = _classe::ave;

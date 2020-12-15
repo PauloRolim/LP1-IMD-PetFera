@@ -1,7 +1,6 @@
 #include <iostream>
 
-#include "../../include/animal/Nativo.hpp"
-
+#include "animal/Nativo.hpp"
 
 Nativo::Nativo() {}
 Nativo::Nativo(std::string licencaIBAMA) : licencaIBAMA(licencaIBAMA) {}

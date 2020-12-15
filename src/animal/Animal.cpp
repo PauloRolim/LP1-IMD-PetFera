@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "../../include/animal/Animal.hpp"
+#include "animal/Animal.hpp"
 
 Animal::Animal() {
     this->setId();

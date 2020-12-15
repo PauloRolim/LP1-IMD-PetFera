@@ -4,9 +4,9 @@
 #include <limits>
 #include <sstream>
 
-#include "../../include/utils.hpp"
-#include "../../include/funcionario/Funcionario.hpp"
-#include "../../include/animal/Animal.hpp"
+#include "utils.hpp"
+#include "funcionario/Funcionario.hpp"
+#include "animal/Animal.hpp"
 
 Funcionario::Funcionario() {
     this->setId();

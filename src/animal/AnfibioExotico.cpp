@@ -1,5 +1,5 @@
-#include "../../include/animal/AnfibioExotico.hpp"
-#include "../../include/utils.hpp"
+#include "utils.hpp"
+#include "animal/AnfibioExotico.hpp"
 
 AnfibioExotico::AnfibioExotico(): Anfibio(){}
     
